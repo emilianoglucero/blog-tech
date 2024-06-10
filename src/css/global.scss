@@ -15,6 +15,9 @@
   --color-white: #fff;
   --color-gray: #0f0f0f;
   --color-gray-lighter: #262626;
+  --color-blue: #0038ff;
+  --background-color: rgb(231 231 231);
+  --text-color: rgb(39 39 42 / 1);
 
   // Duration
   --duration-slow: #{$duration * 1.5}s;
@@ -37,12 +40,12 @@ html {
 
   // tweak if site is light mode.
   color-scheme: dark;
-  background-color: var(--color-black);
+  background-color: var(--background-color);
 }
 
 body {
-  background-color: var(--color-black);
-  font-family: var(--font-body);
+  background-color: var(--background-color);
+  font-family: var(--font-open);
   transition: opacity var(--transition-quick);
 }
 
@@ -66,6 +69,11 @@ html.no-scroll {
     overflow: hidden;
     touch-action: none;
   }
+}
+
+ol,
+ul {
+  list-style: inside;
 }
 
 .hidden {
