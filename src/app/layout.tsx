@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   manifest: '/manifest.webmanifest',
   twitter: {
     card: 'summary_large_image',
-    title: 'next-typescript | basement.studio',
-    creator: '@basementstudio',
-    siteId: '@basementstudio'
+    title: 'digital digital',
+    creator: '@emilianoglucero',
+    siteId: '@emilianoglucero'
   }
 }
 
