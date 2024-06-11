@@ -20,15 +20,24 @@
   font-weight: 370;
 }
 
-.subtitle div .authorPic {
-  display: none;
-}
-
-.subtitle a:hover .authorPic {
-  display: block;
+.subtitle .authorPic {
+  visibility: hidden;
   position: fixed;
   right: 0;
+  top: 0;
+}
+
+.links .blog_post_netart_image {
+  visibility: hidden;
+  position: absolute;
+  right: 0;
   bottom: 0;
+  z-index: 1;
+}
+
+.blog_post_netart_text {
+  position: relative;
+  z-index: 2;
 }
 
 .subtitle .underline {
@@ -37,7 +46,6 @@
 
 .subtitle .underline:hover {
   color: var(--color-blue);
-  font-size: 15px;
 }
 
 .description {
@@ -51,13 +59,12 @@
 .links li {
   text-decoration: underline;
   list-style-position: inside;
+  z-index: 2;
 }
 
 .links li a h2:hover {
-  font-size: 15px;
+  /* font-size: 15px; */
   color: var(--color-blue);
-
-  /* font-style: italic; */
 }
 
 .links li h2 {
