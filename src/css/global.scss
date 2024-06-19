@@ -16,8 +16,8 @@
   --color-gray: #0f0f0f;
   --color-gray-lighter: #262626;
   --color-blue: #0038ff;
-  --background-color: rgb(231 231 231);
-  --text-color: rgb(39 39 42 / 1);
+  --background-color: #e7e7e7;
+  --text-color: #27272a;
 
   // Duration
   --duration-slow: #{$duration * 1.5}s;
@@ -27,6 +27,10 @@
   // Transitions
   --transition-quick: var(--duration-fast) cubic-bezier(0.25, 1, 0.5, 1);
   --transition-slow: var(--duration) cubic-bezier(0.25, 1, 0.5, 1);
+
+  // Breakpoints
+  --breakpoint-laptop: 93.75rem; /* Equivalent to 1500px */
+  --breakpoint-tablet: 68.75rem; /* Equivalent to 1100px */
 }
 
 html {
@@ -39,8 +43,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
 
   // tweak if site is light mode.
-  color-scheme: dark;
-  background-color: var(--background-color);
+  // color-scheme: dark;
+  // background-color: var(--background-color);
 }
 
 body {
