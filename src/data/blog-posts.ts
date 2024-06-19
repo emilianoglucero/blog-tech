@@ -1,7 +1,7 @@
 export type BlogPostProps = {
   id: number
   title: string
-  subtitle: string
+  subtitle?: string
   date: string
   slug: string
   content: string
