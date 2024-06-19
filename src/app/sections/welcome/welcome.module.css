@@ -1,43 +1,84 @@
+/* stylelint-disable media-feature-range-notation */
 .welcome {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+
   --rounded-lg: 8px;
   --rounded-md: 4px;
 
   min-height: 100vh;
-  color: var(--text-color);
-  padding: 72px 46px;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  padding: 72px 0px 72px 46px;
   z-index: 1;
   font-family: var(--font-bitter);
+}
 
-  /* background: var(--background-color); */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
   font-size: 1.4rem;
   font-family: var(--font-open);
+  overflow: hidden;
 }
 
-.subtitle p {
+.title span {
+  display: inline-block;
+  position: relative;
+}
+
+.subtitle {
   font-weight: 370;
+  overflow: hidden;
+}
+
+.subtitle div {
+  display: inline-block;
+  position: relative;
 }
 
 .subtitle .authorPic {
   visibility: hidden;
   position: fixed;
   right: 0;
-  top: 0;
-}
-
-.links .blog_post_netart_image {
-  visibility: hidden;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  top: -65px;
   z-index: 1;
 }
 
-.blog_post_netart_text {
-  position: relative;
-  z-index: 2;
+.links .blog_post_image {
+  visibility: hidden;
+  position: fixed;
+  right: 0;
+  z-index: 1;
+  width: 50%;
+  top: -274px;
+}
+
+/* Assuming --breakpoint-laptop: 93.75rem; and --breakpoint-tablet: 68.75rem; are equivalent to 1500px and 1100px respectively */
+
+@media (max-width: 93.75rem) {
+  /* For laptops and below */
+  .links .blog_post_image {
+    width: 60%;
+    top: -274px;
+  }
+}
+
+@media (max-width: 68.75rem) {
+  /* For tablets and below */
+  .links .blog_post_image {
+    width: 60%;
+    top: -300px;
+  }
 }
 
 .subtitle .underline {
@@ -49,20 +90,38 @@
 }
 
 .description {
-  padding-top: 4rem;
+  overflow: hidden;
+}
+
+.description p {
+  font-weight: 350;
+  display: inline-block;
+  position: relative;
 }
 
 .links {
-  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.links li {
+.links div {
+  overflow: hidden;
+}
+
+.links ul {
+  display: inline-block;
+  position: relative;
+}
+
+.blog_post_text {
+  position: relative;
   text-decoration: underline;
   list-style-position: inside;
   z-index: 2;
 }
 
-.links li a h2:hover {
+.blog_post_text:hover {
   /* font-size: 15px; */
   color: var(--color-blue);
 }
@@ -71,18 +130,32 @@
   display: inline;
 }
 
-.info {
-  padding-top: 4rem;
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
-.info .author_name {
+.footer div {
+  overflow: hidden;
+
+  /* line-height: 1.8rem; */
+}
+
+.footer .author_name {
   font-weight: 450;
+  display: inline-block;
+  position: relative;
 }
 
-.info .author_description {
+.footer .author_description {
   font-weight: 350;
+  display: inline-block;
+  position: relative;
 }
 
-.info .author_email {
+.footer .author_email {
   font-weight: 350;
+  display: inline-block;
+  position: relative;
 }
