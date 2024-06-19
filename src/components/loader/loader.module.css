@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.symbols_container {
+  overflow: hidden;
+  line-height: 1rem;
+  padding-top: 1rem;
+}
+
+.symbol_character {
+  position: relative;
+  display: inline-block;
+}
