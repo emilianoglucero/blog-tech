@@ -7,7 +7,17 @@ const config = {
   reactStrictMode: false,
   swcMinify: true,
   images: {
-    formats: ['image/avif', 'image/webp']
+    formats: ['image/avif', 'image/webp'],
+    // Adding remotePatterns to allow images from specific external domains
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com' // Replace 'example.com' with the domain you want to allow
+        // Optional: Specify a port (if necessary)
+        // Optional: Specify a pathname pattern (if necessary)
+      }
+      // You can add more domains as needed
+    ]
   },
   experimental: {}
 }
