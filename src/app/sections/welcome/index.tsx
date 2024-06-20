@@ -11,14 +11,18 @@ import { gsap } from '~/lib/gsap'
 import authorPic from '../../images/author/emi.jpg'
 import s from './welcome.module.css'
 
+type LinksLiRefsType = Record<number, HTMLDivElement | null>
+
 export const Welcome = () => {
   const authorPhotoRef = useRef<HTMLDivElement>(null)
   const blogImagesRef = useRef<Record<number, HTMLDivElement | null>>({})
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLDivElement>(null)
   const descriptionRef = useRef<HTMLParagraphElement>(null)
-  const linksRef = useRef<HTMLUListElement>(null)
-  const linksContainerRef = useRef<HTMLDivElement>(null)
+
+  const linksLiRefs = useRef<LinksLiRefsType>({})
+  const linksUlRef = useRef<HTMLUListElement>(null)
+
   const subtitleContainer = useRef<HTMLDivElement>(null)
 
   const authorNameRef = useRef<HTMLParagraphElement>(null)
@@ -65,7 +69,7 @@ export const Welcome = () => {
       !titleRef.current &&
       !subtitleRef.current &&
       !descriptionRef.current &&
-      !linksRef.current
+      !Object.keys(linksLiRefs.current).length
     ) {
       return
     }
@@ -84,16 +88,13 @@ export const Welcome = () => {
       }
     })
 
-    gsap.from(linksRef.current, {
+    gsap.from(Object.values(linksLiRefs.current), {
       yPercent: 130,
       delay: 0.1,
       stagger: 0.1,
       onComplete: () => {
-        gsap.set(linksContainerRef.current, {
+        gsap.set(linksUlRef.current, {
           overflow: 'visible'
-        })
-        gsap.set(linksRef.current, {
-          display: 'block'
         })
       }
     })
@@ -153,41 +154,45 @@ export const Welcome = () => {
         </div>
       </div>
       <div className={s.links}>
-        <div ref={linksContainerRef}>
-          <ul ref={linksRef}>
+        <div>
+          <ul className={s.links__list} ref={linksUlRef}>
             {blogPosts.map((post) => (
-              <div key={post.id}>
-                {' '}
-                {/* Add a div with a key prop here */}
-                <li>
+              <li key={post.id}>
+                <div
+                  ref={(el) => {
+                    linksLiRefs.current[post.id] = el
+                  }}
+                >
                   <TransitionLink href={`/${post.slug}`}>
                     <h2
-                      className={s.blog_post_text}
+                      className={s.links__list__blog_post_text}
                       onMouseEnter={(e) => handleBlogHover(e, post.id)}
                       onMouseLeave={(e) => handleBlogHoverExit(e, post.id)}
                     >
                       {post.title}, {post.date}
                     </h2>
                   </TransitionLink>
-                </li>
-                <div
-                  className={s.blog_post_image}
-                  ref={(el) => {
-                    blogImagesRef.current[post.id] = el
-                  }}
-                >
-                  <Image
-                    src={post.photo}
-                    alt="Photo of a group of mens playing cards in the beach related to the blog post about net art"
-                    width={post.photo_width}
-                    height={post.photo_height}
-                    style={{
-                      float: 'right',
-                      marginTop: `${post.margin_top}%`
-                    }}
-                  />
                 </div>
-              </div>
+                {post.photo && (
+                  <div
+                    className={s.blog_post_image}
+                    ref={(el) => {
+                      blogImagesRef.current[post.id] = el
+                    }}
+                  >
+                    <Image
+                      src={post.photo}
+                      alt="Photo of a group of mens playing cards in the beach related to the blog post about net art"
+                      width={post.photo_width}
+                      height={post.photo_height}
+                      style={{
+                        float: 'right',
+                        marginTop: `${post.margin_top}%`
+                      }}
+                    />
+                  </div>
+                )}
+              </li>
             ))}
           </ul>
         </div>
