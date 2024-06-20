@@ -21,7 +21,7 @@ export const Loader = () => {
     tl.to(symbolRef.current, {
       yPercent: 130,
       duration: 1.8,
-      delay: 0.4
+      delay: 0.1
     }).to(containerRef.current, {
       yPercent: 100,
       duration: 1.8,
