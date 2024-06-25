@@ -33,12 +33,15 @@ export const Loader = () => {
   }, [introSeen, setIntroSeen])
 
   return (
-    <div className={s.container} ref={containerRef}>
-      <div className={s.symbols_container}>
-        <span className={s.symbol_character} ref={symbolRef}>
-          ✦
-        </span>
+    <>
+      <div className={s.container} ref={containerRef}>
+        <div className={s.symbols_container}>
+          <span className={s.symbol_character} ref={symbolRef}>
+            ✦
+          </span>
+        </div>
       </div>
-    </div>
+      <div className={s.loader_container}></div>
+    </>
   )
 }
