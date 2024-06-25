@@ -18,7 +18,6 @@ const TransitionLink = ({ href, children }: TransitionLinkProps) => {
   const pathname = usePathname()
 
   const handleClick = () => {
-    console.log('handleClick', href, pathname)
     if (pathname !== href) {
       if (href === '/') {
         animatePostPageOut(href, router)

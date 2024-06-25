@@ -62,7 +62,6 @@ export const animatePostPageOut = (href: string, router: any) => {
 }
 
 export const animateHomePageOut = (href: string, router: any) => {
-  console.log('animateHomePageOut')
   const banner = document.querySelector(`.${s.banner}`)
   if (banner) {
     const tl = gsap.timeline()
