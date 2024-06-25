@@ -1,28 +1,25 @@
-import blogPosts, { BlogPostProps } from '~/data/blog-posts'
+import { fetchBlogPostBySlug, fetchBlogPosts } from '~/lib/api'
 
-import BlogPost from './index'
+import BlogPost from '.'
+
+interface Params {
+  params: {
+    slug: string
+  }
+}
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  // const posts = await fetch('https://.../posts').then((res) => res.json())
+  const posts = await fetchBlogPosts()
 
-  return blogPosts.map((post: BlogPostProps) => ({
-    id: post.id,
-    slug: post.slug,
-    title: post.title,
-    content: post.content,
-    date: post.date
+  return posts.docs.map((post: { slug: Params }) => ({
+    slug: post.slug
   }))
 }
-
-export default function BlogPostPage({
-  title,
-  content,
-  id,
-  date,
-  slug
-}: BlogPostProps) {
-  return (
-    <BlogPost title={title} content={content} id={id} date={date} slug={slug} />
-  )
+const BlogPostPage = async ({ params }: Params) => {
+  const { slug } = params
+  const post = await fetchBlogPostBySlug(slug)
+  return <BlogPost post={post} />
 }
+
+export default BlogPostPage

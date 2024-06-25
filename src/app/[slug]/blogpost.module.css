@@ -1,5 +1,5 @@
 .container {
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   color: var(--primary-color);
@@ -7,6 +7,13 @@
   font-family: var(--font-bitter);
   gap: 4rem;
   padding: 72px 46px;
+}
+
+@media (width <= 68.75rem) {
+  /* For desktop and below */
+  .container {
+    padding: 34px 8px 34px 24px;
+  }
 }
 
 .title {
