@@ -4,6 +4,8 @@ import { usePathname, useRouter } from 'next/navigation'
 
 import { animateHomePageOut, animatePostPageOut } from '~/utils/animations'
 
+import s from './transition-link.module.css'
+
 interface TransitionLinkProps {
   href: string
   children: React.ReactNode
@@ -26,7 +28,11 @@ const TransitionLink = ({ href, children }: TransitionLinkProps) => {
     }
   }
 
-  return <button onClick={handleClick}>{children}</button>
+  return (
+    <a className={s.transition__link} onClick={handleClick}>
+      {children}
+    </a>
+  )
 }
 
 export default TransitionLink
