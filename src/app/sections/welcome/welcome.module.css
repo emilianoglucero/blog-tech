@@ -14,6 +14,13 @@
   font-family: var(--font-bitter);
 }
 
+@media (max-width: 68.75rem) {
+  /* For desktop and below */
+  .welcome {
+    padding: 34px 8px 34px 24px;
+  }
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -49,35 +56,28 @@
 .subtitle .authorPic {
   visibility: hidden;
   position: fixed;
-  right: 0;
-  top: -65px;
+  right: 46px;
   z-index: 1;
+  width: 20%;
+  top: -24px;
 }
 
-.links .blog_post_image {
+.posts__links .blog_post_image {
   visibility: hidden;
   position: fixed;
-  right: 0;
+  right: 46px;
   z-index: 1;
-  width: 50%;
-  top: -274px;
+  width: 35%;
+  top: 72px;
 }
 
 /* Assuming --breakpoint-laptop: 93.75rem; and --breakpoint-tablet: 68.75rem; are equivalent to 1500px and 1100px respectively */
 
-@media (max-width: 93.75rem) {
-  /* For laptops and below */
-  .links .blog_post_image {
-    width: 60%;
-    top: -274px;
-  }
-}
-
 @media (max-width: 68.75rem) {
   /* For tablets and below */
-  .links .blog_post_image {
-    width: 60%;
-    top: -300px;
+  .posts__links .blog_post_image {
+    width: 30%;
+    top: 72px;
   }
 }
 
@@ -99,41 +99,39 @@
   position: relative;
 }
 
-.links {
+/* new links section */
+.posts__links {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.links__list {
-  list-style-type: disc;
-  list-style-position: inside;
+.posts__links__item li {
+  display: flex;
+  gap: 1rem;
 }
 
-.links__list li {
-  overflow: hidden;
-}
+/* .posts__links__item a {
+  cursor: pointer;
+} */
 
-.links__list li div {
-  display: inline-block;
-  position: relative;
-}
-
-.links__list__blog_post_text {
-  position: relative;
-  text-decoration: underline;
-
-  /* z-index: 2; */
-}
-
-.links__list__blog_post_text:hover {
+.posts__links__item a:hover {
   color: var(--color-blue);
+}
+
+.posts__links__item__title {
+  text-decoration: underline;
+}
+
+.posts__links__item__decoration {
+  font-size: 0.5rem;
+  padding-top: 0.4rem;
 }
 
 .footer {
   display: flex;
-  flex-direction: column;
-  justify-content: end;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .footer div {
@@ -156,4 +154,10 @@
   font-weight: 350;
   display: inline-block;
   position: relative;
+}
+
+.footer__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }

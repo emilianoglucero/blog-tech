@@ -5,31 +5,33 @@ import Link from 'next/link'
 import React, { useRef } from 'react'
 
 import TransitionLink from '~/components/transition-link/page'
-import blogPosts from '~/data/blog-posts'
+import { useDeviceDetect } from '~/hooks/use-device-detect'
 import { gsap } from '~/lib/gsap'
+import { Post } from '~/lib/payload-types'
 
 import authorPic from '../../images/author/emi.jpg'
 import s from './welcome.module.css'
 
-type LinksLiRefsType = Record<number, HTMLDivElement | null>
-
-export const Welcome = () => {
+export const Welcome = ({ posts }: { posts: Post[] }) => {
+  const linksRefDecoration = useRef<Record<number, HTMLLIElement | null>>({})
+  const linksRefText = useRef<Record<number, HTMLSpanElement | null>>({})
   const authorPhotoRef = useRef<HTMLDivElement>(null)
   const blogImagesRef = useRef<Record<number, HTMLDivElement | null>>({})
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLDivElement>(null)
   const descriptionRef = useRef<HTMLParagraphElement>(null)
 
-  const linksLiRefs = useRef<LinksLiRefsType>({})
-  const linksUlRef = useRef<HTMLUListElement>(null)
-
   const subtitleContainer = useRef<HTMLDivElement>(null)
 
   const authorNameRef = useRef<HTMLParagraphElement>(null)
   const authorDescriptionRef = useRef<HTMLParagraphElement>(null)
   const authorEmailRef = useRef<HTMLParagraphElement>(null)
+  // Use the hook to get device information
+  const { isMobile, isTouch } = useDeviceDetect()
 
+  // Modify the event handlers to check for mobile or touch devices
   const handleBlogHover = (e: React.MouseEvent<HTMLElement>, id: number) => {
+    if (isMobile || isTouch) return // Do nothing if it's a mobile or touch device
     const element = blogImagesRef.current[id]
     if (element) {
       gsap.to(element, {
@@ -42,6 +44,7 @@ export const Welcome = () => {
     e: React.MouseEvent<HTMLElement>,
     id: number
   ) => {
+    if (isMobile || isTouch) return // Do nothing if it's a mobile or touch device
     const element = blogImagesRef.current[id]
     if (element) {
       gsap.to(element, {
@@ -51,6 +54,7 @@ export const Welcome = () => {
   }
 
   const handleAuthorHover = (e: any) => {
+    if (isMobile || isTouch) return // Do nothing if it's a mobile or touch device
     if (authorPhotoRef.current) {
       gsap.to(authorPhotoRef.current, {
         autoAlpha: e ? 1 : 0
@@ -59,6 +63,7 @@ export const Welcome = () => {
   }
 
   const handleAuthorHoverExit = (e: any) => {
+    if (isMobile || isTouch) return // Do nothing if it's a mobile or touch device
     gsap.to(authorPhotoRef.current, {
       autoAlpha: e ? 0 : 1
     })
@@ -69,7 +74,7 @@ export const Welcome = () => {
       !titleRef.current &&
       !subtitleRef.current &&
       !descriptionRef.current &&
-      !Object.keys(linksLiRefs.current).length
+      !Object.keys(linksRefDecoration.current).length
     ) {
       return
     }
@@ -88,16 +93,18 @@ export const Welcome = () => {
       }
     })
 
-    gsap.from(Object.values(linksLiRefs.current), {
-      yPercent: 130,
-      delay: 0.1,
-      stagger: 0.1,
-      onComplete: () => {
-        gsap.set(linksUlRef.current, {
-          overflow: 'visible'
-        })
+    const timeline = gsap.timeline()
+    timeline.fromTo(
+      Object.values(linksRefDecoration.current),
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1,
+        delay: 0.3,
+        stagger: 0.1
       }
-    })
+    )
 
     gsap.from(
       [
@@ -141,8 +148,7 @@ export const Welcome = () => {
                   src={authorPic}
                   alt="Photo of the author of the blog - Emiliano Lucero"
                   style={{
-                    width: 'auto',
-                    height: '600px'
+                    float: 'right'
                   }}
                 />
               </div>
@@ -153,67 +159,70 @@ export const Welcome = () => {
           <p ref={descriptionRef}>writings, explorations and stuff.</p>
         </div>
       </div>
-      <div className={s.links}>
-        <div>
-          <ul className={s.links__list} ref={linksUlRef}>
-            {blogPosts.map((post) => (
-              <li key={post.id}>
-                <div
-                  ref={(el) => {
-                    linksLiRefs.current[post.id] = el
-                  }}
-                >
-                  <TransitionLink href={`/${post.slug}`}>
-                    <h2
-                      className={s.links__list__blog_post_text}
-                      onMouseEnter={(e) => handleBlogHover(e, post.id)}
-                      onMouseLeave={(e) => handleBlogHoverExit(e, post.id)}
-                    >
-                      {post.title}, {post.date}
-                    </h2>
-                  </TransitionLink>
-                </div>
-                {post.photo && (
+      <main className={s.posts__links}>
+        {posts.map((post: Post) => (
+          <div className={s.posts__links__item} key={post.id}>
+            <li
+              ref={(el) => {
+                linksRefDecoration.current[post.id as unknown as number] = el
+              }}
+            >
+              <div className={s.posts__links__item__decoration}>◕</div>
+              <span
+                className={s.posts__links__item__title}
+                ref={(el) => {
+                  linksRefText.current[post.id as unknown as number] = el
+                }}
+                onMouseEnter={(e) => handleBlogHover(e, Number(post.id))}
+                onMouseLeave={(e) => handleBlogHoverExit(e, Number(post.id))}
+              >
+                <TransitionLink href={`/${post.slug}`}>
+                  {post.title}, {post.subtitle}, {post.dateToShow}
+                </TransitionLink>
+              </span>
+              {typeof post.meta?.image !== 'string' &&
+                post.meta?.image?.url && (
                   <div
                     className={s.blog_post_image}
                     ref={(el) => {
-                      blogImagesRef.current[post.id] = el
+                      blogImagesRef.current[post.id as unknown as number] = el
                     }}
                   >
                     <Image
-                      src={post.photo}
-                      alt="Photo of a group of mens playing cards in the beach related to the blog post about net art"
-                      width={post.photo_width}
-                      height={post.photo_height}
+                      src={post.meta.image.url}
+                      alt={post.meta.image.alt}
+                      width={post.meta.image.width ?? 0}
+                      height={post.meta.image.height ?? 0}
                       style={{
-                        float: 'right',
-                        marginTop: `${post.margin_top}%`
+                        float: 'right'
                       }}
                     />
                   </div>
                 )}
-              </li>
-            ))}
-          </ul>
+            </li>
+          </div>
+        ))}
+      </main>
+      <footer className={s.footer}>
+        <div className={s.footer__details}>
+          <div>
+            <p className={s.author_name} ref={authorNameRef}>
+              Emiliano Lucero
+            </p>
+          </div>
+          <div>
+            <p className={s.author_description} ref={authorDescriptionRef}>
+              A software engineer based in Rosario, Argentina.
+            </p>
+          </div>
+          <div>
+            <p className={s.author_email} ref={authorEmailRef}>
+              emilianoglucero@gmail.com
+            </p>
+          </div>
         </div>
-      </div>
-      <div className={s.footer}>
-        <div>
-          <p className={s.author_name} ref={authorNameRef}>
-            Emiliano Lucero
-          </p>
-        </div>
-        <div>
-          <p className={s.author_description} ref={authorDescriptionRef}>
-            A software engineer based in Rosario, Argentina.
-          </p>
-        </div>
-        <div>
-          <p className={s.author_email} ref={authorEmailRef}>
-            emilianoglucero@gmail.com
-          </p>
-        </div>
-      </div>
+        <div className={s.footer__decoration}>{/* <Scene /> */}</div>
+      </footer>
     </div>
   )
 }
