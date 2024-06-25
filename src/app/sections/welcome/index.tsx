@@ -7,12 +7,12 @@ import React, { useRef } from 'react'
 import TransitionLink from '~/components/transition-link/page'
 import { useDeviceDetect } from '~/hooks/use-device-detect'
 import { gsap } from '~/lib/gsap'
-import { Post } from '~/lib/payload-types'
+import { Post, PostsResponse } from '~/lib/payload-types'
 
 import authorPic from '../../images/author/emi.jpg'
 import s from './welcome.module.css'
 
-export const Welcome = ({ posts }: { posts: Post[] }) => {
+export const Welcome = ({ posts }: { posts: PostsResponse }) => {
   const linksRefDecoration = useRef<Record<number, HTMLLIElement | null>>({})
   const linksRefText = useRef<Record<number, HTMLSpanElement | null>>({})
   const authorPhotoRef = useRef<HTMLDivElement>(null)
@@ -160,21 +160,21 @@ export const Welcome = ({ posts }: { posts: Post[] }) => {
         </div>
       </div>
       <main className={s.posts__links}>
-        {posts.map((post: Post) => (
+        {posts.docs.map((post: Post, index: number) => (
           <div className={s.posts__links__item} key={post.id}>
             <li
               ref={(el) => {
-                linksRefDecoration.current[post.id as unknown as number] = el
+                linksRefDecoration.current[index] = el
               }}
             >
               <div className={s.posts__links__item__decoration}>◕</div>
               <span
                 className={s.posts__links__item__title}
                 ref={(el) => {
-                  linksRefText.current[post.id as unknown as number] = el
+                  linksRefText.current[index] = el
                 }}
-                onMouseEnter={(e) => handleBlogHover(e, Number(post.id))}
-                onMouseLeave={(e) => handleBlogHoverExit(e, Number(post.id))}
+                onMouseEnter={(e) => handleBlogHover(e, index)}
+                onMouseLeave={(e) => handleBlogHoverExit(e, index)}
               >
                 <TransitionLink href={`/${post.slug}`}>
                   {post.title}, {post.subtitle}, {post.dateToShow}
@@ -185,7 +185,7 @@ export const Welcome = ({ posts }: { posts: Post[] }) => {
                   <div
                     className={s.blog_post_image}
                     ref={(el) => {
-                      blogImagesRef.current[post.id as unknown as number] = el
+                      blogImagesRef.current[index] = el
                     }}
                   >
                     <Image
