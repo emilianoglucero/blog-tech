@@ -11,8 +11,8 @@ const config = {
     // Adding remotePatterns to allow images from specific external domains
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost' // Replace 'example.com' with the domain you want to allow
+        protocol: 'https',
+        hostname: 'blog-tech-payload-cms.onrender.com' // Replace 'example.com' with the domain you want to allow
         // Optional: Specify a port (if necessary)
         // Optional: Specify a pathname pattern (if necessary)
       }

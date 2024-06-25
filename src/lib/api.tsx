@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:4000'
+const API_URL = process.env.API_URL
 
 export const fetchBlogPosts = async () => {
   const response = await axios.get(`${API_URL}/api/posts`)
