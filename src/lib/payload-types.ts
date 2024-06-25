@@ -207,6 +207,20 @@ export interface Config {
     updatedAt: string;
     createdAt: string;
   }
+
+  /*I typed the post object manually because were missing the types from the payload*/
+  export interface PostsResponse {
+    docs: Post[];
+    totalDocs: number;
+    limit: number;
+    totalPages: number;
+    page: number;
+    pagingCounter: number;
+    hasPrevPage: boolean;
+    hasNextPage: boolean;
+    prevPage: number | null;
+    nextPage: number | null;
+  }
   /**
    * This interface was referenced by `Config`'s JSON-Schema
    * via the `definition` "posts".
@@ -216,6 +230,7 @@ export interface Config {
     title: string;
     subtitle?: string | null;
     dateToShow?: string | null;
+    relatedPosts?: (string | Post)[] | null;
     content?: {
       root: {
         type: string;
@@ -232,6 +247,7 @@ export interface Config {
       [k: string]: unknown;
     } | null;
     publishedAt?: string | null;
+    categories?: (string | Category)[] | null;
     slug?: string | null;
     content_html?: string | null;
     meta?: {
