@@ -1,9 +1,9 @@
 import BlogMain from '~/components/blog-main'
 import { fetchBlogPosts } from '~/lib/api'
-import { Post } from '~/lib/payload-types'
+import { PostsResponse } from '~/lib/payload-types'
 
 const HomePage: React.FC = async () => {
-  const posts: Post[] = await fetchBlogPosts()
+  const posts: PostsResponse = await fetchBlogPosts()
 
   return <BlogMain posts={posts} />
 }
