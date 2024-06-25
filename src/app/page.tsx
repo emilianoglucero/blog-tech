@@ -1,13 +1,11 @@
-'use client'
+import BlogMain from '~/components/blog-main'
+import { fetchBlogPosts } from '~/lib/api'
+import { Post } from '~/lib/payload-types'
 
-import { Loader } from '~/components/loader'
-import { useAppStore } from '~/context/use-app-store'
+const HomePage: React.FC = async () => {
+  const posts: Post[] = await fetchBlogPosts()
 
-import { Welcome } from './sections/welcome'
-
-const HomePage: React.FC = () => {
-  const { introSeen } = useAppStore()
-  return introSeen ? <Welcome /> : <Loader />
+  return <BlogMain posts={posts} />
 }
 
 export default HomePage
