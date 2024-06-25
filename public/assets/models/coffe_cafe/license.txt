@@ -1,0 +1,11 @@
+Model Information:
+* title:	Coffe (Café)
+* source:	https://sketchfab.com/3d-models/coffe-cafe-3bbbfc9bf1154077ae6a4a6234453566
+* author:	Ju Designer (https://sketchfab.com/JuDesigner)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Coffe (Café)" (https://sketchfab.com/3d-models/coffe-cafe-3bbbfc9bf1154077ae6a4a6234453566) by Ju Designer (https://sketchfab.com/JuDesigner) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
