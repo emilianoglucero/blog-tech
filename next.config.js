@@ -15,6 +15,10 @@ const config = {
         hostname: 'blog-tech-payload-cms.onrender.com' // Replace 'example.com' with the domain you want to allow
         // Optional: Specify a port (if necessary)
         // Optional: Specify a pathname pattern (if necessary)
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost'
       }
       // You can add more domains as needed
     ]
