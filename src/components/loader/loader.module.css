@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -12,18 +13,49 @@
   color: var(--primary-color);
 }
 
-.symbols_container {
+.symbols__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   overflow: hidden;
-  line-height: 1rem;
-  padding-top: 1rem;
+  line-height: 0.8rem;
 }
 
-.symbol_character {
+.ascii__container {
+  font-size: 0.4rem;
   position: relative;
-  display: inline-block;
 }
 
-.loader_container {
+.text__container {
+  position: fixed;
+  width: 200%;
+  height: 100vh;
+  left: -100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+@media (width <= 68.75rem) {
+  /* For tablets and below */
+  .text__container {
+    left: -150%;
+    font-size: 0.4rem;
+    width: 400%;
+  }
+}
+
+.text {
+  width: 300%;
+  opacity: 0.1;
+}
+
+.hiddenChar {
+  opacity: 0;
+}
+
+.loader__container {
   height: 100vh;
   width: 100vw;
   background-color: var(--primary-color);
