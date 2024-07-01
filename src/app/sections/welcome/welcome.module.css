@@ -9,15 +9,15 @@
   min-height: 100vh;
   color: var(--secondary-color);
   background-color: var(--primary-color);
-  padding: 72px 0px 72px 46px;
+  padding: var(--base-padding-desktop);
   z-index: 1;
   font-family: var(--font-bitter);
 }
 
 @media (max-width: 68.75rem) {
-  /* For desktop and below */
+  /* For tablets and below */
   .welcome {
-    padding: 34px 8px 34px 24px;
+    padding: var(--base-padding-mobile);
   }
 }
 
@@ -56,19 +56,19 @@
 .subtitle .authorPic {
   visibility: hidden;
   position: fixed;
-  right: 46px;
-  z-index: 1;
+  top: -1.6rem;
+  right: 0;
   width: 20%;
-  top: -24px;
+  z-index: 1;
 }
 
 .posts__links .blog_post_image {
   visibility: hidden;
   position: fixed;
-  right: 46px;
+  right: 2.6rem;
   z-index: 1;
   width: 35%;
-  top: 72px;
+  top: 3rem;
 }
 
 /* Assuming --breakpoint-laptop: 93.75rem; and --breakpoint-tablet: 68.75rem; are equivalent to 1500px and 1100px respectively */
@@ -110,10 +110,6 @@
   display: flex;
   gap: 1rem;
 }
-
-/* .posts__links__item a {
-  cursor: pointer;
-} */
 
 .posts__links__item a:hover {
   color: var(--color-blue);
