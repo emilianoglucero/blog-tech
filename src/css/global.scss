@@ -31,6 +31,11 @@
   // Breakpoints
   --breakpoint-laptop: 93.75rem; /* Equivalent to 1500px */
   --breakpoint-tablet: 68.75rem; /* Equivalent to 1100px */
+
+  // base
+  --base-padding-mobile: 1.6rem;
+  --base-padding-desktop: 2.6rem;
+  --base-padding-large: 4.2rem;
 }
 
 html {
