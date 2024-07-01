@@ -192,7 +192,7 @@ export const Loader = () => {
                 setIntroSeen(true)
               }
             },
-            isMobile ? 9.8 : isDesktop ? 9.2 : isLargeScreen ? 9.4 : 9
+            isMobile ? 10 : isDesktop ? 9.4 : isLargeScreen ? 9.6 : 10
           )
         }
       }
