@@ -160,13 +160,13 @@ export const Loader = () => {
             textDivsReverse,
             {
               x: isMobile
-                ? 1500
+                ? 2500
                 : isDesktop
                   ? 2000
                   : isLargeScreen
                     ? 3000
                     : 2000,
-              duration: isMobile ? 4 : isDesktop ? 3 : isLargeScreen ? 4 : 3,
+              duration: isMobile ? 7 : isDesktop ? 3 : isLargeScreen ? 4 : 3,
               stagger: isMobile
                 ? 0.1
                 : isDesktop
@@ -176,7 +176,7 @@ export const Loader = () => {
                     : 0.09,
               ease: 'expo.inOut'
             },
-            isMobile ? 5.2 : 6.2
+            isMobile ? 5 : 6.2
           ).to(
             containerRef.current,
             {
@@ -192,7 +192,7 @@ export const Loader = () => {
                 setIntroSeen(true)
               }
             },
-            isMobile ? 8.6 : isDesktop ? 9.2 : isLargeScreen ? 9.4 : 9
+            isMobile ? 9.8 : isDesktop ? 9.2 : isLargeScreen ? 9.4 : 9
           )
         }
       }
