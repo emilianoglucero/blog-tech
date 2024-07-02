@@ -36,16 +36,22 @@
   --base-padding-mobile: 1.6rem;
   --base-padding-desktop: 2.6rem;
   --base-padding-large: 4.2rem;
+
+  // Font Sizes
+  --font-size-title: 1.25rem;
+  --font-size-regular: 1rem;
 }
 
 html {
-  line-height: 1.5;
+  line-height: 1.6;
   box-sizing: border-box;
   text-rendering: geometricprecision;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-bitter);
+  // font-family: var(--font-open);
 
   // tweak if site is light mode.
   // color-scheme: dark;
@@ -54,8 +60,8 @@ html {
 
 body {
   background-color: var(--background-color);
-  font-family: var(--font-open);
   transition: opacity var(--transition-quick);
+  font-size: var(--font-size-regular);
 }
 
 body.inspect * {
