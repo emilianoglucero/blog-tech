@@ -4,9 +4,8 @@
   flex-direction: column;
   color: var(--primary-color);
   background-color: var(--secondary-color);
-  font-family: var(--font-bitter);
   gap: 4rem;
-  padding: 72px 46px;
+  padding: var(--base-padding-desktop);
 }
 
 @media (width <= 68.75rem) {
@@ -16,12 +15,17 @@
   }
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
 .title {
-  font-size: 1.4rem;
+  font-size: var(--font-size-title);
   font-family: var(--font-open);
+  font-weight: 450;
   text-wrap: balance;
   overflow: hidden;
-  line-height: 1.6rem;
 }
 
 .title span {
@@ -31,7 +35,7 @@
 
 .date {
   overflow: hidden;
-  font-weight: 370;
+  font-weight: 400;
 }
 
 .date span {
@@ -50,6 +54,7 @@
 
 .footer__title p {
   font-size: 1.4rem;
+  font-weight: 450;
   font-family: var(--font-open);
   overflow: hidden;
 }
