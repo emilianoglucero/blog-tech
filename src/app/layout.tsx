@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" className={`${open.variable} ${bitter.variable}`}>
+    <html lang="en" className={`${bitter.variable} ${open.variable}`}>
       <body>
         <Providers>
           {/* <Header /> */}
