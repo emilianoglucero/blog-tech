@@ -47,6 +47,7 @@
 .subtitle {
   font-weight: 380;
   overflow: hidden;
+  z-index: 3;
 }
 
 .subtitle div {
@@ -54,20 +55,42 @@
   position: relative;
 }
 
-.subtitle .authorPic {
+.authorPic {
   visibility: hidden;
   position: fixed;
   top: -1.6rem;
   right: 0;
   width: 20%;
-  z-index: 1;
+  z-index: 2;
+}
+
+/* larger screens */
+@media (min-width: 68.75rem) {
+  .authorPic {
+    /* width: 100%; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .authorPic img {
+    object-fit: cover;
+    position: absolute;
+    height: 100vh;
+    width: auto;
+    right: 0;
+  }
 }
 
 .posts__links .blog_post_image {
   visibility: hidden;
   position: fixed;
   right: 2.6rem;
-  z-index: 1;
+  z-index: 4;
   width: 35%;
   top: 3rem;
 }
@@ -79,6 +102,24 @@
   .posts__links .blog_post_image {
     width: 30%;
     top: 72px;
+  }
+}
+
+/* for larger screens */
+@media (min-width: 68.75rem) {
+  .posts__links .blog_post_image {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+  }
+
+  .posts__links .blog_post_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -119,6 +160,13 @@
 
 .posts__links__item__title {
   text-decoration: underline;
+}
+
+/* larger screens */
+@media (min-width: 68.75rem) {
+  .posts__links__item__title {
+    z-index: 5;
+  }
 }
 
 .posts__links__item__decoration {
