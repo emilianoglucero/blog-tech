@@ -124,6 +124,12 @@ export const Welcome = ({ posts }: { posts: PostsResponse }) => {
   return (
     <>
       <div className={s.welcome}>
+        <div className={s.authorPic} ref={authorPhotoRef}>
+          <Image
+            src={authorPic}
+            alt="Photo of the author of the blog - Emiliano Lucero"
+          />
+        </div>
         <div className={s.header}>
           <div className={s.titles}>
             <h1 className={s.title}>
@@ -145,15 +151,6 @@ export const Welcome = ({ posts }: { posts: PostsResponse }) => {
                     emi
                   </span>
                 </Link>
-                <div className={s.authorPic} ref={authorPhotoRef}>
-                  <Image
-                    src={authorPic}
-                    alt="Photo of the author of the blog - Emiliano Lucero"
-                    style={{
-                      float: 'right'
-                    }}
-                  />
-                </div>
               </div>
             </div>
           </div>

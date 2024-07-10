@@ -1,13 +1,14 @@
 // index.tsx
-import { Center, OrbitControls, Plane, Text3D } from '@react-three/drei'
+import { AsciiRenderer, Center, Text3D } from '@react-three/drei'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { BallCollider, Physics, RigidBody } from '@react-three/rapier'
-import { useControls } from 'leva'
-import { memo, useEffect, useRef, useState } from 'react'
-import { suspend } from 'suspend-react'
+import { useEffect, useRef, useState } from 'react'
+// import { suspend } from 'suspend-react'
 import * as THREE from 'three'
-const inter = import('@pmndrs/assets/fonts/inter_semi_bold.json')
+
 import welcomeStyles from '../../app/sections/welcome/welcome.module.css'
+
+const bitter = './assets/fonts/Fira_Sans_Light_Regular.json'
 
 const Description = () => {
   const cameraDistance = 600
@@ -22,51 +23,62 @@ const Description = () => {
   const bounds = descriptionRef?.getBoundingClientRect()
   console.log('bounds', bounds)
 
-  const descriptionPosition = {
-    y: -bounds?.top + window.innerHeight / 2 - bounds?.height / 2,
-    x:
-      bounds?.left -
-      window.innerWidth / 2 +
-      bounds?.width / 2 -
-      bounds?.width / 2
+  const [descriptionPosition, setDescriptionPosition] = useState({ x: 0, y: 0 })
+  // Function to update descriptionPosition
+  const updateDescriptionPosition = () => {
+    const descriptionRef = document.querySelector(
+      `.${welcomeStyles.description} span`
+    )
+    if (descriptionRef) {
+      const bounds = descriptionRef.getBoundingClientRect()
+      setDescriptionPosition({
+        y: -bounds.top + window.innerHeight / 2 - bounds.height / 2,
+        x:
+          bounds.left -
+          window.innerWidth / 2 +
+          bounds.width / 2 -
+          bounds.width / 2
+      })
+    }
   }
+
+  useEffect(() => {
+    // Update position on mount and when window size changes
+    updateDescriptionPosition()
+    const handleResize = () => {
+      updateDescriptionPosition()
+    }
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   console.log('descriptionPosition x', descriptionPosition.x)
   console.log('descriptionPosition y', descriptionPosition.y)
   const [down, set] = useState(true)
   return (
-    // <Canvas
-    //   flat
-    //   onPointerDown={() => set(true)}
-    //   onPointerUp={() => set(false)}
-    //   orthographic
-    //   camera={{ position: [0, 0, 10], zoom: 25, fov: cameraFov }}
-    // >
     <Canvas
       flat
       onPointerDown={() => set(true)}
       onPointerUp={() => set(false)}
       camera={{ position: [0, 0, cameraDistance], fov: cameraFov }}
+      // background="#e7e7e7"
     >
+      <color args={['#e7e7e7']} attach="background" />
       <Physics gravity={[0, 0, 0]}>
         <Pointer size={10} down={down} />
-        {/* <Center> */}
+
         <Text x={descriptionPosition.x} y={descriptionPosition.y}>
           writings, explorations and stuff.
         </Text>
-        {/* </Center> */}
-        <Plane
-          position={[descriptionPosition.x, descriptionPosition.y, -1]}
-          args={[10, 10]}
-        >
-          <meshBasicMaterial color="red" />
-        </Plane>
       </Physics>
     </Canvas>
   )
 }
 
-const Text = ({ font, children, margin = 4.15, space = 10.3, y, x }) => {
+const Text = ({ font, children, margin = 3.8, space = 5, y, x }) => {
   const widths = [...children].map((char) => (char === ' ' ? space : 0))
   return [...children].map((char, index) =>
     char === ' ' ? null : (
@@ -80,7 +92,7 @@ const Text = ({ font, children, margin = 4.15, space = 10.3, y, x }) => {
             widthSlice.reduce((prev, cur) => cur + prev, 0) + x
           container.position.set(
             initialXPosition,
-            y + ('gypj,'.includes(char) ? -0.3 : 0),
+            y + ('gypj,'.includes(char) ? -3.3 : 0),
             0
           )
           // "kerning" adjustments
@@ -97,13 +109,13 @@ const Text = ({ font, children, margin = 4.15, space = 10.3, y, x }) => {
   )
 }
 
-function Char({ index, font = inter, children, ...props }) {
+function Char({ index, font = bitter, children, ...props }) {
   const api = useRef()
   const ref = useRef()
   const vec = new THREE.Vector3()
   const ang = new THREE.Vector3()
   const rot = new THREE.Vector3()
-  useFrame((state, delta) => {
+  useFrame((delta) => {
     delta = Math.min(0.1, delta)
     if (!api.current) return
     api.current.applyImpulse(
@@ -114,6 +126,19 @@ function Char({ index, font = inter, children, ...props }) {
     rot.copy(api.current.rotation())
     api.current.setAngvel({ x: ang.x, y: ang.y, z: ang.z - rot.z })
   })
+  // const textOptions = useControls('Text', {
+  //   size: { value: 11, min: 1, max: 100, step: 1 },
+  //   height: { value: 0.1, min: -1, max: 1, step: 0.1 },
+  //   curveSegments: { value: 1, min: -1, max: 24, step: 1 },
+  //   bevelEnabled: { value: false },
+  //   bevelThickness: { value: 10, min: -1, max: 100, step: 0.1 },
+  //   bevelSize: { value: 8, min: -1, max: 100, step: 0.1 },
+  //   bevelOffset: { value: 0, min: -10, max: 10, step: 0.1 }
+  // })
+  const textOptions = {
+    size: 11,
+    height: 0.1
+  }
   return (
     <RigidBody
       ref={api}
@@ -127,9 +152,11 @@ function Char({ index, font = inter, children, ...props }) {
     >
       <Text3D
         ref={ref}
-        material-color="black"
-        font={suspend(font).default}
-        size={16}
+        material-color="#27272a" // Set custom color here
+        // font={suspend(font).default}
+        font={font}
+        // size={12}
+        {...textOptions}
       >
         {children}
       </Text3D>
