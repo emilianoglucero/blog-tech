@@ -8,20 +8,12 @@ import * as THREE from 'three'
 
 import welcomeStyles from '../../app/sections/welcome/welcome.module.css'
 
-const bitter = './assets/fonts/Fira_Sans_Light_Regular.json'
+const fira = './assets/fonts/Fira_Sans_Light_Regular.json'
 
 const Description = () => {
   const cameraDistance = 600
   const cameraFov =
     Math.atan(window.innerHeight / 2 / cameraDistance) * (180 / Math.PI) * 2
-
-  const descriptionRef = document.querySelector(
-    `.${welcomeStyles.description} span`
-  )
-  console.log('descriptionRef', descriptionRef)
-
-  const bounds = descriptionRef?.getBoundingClientRect()
-  console.log('bounds', bounds)
 
   const [descriptionPosition, setDescriptionPosition] = useState({ x: 0, y: 0 })
   // Function to update descriptionPosition
@@ -55,8 +47,6 @@ const Description = () => {
     }
   }, [])
 
-  console.log('descriptionPosition x', descriptionPosition.x)
-  console.log('descriptionPosition y', descriptionPosition.y)
   const [down, set] = useState(true)
   return (
     <Canvas
@@ -109,7 +99,7 @@ const Text = ({ font, children, margin = 3.8, space = 5, y, x }) => {
   )
 }
 
-function Char({ index, font = bitter, children, ...props }) {
+function Char({ index, font = fira, children, ...props }) {
   const api = useRef()
   const ref = useRef()
   const vec = new THREE.Vector3()
