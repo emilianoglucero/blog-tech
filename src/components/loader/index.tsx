@@ -5,13 +5,12 @@ import { useRef } from 'react'
 
 import { useAppStore } from '~/context/use-app-store'
 import { useDeviceDetect } from '~/hooks/use-device-detect'
-import { CustomEase, gsap } from '~/lib/gsap'
+import { gsap } from '~/lib/gsap'
 
 import LoaderOverlay from '../loader-overlay'
 import s from './loader.module.css'
 
 export const Loader = () => {
-  gsap.registerPlugin(CustomEase)
   const containerRef = useRef<HTMLDivElement | null>(null)
   const textContainerRef = useRef<HTMLDivElement | null>(null)
   const textContainerOverlayRef = useRef<HTMLDivElement | null>(null)
@@ -76,10 +75,7 @@ export const Loader = () => {
   const mm = gsap.matchMedia()
 
   useGSAP(() => {
-    // console.log('useGSAP hook executed') // Debugging: log when the hook is executed
-
     if (introSeen) {
-      console.log('Intro not seen or textContainerRef is null') // Debugging: log the condition
       return
     }
 
@@ -97,15 +93,19 @@ export const Loader = () => {
           isLargeScreen: boolean
         }
         const { isMobile, isDesktop, isLargeScreen } = conditions
-        // const { isMobile, isDesktop } = context.conditions
-        // const { isMobile, isDesktop } = context.conditions
 
         const tl = gsap.timeline()
-        console.log(context.conditions)
         if (
           asciiContainerRef.current &&
           textContainerRef.current &&
-          containerRef.current
+          containerRef.current &&
+          textContainerOverlayRef.current &&
+          containerOverlayColor1Ref.current &&
+          containerOverlayColor2Ref.current &&
+          containerOverlayColor3Ref.current &&
+          containerOverlayColor4Ref.current &&
+          containerOverlayFinalRef.current &&
+          loaderContainerRef.current
         ) {
           const chars = asciiContainerRef.current.querySelectorAll(
             `.${s.hiddenChar}`
@@ -127,20 +127,15 @@ export const Loader = () => {
             })
             .to(
               [
-                // containerOverlayRef.current,
                 containerOverlayColor1Ref.current,
                 containerOverlayColor2Ref.current,
                 containerOverlayColor3Ref.current,
                 containerOverlayColor4Ref.current,
                 containerOverlayFinalRef.current
               ],
-              // containerOverlayColor1Ref.current,
               {
                 clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
-                // ease: 'power4.inOut',
-                // ease: 'expo.inOut',
-                // ease: 'back.inOut(2)',
-                // ease: 'circ.inOut',
+
                 ease: 'circ.out',
                 duration: isMobile ? 1.6 : 1.4,
                 stagger: {
@@ -163,9 +158,6 @@ export const Loader = () => {
                 duration: 4,
 
                 ease: 'back.in(2)'
-                // ease: 'steps(10)'
-                // ease: 'sine.in'
-                // ease: 'expo.inOut'
               },
               isLargeScreen
                 ? '-=2'
@@ -193,34 +185,6 @@ export const Loader = () => {
                     : '-=6.6'
             )
 
-            // const textDivsReverse = Array.from(
-            //   textContainerOverlayRef.current.querySelectorAll('div')
-            // ).reverse()
-
-            // tl.to(
-            //   textDivsReverse,
-            //   {
-            //     x: isMobile
-            //       ? 2500
-            //       : isDesktop
-            //         ? 2000
-            //         : isLargeScreen
-            //           ? 3000
-            //           : 2000,
-            //     duration: isMobile ? 7 : isDesktop ? 4 : isLargeScreen ? 4 : 3,
-            //     stagger: isMobile
-            //       ? 0.1
-            //       : isDesktop
-            //         ? 0.09
-            //         : isLargeScreen
-            //           ? 0.09
-            //           : 0.09,
-            //     ease: 'expo.inOut'
-            //   },
-            //   10
-            //   // isMobile ? '-=1.6' : '-=3.8'
-            // )
-
             .to(
               loaderContainerRef.current,
               {
@@ -237,61 +201,7 @@ export const Loader = () => {
                 }
               },
               isMobile ? '-=1.9' : '-=1.2'
-              // 16.6
-              // isMobile
-              //   ? '-=2.2'
-              //   : isDesktop
-              //     ? '-=2.6'
-              //     : isLargeScreen
-              //       ? '-=2.6'
-              //       : '-=2.2'
             )
-          // .to(
-          //   containerOverlayFinalRef.current,
-          //   {
-          //     clipPath: 'polygon(0 0%, 100% 0%, 100% 0, 0 0)',
-          //     duration: isMobile
-          //       ? 1.8
-          //       : isDesktop
-          //         ? 1.4
-          //         : isLargeScreen
-          //           ? 1.8
-          //           : 1.4,
-          //     onComplete: () => {
-          //       setIntroSeen(true)
-          //     }
-          //   },
-          //   isMobile
-          //     ? '-=2.2'
-          //     : isDesktop
-          //       ? '-=2.2'
-          //       : isLargeScreen
-          //         ? '-=2.6'
-          //         : '-=2.2'
-          // )
-          // .to(
-          //   containerRef.current,
-          //   {
-          //     yPercent: -100,
-          //     duration: isMobile
-          //       ? 1.8
-          //       : isDesktop
-          //         ? 1.4
-          //         : isLargeScreen
-          //           ? 1.8
-          //           : 1.4
-          //     // onComplete: () => {
-          //     //   setIntroSeen(true)
-          //     // }
-          //   },
-          //   isMobile ? 10 : isDesktop ? 9.4 : isLargeScreen ? 9.6 : 10
-          // )
-
-          // tl.to(loaderOverlay.current, {
-          //   clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)',
-          //   duration: 1.8,
-          //   delay: 1
-          // })
         }
       }
     )
@@ -300,7 +210,6 @@ export const Loader = () => {
   return (
     <>
       <div className={s.container} ref={containerRef}>
-        {/* <div className={s.symbols__container}></div> */}
         <div className={s.ascii__container}>
           <pre className={s.ascii_art} ref={asciiContainerRef}>
             {renderAsciiArt(asciiArt, false)}
