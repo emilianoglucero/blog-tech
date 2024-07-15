@@ -2,14 +2,14 @@ import React, { forwardRef } from 'react'
 
 import s from './loader-overlay.module.css'
 
-type Properties = {
-  asciiColor: string | undefined
-  backgroundColor: string
-  isMobileDevice: boolean | undefined
-  isRenderingAscii: boolean | undefined
-}
-
-const LoaderOverlay: React.FC<Properties> = forwardRef((props, ref) => {
+const LoaderOverlay = forwardRef<
+  HTMLDivElement,
+  {
+    asciiColor: string
+    backgroundColor: string
+    isMobileDevice: boolean | undefined
+  }
+>((props, ref) => {
   const { asciiColor, backgroundColor, isMobileDevice } = props
   const asciiArt = `
                    .,,uod8B8bou,,.
