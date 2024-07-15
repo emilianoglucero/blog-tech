@@ -1,0 +1,73 @@
+/* overlays */
+.container__overlay {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-family: var(--font-open);
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  z-index: 1000;
+
+  /* z-index: 5; */
+}
+
+.symbols__container__overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  line-height: 0.8rem;
+}
+
+.ascii__container__overlay {
+  font-size: 0.4rem;
+  position: relative;
+}
+
+.text__container__overlay {
+  position: fixed;
+  width: 200%;
+  height: 100vh;
+  left: -100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  overflow: hidden;
+
+  /* opacity: 0.2; */
+}
+
+@media (width <= 68.75rem) {
+  /* For tablets and below */
+  .text__container__overlay {
+    left: -150%;
+    font-size: 0.4rem;
+    width: 450%;
+  }
+}
+
+@media (width >= 93.75rem) {
+  /* for large screens and above */
+  .text__container__overlay {
+    left: -100%;
+    font-size: 0.8rem;
+    width: 225%;
+  }
+}
+
+.text__overlay {
+  width: 300%;
+  opacity: 1;
+}
+
+.hiddenChar__overlay {
+  opacity: 1;
+}
