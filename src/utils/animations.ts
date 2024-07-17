@@ -51,7 +51,7 @@ export const animatePostPageOut = (href: string, router: any) => {
       yPercent: -100,
       backgroundColor: '#e7e7e7'
     }).to(banner, {
-      duration: 1.8,
+      duration: 1,
       yPercent: 0,
       ease: 'power4.inOut',
       onComplete: () => {
@@ -69,7 +69,7 @@ export const animateHomePageOut = (href: string, router: any) => {
       yPercent: 100,
       backgroundColor: '#27272a'
     }).to(banner, {
-      duration: 1.8,
+      duration: 1,
       yPercent: 0,
       ease: 'power4.inOut',
       onComplete: () => {
