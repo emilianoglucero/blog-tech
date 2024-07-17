@@ -42,8 +42,8 @@
   overflow: hidden;
 }
 
-@media (width <= 68.75rem) {
-  /* For tablets and below */
+@media (width <= 34.37rem) {
+  /* For mobile */
   .text__container {
     left: -150%;
     font-size: 0.4rem;
@@ -55,8 +55,12 @@
   /* for large screens and above */
   .text__container {
     left: -100%;
-    font-size: 0.8rem;
+    font-size: 1rem;
     width: 225%;
+  }
+
+  .ascii__container {
+    font-size: 0.6rem;
   }
 }
 
@@ -127,8 +131,8 @@
   color: var(--primary-color);
 }
 
-/* tablets and below */
-@media (width <= 68.75rem) {
+/* For mobile */
+@media (width <= 34.37rem) {
   .text__container__overlay {
     left: -150%;
     font-size: 0.4rem;
@@ -140,8 +144,12 @@
   /* for large screens and above */
   .text__container__overlay {
     left: -100%;
-    font-size: 0.8rem;
+    font-size: 1rem;
     width: 225%;
+  }
+
+  .ascii__container__overlay {
+    font-size: 0.6rem;
   }
 }
 

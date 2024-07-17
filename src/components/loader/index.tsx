@@ -10,7 +10,7 @@ import { gsap } from '~/lib/gsap'
 import LoaderOverlay from '../loader-overlay'
 import s from './loader.module.css'
 
-export const Loader = () => {
+const Loader = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const textContainerRef = useRef<HTMLDivElement | null>(null)
   const textContainerOverlayRef = useRef<HTMLDivElement | null>(null)
@@ -110,7 +110,7 @@ export const Loader = () => {
           const chars = asciiContainerRef.current.querySelectorAll(
             `.${s.hiddenChar}`
           )
-          // console.log('Animating chars:', chars) // Debugging: log the elements
+          console.log('Animating chars:', chars) // Debugging: log the elements
           const textDivscOverlay =
             textContainerOverlayRef.current?.querySelectorAll('div')
           const textDivs = textContainerRef.current?.querySelectorAll('div')
@@ -123,7 +123,7 @@ export const Loader = () => {
             .to(chars, {
               opacity: 1,
               delay: 0.3,
-              stagger: 0.002
+              stagger: 0.001
             })
             .to(
               [
@@ -136,19 +136,20 @@ export const Loader = () => {
               {
                 clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
 
-                ease: 'circ.out',
-                duration: isMobile ? 1.6 : 1.4,
+                // ease: 'circ.out',
+                ease: 'power1.inOut',
+                duration: isMobile ? 1.6 : isLargeScreen ? 1.2 : 1,
                 stagger: {
-                  amount: 0.8
+                  amount: 0.6
                 }
               },
               isLargeScreen
-                ? '-=0.6'
+                ? '-=0.8'
                 : isDesktop
-                  ? '-=1'
+                  ? '-=0.8'
                   : isMobile
-                    ? '-=1'
-                    : '-=1'
+                    ? '-=0.8'
+                    : '-=0.8'
             )
             .to(
               textDivscOverlay,
@@ -173,7 +174,7 @@ export const Loader = () => {
                 scale: 6,
                 rotate: -90,
                 y: 1000,
-                duration: isMobile ? 2.6 : 3,
+                duration: isMobile ? 2.6 : isLargeScreen ? 2.8 : 3,
                 ease: 'expo.inOut'
               },
               isLargeScreen
@@ -182,25 +183,19 @@ export const Loader = () => {
                   ? '-=3.6'
                   : isMobile
                     ? '-=4'
-                    : '-=6.6'
+                    : '-=3.6'
             )
 
             .to(
               loaderContainerRef.current,
               {
                 clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
-                duration: isMobile
-                  ? 1.4
-                  : isDesktop
-                    ? 1.4
-                    : isLargeScreen
-                      ? 1.8
-                      : 1.4,
+                duration: isMobile ? 1 : isDesktop ? 1 : isLargeScreen ? 1 : 1,
                 onComplete: () => {
                   setIntroSeen(true)
                 }
               },
-              isMobile ? '-=1.9' : '-=1.2'
+              isMobile ? '-=1.9' : isLargeScreen ? '-=1' : '-=1.2'
             )
         }
       }
@@ -3125,3 +3120,5 @@ export const Loader = () => {
     </>
   )
 }
+
+export default Loader
