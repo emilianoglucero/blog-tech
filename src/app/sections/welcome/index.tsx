@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useRef } from 'react'
 
-import Description from '~/components/description'
 import TransitionLink from '~/components/transition-link/page'
 import { useDeviceDetect } from '~/hooks/use-device-detect'
 import { gsap } from '~/lib/gsap'
@@ -13,8 +12,7 @@ import { Post, PostsResponse } from '~/lib/payload-types'
 import authorPic from '../../images/author/emi.jpg'
 import s from './welcome.module.css'
 
-export const Welcome = ({ posts }: { posts: PostsResponse }) => {
-  console.log('posts', posts)
+const Welcome = ({ posts }: { posts: PostsResponse }) => {
   const linksRefDecoration = useRef<Record<number, HTMLLIElement | null>>({})
   const linksRefText = useRef<Record<number, HTMLSpanElement | null>>({})
   const authorPhotoRef = useRef<HTMLDivElement>(null)
@@ -226,9 +224,8 @@ export const Welcome = ({ posts }: { posts: PostsResponse }) => {
           <div className={s.footer__decoration}>{/* <Scene /> */}</div>
         </footer>
       </div>
-      <div className={s.scene}>
-        <Description />
-      </div>
     </>
   )
 }
+
+export default Welcome
