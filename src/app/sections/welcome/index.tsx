@@ -73,12 +73,13 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
     if (
       !titleRef.current &&
       !subtitleRef.current &&
+      !descriptionRef.current &&
       !Object.keys(linksRefDecoration.current).length
     ) {
       return
     }
 
-    gsap.from([titleRef.current, subtitleRef.current], {
+    gsap.from([titleRef.current, subtitleRef.current, descriptionRef.current], {
       yPercent: 130,
       delay: 0.1,
       stagger: 0.1,

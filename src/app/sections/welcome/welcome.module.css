@@ -131,14 +131,14 @@
 }
 
 .description {
+  overflow: hidden;
   font-weight: 380;
 }
 
-/* .description p {
-  font-weight: 380;
+.description p {
   display: inline-block;
   position: relative;
-}  */
+}
 
 .posts__links {
   display: flex;
