@@ -46,7 +46,7 @@
 .subtitle {
   font-weight: 380;
   overflow: hidden;
-  z-index: 3;
+  z-index: 4;
 }
 
 .subtitle div {
@@ -60,7 +60,7 @@
   top: -1.6rem;
   right: 0;
   width: 20%;
-  z-index: 2;
+  z-index: 4;
 }
 
 /* larger screens */
@@ -73,7 +73,7 @@
     bottom: 0;
     height: 100vh;
     width: 100%;
-    z-index: 2;
+    z-index: 4;
   }
 
   .authorPic img {
@@ -204,4 +204,29 @@
   display: flex;
   flex-direction: column;
   justify-content: end;
+}
+
+.page__draw {
+  filter: invert(1);
+  height: 100vh;
+  left: 0;
+  mix-blend-mode: exclusion;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.page__draw video {
+  height: 100%;
+  left: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
