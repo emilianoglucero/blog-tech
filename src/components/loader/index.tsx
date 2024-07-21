@@ -1649,26 +1649,26 @@ const Loader = () => {
         </div>
       </div>
       <LoaderOverlay
-        asciiColor="#ff7b00"
-        backgroundColor="#0038ff"
+        asciiColor="#27272a"
+        backgroundColor="#e7e7e7"
         isMobileDevice={isMobileDevice}
         ref={containerOverlayColor1Ref}
       />
       <LoaderOverlay
-        asciiColor="#884ef7"
-        backgroundColor="#F1FF00"
+        asciiColor="#e7e7e7"
+        backgroundColor="#27272a"
         isMobileDevice={isMobileDevice}
         ref={containerOverlayColor2Ref}
       />
       <LoaderOverlay
-        asciiColor="#32FF00"
-        backgroundColor="#FF0000"
+        asciiColor="#27272a"
+        backgroundColor="#e7e7e7"
         isMobileDevice={isMobileDevice}
         ref={containerOverlayColor3Ref}
       />
       <LoaderOverlay
-        asciiColor="#0038ff"
-        backgroundColor="#ff7b00"
+        asciiColor="#e7e7e7"
+        backgroundColor="#27272a"
         isMobileDevice={isMobileDevice}
         ref={containerOverlayColor4Ref}
       />
