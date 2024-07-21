@@ -230,3 +230,10 @@
   top: 0;
   width: 100%;
 }
+
+@media (max-width: 68.75rem) {
+  /* For tablets and below */
+  .page__draw {
+    display: none;
+  }
+}
