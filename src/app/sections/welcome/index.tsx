@@ -204,6 +204,14 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
             </div>
           ))}
         </main>
+        <section className={s.page__draw}>
+          <video autoPlay muted playsInline>
+            <source
+              src="./assets/videos/drawing-in-black.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </section>
         <footer className={s.footer}>
           <div className={s.footer__details}>
             <div>
