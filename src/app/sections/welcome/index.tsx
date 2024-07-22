@@ -13,6 +13,7 @@ import authorPic from '../../images/author/emi.jpg'
 import s from './welcome.module.css'
 
 const Welcome = ({ posts }: { posts: PostsResponse }) => {
+  console.log('Welcome -> posts', posts)
   const linksRefDecoration = useRef<Record<number, HTMLLIElement | null>>({})
   const linksRefText = useRef<Record<number, HTMLSpanElement | null>>({})
   const authorPhotoRef = useRef<HTMLDivElement>(null)

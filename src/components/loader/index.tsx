@@ -110,7 +110,6 @@ const Loader = () => {
           const chars = asciiContainerRef.current.querySelectorAll(
             `.${s.hiddenChar}`
           )
-          console.log('Animating chars:', chars) // Debugging: log the elements
           const textDivscOverlay =
             textContainerOverlayRef.current?.querySelectorAll('div')
           const textDivs = textContainerRef.current?.querySelectorAll('div')
