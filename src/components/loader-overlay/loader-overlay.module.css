@@ -39,7 +39,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 0.8rem;
+  font-size: 4vh;
   overflow: hidden;
 
   /* opacity: 0.2; */
@@ -58,7 +58,7 @@
   /* for large screens and above */
   .text__container__overlay {
     left: -100%;
-    font-size: 1rem;
+    font-size: 4vh;
     width: 225%;
   }
 

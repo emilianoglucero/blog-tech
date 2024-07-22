@@ -32,35 +32,20 @@
 
 .text__container {
   position: fixed;
-  width: 200%;
+  width: 151%;
   height: 100vh;
-  left: -100%;
+  left: -50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 0.8rem;
+  font-size: 4vh;
   overflow: hidden;
 }
 
 @media (width <= 34.37rem) {
   /* For mobile */
   .text__container {
-    left: -150%;
-    font-size: 0.4rem;
     width: 450%;
-  }
-}
-
-@media (width >= 93.75rem) {
-  /* for large screens and above */
-  .text__container {
-    left: -100%;
-    font-size: 1rem;
-    width: 225%;
-  }
-
-  .ascii__container {
-    font-size: 0.5rem;
   }
 }
 
@@ -102,14 +87,6 @@
   /* z-index: 5; */
 }
 
-/* .symbols__container__overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  overflow: hidden;
-  line-height: 0.8rem;
-} */
-
 .ascii__container__overlay {
   font-size: 0.4rem;
   position: relative;
@@ -118,13 +95,12 @@
 
 .text__container__overlay {
   position: fixed;
-  width: 200%;
+  width: 150%;
   height: 100vh;
-  left: -100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 0.8rem;
+  font-size: 4vh;
   overflow: hidden;
 
   /* opacity: 0.1; */
@@ -135,21 +111,8 @@
 @media (width <= 34.37rem) {
   .text__container__overlay {
     left: -150%;
-    font-size: 0.4rem;
+    font-size: 4vh;
     width: 450%;
-  }
-}
-
-@media (width >= 93.75rem) {
-  /* for large screens and above */
-  .text__container__overlay {
-    left: -100%;
-    font-size: 1rem;
-    width: 225%;
-  }
-
-  .ascii__container__overlay {
-    font-size: 0.5rem;
   }
 }
 
