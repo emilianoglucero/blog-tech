@@ -85,6 +85,13 @@
   }
 }
 
+/* tablets and below */
+@media (max-width: 68.75rem) {
+  .authorPic {
+    display: none;
+  }
+}
+
 .posts__links .blog_post_image {
   visibility: hidden;
   position: fixed;
@@ -99,8 +106,7 @@
 @media (max-width: 68.75rem) {
   /* For tablets and below */
   .posts__links .blog_post_image {
-    width: 30%;
-    top: 72px;
+    display: none;
   }
 }
 
