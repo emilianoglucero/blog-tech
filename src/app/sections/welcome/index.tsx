@@ -161,7 +161,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
           </div>
         </div>
 
-        <main className={s.posts__links}>
+        <menu className={s.posts__links}>
           {posts.docs.map((post: Post, index: number) => (
             <div className={s.posts__links__item} key={post.id}>
               <li
@@ -204,7 +204,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
               </li>
             </div>
           ))}
-        </main>
+        </menu>
         <section className={s.page__draw}>
           <video autoPlay muted playsInline>
             <source

@@ -151,6 +151,7 @@
   flex-direction: column;
   justify-content: center;
   font-weight: 450;
+  padding: 0;
 }
 
 .posts__links__item li {
