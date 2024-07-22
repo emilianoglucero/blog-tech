@@ -44,9 +44,10 @@
 
 @media (width <= 34.37rem) {
   /* For mobile */
-  .text__container {
+
+  /* .text__container {
     width: 450%;
-  }
+  } */
 }
 
 .text {
@@ -110,9 +111,7 @@
 /* For mobile */
 @media (width <= 34.37rem) {
   .text__container__overlay {
-    left: -150%;
-    font-size: 4vh;
-    width: 450%;
+    font-size: 2vh;
   }
 }
 

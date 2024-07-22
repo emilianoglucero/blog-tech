@@ -27,15 +27,16 @@
 }
 
 .ascii__container__overlay {
-  font-size: 0.4rem;
+  font-size: 0.5rem;
   position: relative;
 }
 
 .text__container__overlay {
   position: fixed;
-  width: 200%;
+  width: 100%;
   height: 100vh;
-  left: -100%;
+
+  /* left: -50%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -48,22 +49,15 @@
 @media (width <= 34.37rem) {
   /* For mobile */
   .text__container__overlay {
-    left: -150%;
-    font-size: 0.4rem;
-    width: 450%;
+    /* width: 450%; */
   }
 }
 
 @media (width >= 93.75rem) {
   /* for large screens and above */
   .text__container__overlay {
-    left: -100%;
     font-size: 4vh;
     width: 225%;
-  }
-
-  .ascii__container__overlay {
-    font-size: 0.5rem;
   }
 }
 

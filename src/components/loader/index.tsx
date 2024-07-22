@@ -147,15 +147,15 @@ const Loader = () => {
                 : isDesktop
                   ? '-=0.8'
                   : isMobile
-                    ? '-=0.8'
+                    ? '-=0.6'
                     : '-=0.8'
             )
             .to(
               textDivscOverlay,
               {
-                x: isMobile ? 1500 : 2500,
+                x: isMobile ? 2000 : 2500,
                 stagger: 0.1,
-                duration: 4,
+                duration: 5,
 
                 ease: 'back.in(2)'
               },
@@ -181,7 +181,7 @@ const Loader = () => {
                 : isDesktop
                   ? '-=3.6'
                   : isMobile
-                    ? '-=4'
+                    ? '-=3.6'
                     : '-=3.6'
             )
 
@@ -194,7 +194,7 @@ const Loader = () => {
                   setIntroSeen(true)
                 }
               },
-              isMobile ? '-=1.9' : isLargeScreen ? '-=0.6' : '-=0.7'
+              isMobile ? '-=1.4' : isLargeScreen ? '-=0.6' : '-=0.7'
             )
         }
       }
