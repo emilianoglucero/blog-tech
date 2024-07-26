@@ -25,7 +25,7 @@
 @media (width <= 34.37rem) {
   /* For mobile */
   .container {
-    background-image: url('../../app/images/background/loader-mobile.jpg');
+    background-image: url('../../app/images/background/loader.jpg');
   }
 }
 
