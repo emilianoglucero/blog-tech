@@ -55,7 +55,6 @@ const LoaderOverlay = forwardRef<
   }
   return (
     <div className={s.container__overlay} ref={ref}>
-      {/* <div className={s.symbols__container__overlay}></div> */}
       {asciiColor && (
         <div
           className={s.ascii__container__overlay}
