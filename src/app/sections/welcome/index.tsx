@@ -2,7 +2,7 @@
 import { useGSAP } from '@gsap/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import TransitionLink from '~/components/transition-link/page'
 import { useDeviceDetect } from '~/hooks/use-device-detect'
@@ -121,6 +121,34 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
     )
   }, [])
 
+  useEffect(() => {
+    const colors = [
+      '#f0b737',
+      '#e4472f',
+      '#149366',
+      '#5569a6',
+      '#0038ff',
+      '#27272a',
+      '#27272a',
+      '#27272a',
+      '#27272a',
+      '#27272a',
+      '#27272a'
+    ]
+
+    if (descriptionRef.current) {
+      const letters = descriptionRef.current.querySelectorAll('span')
+
+      letters.forEach((letter) => {
+        letter.addEventListener('mouseenter', () => {
+          gsap.to(letter, {
+            color: colors[Math.floor(Math.random() * colors.length)]
+          })
+        })
+      })
+    }
+  }, [])
+
   return (
     <>
       <div className={s.welcome}>
@@ -154,9 +182,14 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
               </div>
             </div>
           </div>
+
           <div className={s.description}>
             <p ref={descriptionRef}>
-              <span>writings, explorations and stuff.</span>
+              {'writings, explorations and stuff.'
+                .split('')
+                .map((char, index) => (
+                  <span key={index}>{char}</span>
+                ))}
             </p>
           </div>
         </div>
