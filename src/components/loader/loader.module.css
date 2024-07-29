@@ -22,13 +22,6 @@
   height: 100vh;
 }
 
-@media (width <= 34.37rem) {
-  /* For mobile */
-  .container {
-    background-image: url('../../app/images/background/loader.jpg');
-  }
-}
-
 .text {
   width: 300%;
   opacity: 0;
