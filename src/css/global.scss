@@ -64,6 +64,11 @@ body {
   font-size: var(--font-size-regular);
 }
 
+::selection {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
 body.inspect * {
   outline: 1px solid var(--inspect-color) !important;
 }
