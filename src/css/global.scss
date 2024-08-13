@@ -40,6 +40,7 @@
   // Font Sizes
   --font-size-title: 1.25rem;
   --font-size-regular: 1rem;
+  --font-size-title-huge: 9.28rem;
 }
 
 html {
@@ -99,4 +100,9 @@ ul {
 .hidden {
   opacity: 0;
   visibility: hidden;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: var(--font-size-regular);
 }
