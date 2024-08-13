@@ -131,8 +131,6 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
       '#27272a',
       '#27272a',
       '#27272a',
-      '#27272a',
-      '#27272a',
       '#27272a'
     ]
 
