@@ -1,6 +1,7 @@
 'use client'
 
 import {
+  defaultElementRenderers,
   PayloadLexicalReactRenderer,
   PayloadLexicalReactRendererContent
 } from '@atelier-disko/payload-lexical-react-renderer'
@@ -13,6 +14,8 @@ import { gsap } from '~/lib/gsap'
 import s from './blogpost.module.css'
 
 const BlogPost = ({ post }: any) => {
+  console.log(post)
+  console.log(post.playlist)
   const blogTitle = useRef<HTMLSpanElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLDivElement>(null)
@@ -88,6 +91,12 @@ const BlogPost = ({ post }: any) => {
       <section className={s.main} ref={contentRef}>
         <div className={s.main__content}>
           <PayloadLexicalReactRenderer content={content} />
+          {post.playlist && (
+            <div
+              className={s.playlist}
+              dangerouslySetInnerHTML={{ __html: post.playlist }}
+            ></div>
+          )}
         </div>
       </section>
       <section className={s.footer}>

@@ -132,6 +132,12 @@
   margin-bottom: 1rem;
 }
 
+.playlist {
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  max-width: clamp(320px, 90%, 1000px);
+}
+
 .blog__title p {
   font-size: var(--font-size-title);
   font-weight: 450;
