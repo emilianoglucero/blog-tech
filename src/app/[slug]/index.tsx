@@ -1,6 +1,9 @@
 'use client'
 
-import { PayloadLexicalReactRenderer } from '@atelier-disko/payload-lexical-react-renderer'
+import {
+  PayloadLexicalReactRenderer,
+  PayloadLexicalReactRendererContent
+} from '@atelier-disko/payload-lexical-react-renderer'
 import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
 
