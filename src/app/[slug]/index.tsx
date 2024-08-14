@@ -1,10 +1,8 @@
 'use client'
 
+import { PayloadLexicalReactRenderer } from '@atelier-disko/payload-lexical-react-renderer'
 import { useGSAP } from '@gsap/react'
-import DOMPurify from 'isomorphic-dompurify'
 import { useRef } from 'react'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import TransitionLink from '~/components/transition-link/page'
 import { gsap } from '~/lib/gsap'
@@ -18,13 +16,7 @@ const BlogPost = ({ post }: any) => {
   const dateRef = useRef<HTMLParagraphElement>(null)
   const contentRef = useRef<HTMLParagraphElement>(null)
 
-  // Configure DOMPurify to allow <code>, <pre>, and <script> tags and their attributes
-  const purifyConfig = {
-    ADD_TAGS: ['code', 'pre', 'script'],
-    ADD_ATTR: ['class', 'style', 'src']
-  }
-
-  const sanitizedContent = DOMPurify.sanitize(post.content_html, purifyConfig)
+  const content: PayloadLexicalReactRendererContent = post.content
 
   useGSAP(() => {
     if (
@@ -70,22 +62,6 @@ const BlogPost = ({ post }: any) => {
     ))
   }
 
-  const renderContent = (content: string) => {
-    const codeBlockRegex = /<code>(.*?)<\/code>/gs
-    const parts = content.split(codeBlockRegex)
-
-    return parts.map((part, index) => {
-      if (index % 2 === 1) {
-        return (
-          <SyntaxHighlighter key={index} language="javascript" style={oneDark}>
-            {part}
-          </SyntaxHighlighter>
-        )
-      }
-      return <div key={index} dangerouslySetInnerHTML={{ __html: part }} />
-    })
-  }
-
   return (
     <div className={s.container}>
       <section className={s.header}>
@@ -107,7 +83,9 @@ const BlogPost = ({ post }: any) => {
         </p>
       </section>
       <section className={s.main} ref={contentRef}>
-        <div className={s.main__content}>{renderContent(sanitizedContent)}</div>
+        <div className={s.main__content}>
+          <PayloadLexicalReactRenderer content={content} />
+        </div>
       </section>
       <section className={s.footer}>
         <div className={s.blog__title}>
