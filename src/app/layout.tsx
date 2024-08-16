@@ -1,34 +1,25 @@
 import '~/css/global.scss'
 
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
-
-// import localFont from 'next/font/local'
-// import { Header } from '~/components/header'
-import { isDev, siteURL } from '~/lib/constants'
-
-const GridDebugger = dynamic(() => import('~/lib/debug/grid-debugger'), {
-  ssr: false
-})
-
 import dynamic from 'next/dynamic'
+
+import { isDev, siteURL } from '~/lib/constants'
 
 import { AppHooks } from './app-hooks'
 import { bitter, open } from './fonts'
 import { Providers } from './providers'
-
-// const panama = localFont({
-//   src: '/fonts/panama/Panama-Monospace-Regular.woff2',
-//   variable: '--font-panama',
-//   display: 'swap'
-// })
+const GridDebugger = dynamic(() => import('~/lib/debug/grid-debugger'), {
+  ssr: false
+})
 
 export const metadata: Metadata = {
   title: {
-    default: 'next-typescript | basement.studio',
-    template: '%s | basement.studio'
+    default: 'I 🖤 my computer job — A digital journal by Emiliano Lucero',
+    template: '%s | Emiliano Lucero'
   },
   metadataBase: siteURL,
-  description: `A minimalist's boilerplate — Next.js with TypeScript.`,
+  description: `Writings, music, technology, explorations and stuff.`,
   icons: [
     {
       rel: 'apple-touch-icon',
@@ -38,7 +29,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.webmanifest',
   twitter: {
     card: 'summary_large_image',
-    title: 'digital digital',
+    title: 'I 🖤 my computer job',
     creator: '@emilianoglucero',
     siteId: '@emilianoglucero'
   }
@@ -54,6 +45,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           {isDev && <GridDebugger />}
           <AppHooks />
         </Providers>
+        <Analytics />
       </body>
     </html>
   )
