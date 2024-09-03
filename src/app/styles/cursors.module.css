@@ -1,0 +1,12 @@
+.customCursor {
+  cursor: url('../images/cursor/cursor-default.png'), auto;
+}
+
+.customCursor a,
+.customCursor button,
+.customCursor [role='button'],
+.customCursor input[type='submit'],
+.customCursor input[type='reset'],
+.customCursor input[type='button'] {
+  cursor: url('../images/cursor/cursor-pointer.png'), pointer;
+}

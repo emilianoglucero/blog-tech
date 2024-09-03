@@ -1,0 +1,203 @@
+.container {
+  width: 46rem;
+  margin: 0 auto;
+
+  /* padding: 20px; */
+  background-color: var(--color-blue);
+  font-family: var(--font-open);
+  border: solid 2px #e8ffe7;
+  color: var(--primary-color);
+}
+
+@media (width <= 46.25rem) {
+  .container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.card {
+  overflow: hidden;
+}
+
+.cardHeader {
+  /* padding: 24px; */
+}
+
+.headerContent {
+  /* display: flex;
+  align-items: flex-start; */
+  display: grid;
+
+  /* gap: 24px; */
+  grid-template:
+    'name name'
+    'description image'
+    'openSpotifyLink openSpotifyLink';
+  grid-template-columns: 50% 50%;
+  color: var(--color-primary);
+}
+
+@media (width <= 46.25rem) {
+  .headerContent {
+    grid-template:
+      'name'
+      'image'
+      'description'
+      'openSpotifyLink';
+    grid-template-columns: 100%;
+  }
+}
+
+.playlistImage {
+  grid-area: image;
+  border-bottom: 1px solid #e8ffe7;
+}
+
+.playlistImage img {
+  width: 23rem;
+  height: 22rem;
+  object-fit: cover;
+}
+
+.playlistName {
+  font-size: 36px;
+  grid-area: name;
+}
+
+.playlistName h1 {
+  padding: 1rem;
+  border-bottom: 1px solid #e8ffe7;
+}
+
+.playlistDescription {
+  grid-area: description;
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 1.25rem;
+  border-bottom: 1px solid #e8ffe7;
+}
+
+.openSpotifyLink {
+  /* display: inline-block;
+  background-color: #1db954;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.2s; */
+  grid-area: openSpotifyLink;
+  padding: 1rem;
+  height: 8rem;
+  display: flex;
+  flex-direction: column-reverse;
+  border-bottom: 1px solid #e8ffe7;
+  font-size: var(--font-size-2);
+  text-align: end;
+}
+
+.openSpotifyLink a {
+  text-decoration: underline;
+  text-decoration-color: #e8ffe7;
+  text-underline-offset: 0.3ex;
+  text-decoration-thickness: 0.15ex;
+}
+
+.openSpotifyLink a:hover {
+  color: #e8ffe7;
+  text-decoration: none;
+}
+
+.openSpotifyLink:hover,
+.openSpotifyLink:focus {
+  /* background-color: #1ed760;
+  outline: none;
+  box-shadow: 0 0 0 2px #fff; */
+}
+
+.cardContent {
+  /* padding: 1rem; */
+}
+
+.trackList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trackItem {
+  display: flex;
+  align-items: end;
+  padding: 1rem;
+  border-bottom: 1px solid #e8ffe7;
+  gap: 1rem;
+}
+
+.trackNumber {
+  color: #b3b3b3;
+  font-size: 14px;
+  width: 24px;
+  text-align: right;
+  margin-right: 16px;
+}
+
+.trackInfo {
+  flex: 1;
+  margin-right: 16px;
+}
+
+.trackName {
+  font-size: 16px;
+  margin: 0 0 4px;
+}
+
+.trackArtists {
+  color: #b3b3b3;
+  font-size: 14px;
+  margin: 0;
+}
+
+.playButton {
+  cursor: pointer;
+}
+
+.playButton:hover,
+.playButton:focus {
+  transform: scale(1.1);
+  outline: none;
+}
+
+.playButton:disabled {
+  color: #404040;
+  cursor: not-allowed;
+}
+
+.trackDuration {
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+.loading,
+.error {
+  text-align: center;
+  font-size: var(--font-size-9);
+  color: #e8ffe7;
+  padding: 20px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

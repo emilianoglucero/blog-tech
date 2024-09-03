@@ -123,15 +123,15 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
 
   useEffect(() => {
     const colors = [
-      '#f0b737',
-      '#e4472f',
-      '#149366',
-      '#5569a6',
-      '#0038ff',
-      '#27272a',
-      '#27272a',
-      '#27272a',
+      // '#f0b737',
+      // '#e4472f',
+      // '#149366',
+      // '#5569a6',
+      '#e8ffe7',
+      // '#0038ff',
+      // '#0f0',
       '#27272a'
+      // '#27272a'
     ]
 
     if (descriptionRef.current) {

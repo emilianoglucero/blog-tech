@@ -9,6 +9,7 @@ import { isDev, siteURL } from '~/lib/constants'
 import { AppHooks } from './app-hooks'
 import { bitter, open } from './fonts'
 import { Providers } from './providers'
+import cursorStyles from './styles/cursors.module.css'
 const GridDebugger = dynamic(() => import('~/lib/debug/grid-debugger'), {
   ssr: false
 })
@@ -38,9 +39,8 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" className={`${bitter.variable} ${open.variable}`}>
-      <body>
+      <body className={cursorStyles.customCursor}>
         <Providers>
-          {/* <Header /> */}
           {children}
           {isDev && <GridDebugger />}
           <AppHooks />

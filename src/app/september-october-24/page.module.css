@@ -1,0 +1,166 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  padding: var(--base-padding-desktop);
+  font-family: var(--font-bitter);
+  color: var(--primary-color);
+}
+
+/* mobile  */
+@media (width <= 46.25rem) {
+  .container {
+    padding: var(--base-padding-mobile);
+  }
+}
+
+.blog__title p {
+  font-size: var(--font-size-title);
+  font-weight: 450;
+  font-family: var(--font-open);
+  text-decoration: none;
+  padding-top: 0.375rem;
+  overflow: hidden;
+  line-height: 1.1;
+}
+
+.blog__title p span {
+  display: inline-block;
+  position: relative;
+  padding: 1rem;
+  background-color: var(--color-blue);
+  border: 2px solid #e8ffe7;
+}
+
+.blog__title a {
+  text-decoration: none;
+}
+
+.title {
+  font-size: var(--font-size-3);
+  font-family: var(--font-open);
+  margin-top: var(--space-xl);
+
+  /* border: solid 2px #e8ffe7; */
+}
+
+.title__words__wrapper {
+  border: solid 2px #e8ffe7;
+  padding: 4rem;
+  background-color: var(--color-blue);
+}
+
+.description {
+  border: solid 2px #e8ffe7;
+  padding: 5rem;
+  background-color: var(--color-blue);
+  width: 29rem;
+  position: absolute;
+  top: 11%;
+  left: 60%;
+}
+
+@media (width <= 46.25rem) {
+  .description {
+    width: 60%;
+    padding: 2rem;
+    top: 0;
+    left: 0;
+    position: relative;
+    margin-top: 1rem;
+    margin-left: 30%;
+  }
+}
+
+.photo__wrapper {
+  margin: -5rem 14%;
+  padding-bottom: 4rem;
+}
+
+@media (width <= 46.25rem) {
+  .photo__wrapper {
+    margin: 0;
+    padding-bottom: 4rem;
+  }
+}
+
+.photo__wrapper img {
+  border: 2px solid #e8ffe7;
+}
+
+.player__wrapper {
+  padding-top: 6rem;
+}
+
+.canvas {
+  border: solid 2px #e8ffe7;
+  padding: 2rem;
+  width: 15rem;
+  height: 34rem;
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  border-radius: 20%;
+  cursor: grab;
+}
+
+@media (width <= 46.25rem) {
+  .canvas {
+    width: 10rem;
+    height: 10rem;
+    left: 10%;
+  }
+}
+
+.canvas__two {
+  border: solid 2px #e8ffe7;
+  border-radius: 50%;
+  margin-top: -19rem;
+  cursor: grab;
+}
+
+@media (width <= 46.25rem) {
+  .canvas__two {
+    margin-top: -18rem;
+  }
+}
+
+.canvas__three {
+  border: solid 2px #e8ffe7;
+  padding: 2rem;
+  width: 14rem;
+  height: 14rem;
+  position: absolute;
+  top: 30%;
+  left: 31%;
+  border-radius: 50%;
+  cursor: grab;
+}
+
+.canvas__four {
+  border: solid 2px #e8ffe7;
+  padding: 2rem;
+  width: 8%;
+  height: 100%;
+  position: absolute;
+  top: 76%;
+  left: 21%;
+  border-radius: 10%;
+  cursor: grab;
+}
+
+@media (width <= 46.25rem) {
+  .canvas__four {
+    top: 18%;
+  }
+}
+
+.container__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--secondary-color);
+  z-index: 9999; /* Ensure it is on top of other elements */
+  clip-path: inset(0 0 0 0); /* Initial state covering the entire screen */
+}
