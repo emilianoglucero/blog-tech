@@ -138,20 +138,38 @@
   padding-top: var(--space-xxxxl);
 }
 
+.main__photography figcaption {
+  font-size: var(--font-size-regular);
+  font-style: italic;
+  padding: var(--space-sm) 4px;
+}
+
+/* Mobile */
+@media (width <= 46.25rem) {
+  .main__photography {
+    padding-top: var(--space-xl);
+  }
+}
+
 .main__photography__wrapper {
+  padding: 0; /* Ensure no padding */
+  margin: 0; /* Ensure no margin */
   overflow: hidden;
   background: var(--color-blue);
-
-  /* background-color: #e8ffe7; */
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
 }
 
 .main__photography img {
-  /* will-change: transform;
-  transform: scale(1.25); */
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .photography {
@@ -181,6 +199,7 @@
 }
 
 .paragraph__1 {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: 'title content image';
@@ -215,6 +234,17 @@
 
 .paragraph__1 .paragraph__image {
   grid-area: image;
+  z-index: 2;
+}
+
+.paragraph__1 figcaption {
+  position: absolute;
+  top: 80%;
+  left: 80%;
+  font-size: var(--font-size-regular);
+  font-style: italic;
+  width: 13rem;
+  z-index: 1;
 }
 
 .paragraph__2 {
@@ -250,6 +280,12 @@
   grid-area: image;
 }
 
+.paragraph__2 figcaption {
+  font-size: var(--font-size-regular);
+  font-style: italic;
+  padding: var(--space-sm) 4px;
+}
+
 .paragraph__3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -280,6 +316,12 @@
   font-size: var(--font-size-1);
 }
 
+@media (width <= 46.25rem) {
+  .paragraph__3 .paragraph__content {
+    padding-top: var(--space-xxxxxl);
+  }
+}
+
 .paragraph__3 .paragraph__content h2 span {
   display: inline-block;
 }
@@ -294,12 +336,31 @@
   height: 70vh;
 }
 
+/* Mobile */
+@media (width <= 46.25rem) {
+  .imageGallery {
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--space-xxxl);
+    padding-bottom: var(--space-xl);
+    align-items: center;
+    height: 100%;
+  }
+}
+
 .imageGallery :nth-child(1) {
   position: absolute;
   top: 19%;
   left: 7%;
   width: 50%;
   transform: skew(15deg, 10deg);
+}
+
+@media (width <= 46.25rem) {
+  .imageGallery :nth-child(1) {
+    position: unset;
+    width: 100%;
+  }
 }
 
 .imageGallery :nth-child(2) {
@@ -310,12 +371,26 @@
   transform: skew(5deg, 5deg);
 }
 
+@media (width <= 46.25rem) {
+  .imageGallery :nth-child(2) {
+    position: unset;
+    width: 100%;
+  }
+}
+
 .imageGallery :nth-child(3) {
   position: absolute;
   top: 17%;
   left: 65%;
   width: 50%;
   transform: skew(3deg, 8deg);
+}
+
+@media (width <= 46.25rem) {
+  .imageGallery :nth-child(3) {
+    position: unset;
+    width: 100%;
+  }
 }
 
 .imageGallery :nth-child(4) {
@@ -326,12 +401,34 @@
   transform: skew(7deg, 7deg);
 }
 
+@media (width <= 46.25rem) {
+  .imageGallery :nth-child(4) {
+    position: unset;
+    width: 100%;
+  }
+}
+
 .imageGallery :nth-child(5) {
   position: absolute;
   top: 66%;
   left: 16%;
   width: 50%;
   transform: skew(10deg, 10deg);
+}
+
+@media (width <= 46.25rem) {
+  .imageGallery :nth-child(5) {
+    position: unset;
+    width: 100%;
+  }
+}
+
+.imageGallery figcaption {
+  position: absolute;
+  top: 108%;
+  left: 45%;
+  font-size: var(--font-size-regular);
+  font-style: italic;
 }
 
 /* .imageGallery img {
@@ -365,11 +462,6 @@
   grid-area: content;
   font-size: var(--font-size-1);
 }
-
-/* .paragraph__4 .paragraph__content2 {
-  grid-area: content2;
-  padding-top: var(--space-lg);
-} */
 
 .paragraph__5 {
   display: grid;
@@ -491,11 +583,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    'content1 . .'
+    '. content1 .'
     '. content2 .'
-    '. . content3';
+    '. content3 .';
   gap: var(--space-xl) 0;
-  padding-top: var(--space-xxxxxl);
+  padding-top: var(--space-xxxl);
 }
 
 @media (width <= 46.25rem) {
@@ -743,7 +835,7 @@
       'content2'
       'content3';
     gap: var(--space-md);
-    padding-top: var(--space-xl);
+    padding-top: var(--space-xxxxxl);
   }
 }
 
