@@ -3,9 +3,9 @@
 import { useGSAP } from '@gsap/react'
 import { Flip } from 'gsap/Flip'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ReactLenis, useLenis } from 'lenis/react'
+import { ReactLenis } from 'lenis/react'
 import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 
 import TransitionLink from '~/components/transition-link/page'
 import { gsap } from '~/lib/gsap'
@@ -44,6 +44,7 @@ const Page = () => {
   const paragraph3TitleRef = useRef<HTMLDivElement>(null)
   const paragraph3ContentRef = useRef<HTMLDivElement>(null)
 
+  const paragraph5Item1Ref = useRef<HTMLDivElement>(null)
   const paragraph5Item2Ref = useRef<HTMLDivElement>(null)
   const paragraph5Item3Ref = useRef<HTMLDivElement>(null)
   const paragraph5Ref = useRef<HTMLDivElement>(null)
@@ -59,341 +60,368 @@ const Page = () => {
   const paragraph13ContentRef = useRef<HTMLDivElement>(null)
   const paragraph13TitleRef = useRef<HTMLHeadingElement>(null)
 
+  const mm = gsap.matchMedia()
+
   useGSAP(() => {
-    if (
-      !titleLetters.current ||
-      !blogTitle.current ||
-      !descriptionRef.current ||
-      !dateRef.current ||
-      !playingCardsInTheSandPhotoRef.current ||
-      !paragraph5Item2Ref.current
-    ) {
-      return
-    }
-
-    // Target all p elements within descriptionRef.current
-    const paragraphs = descriptionRef.current.querySelectorAll('p')
-    const dateParagraphs = dateRef.current?.querySelectorAll('p')
-    gsap.set([paragraphs, dateParagraphs], { y: 50 })
-
-    gsap.from([blogTitle.current], {
-      yPercent: 130,
-      delay: 0.2,
-      stagger: 0.1
-    })
-
-    gsap.fromTo(
-      titleLetters.current.querySelectorAll('span'),
-      { autoAlpha: 0, yPercent: 100 },
-      { autoAlpha: 1, y: 0, stagger: 0.15, delay: 0.5 }
-    )
-
-    gsap.to([paragraphs, dateParagraphs], {
-      y: 0,
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: descriptionRef.current,
-        start: 'top 80%',
-        end: 'bottom 20%'
-        // scrub: true,
-        // markers: true
-      }
-    })
-
-    // Target the img tag inside netartPhotography.current
-    const imgElement =
-      playingCardsInTheSandPhotoRef.current.querySelector('img')
-    if (imgElement) {
-      gsap.fromTo(
-        imgElement,
-        { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
-        {
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          ease: 'power1.out',
-          duration: 2,
-          scrollTrigger: {
-            trigger: playingCardsInTheSandPhotoRef.current,
-            start: 'center bottom',
-            end: 'bottom top',
-            toggleActions: 'play none none none'
-          }
-        }
-      )
-    }
-    const imgElement2 =
-      standingOnTheBeachPhotoRef?.current?.querySelector('img')
-    if (imgElement2) {
-      gsap.fromTo(
-        imgElement2,
-        { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
-        {
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          ease: 'power1.out',
-          duration: 2,
-          scrollTrigger: {
-            trigger: standingOnTheBeachPhotoRef.current,
-            start: 'top -40%',
-            end: 'bottom top',
-            toggleActions: 'play none none none',
-            markers: true
-            // scrub: 3
-          }
-        }
-      )
-    }
-
-    const imgElement3 = womenPhotoRef.current.querySelector('img')
-    if (imgElement3) {
-      gsap.fromTo(
-        imgElement3,
-        { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
-        {
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          ease: 'power1.out',
-          duration: 2,
-          scrollTrigger: {
-            trigger: womenPhotoRef.current,
-            start: 'top -80%',
-            end: 'bottom top',
-            toggleActions: 'play none none none',
-            markers: true
-            // scrub: 3
-          }
-        }
-      )
-    }
-
-    // Paragraph 1 animations
-
-    // Set the same end value for all three elements
-    // const endValue = 'bottom -20%'
-
-    // Paragraph title animation
-    gsap.from(paragraph1TitleRef.current, {
-      scrollTrigger: {
-        trigger: paragraph1TitleRef.current,
-        start: 'top 20%',
-        end: 'bottom -20%',
-
-        pin: true,
-        pinSpacing: false,
-        scrub: 4
-        // markers: true
-      }
-    })
-
-    // Paragraph content animation
-
-    // Paragraph image animation
-    gsap.from(paragraph1ImageRef.current, {
-      scrollTrigger: {
-        trigger: paragraph1ImageRef.current,
-        start: 'top 20%',
-        // end: endValue,
-        end: 'bottom -20%',
-
-        // end: '+-' + paragraph1ImageRef.current.clientHeight,
-        pin: true
-        // pinSpacing: false,
-        // markers: true
-      }
-    })
-
-    // what is net art content
-    // Split the paragraph text into words and wrap each word in a span
-    const words = paragraph2DescriptiontRef.current.innerText.split(' ')
-    paragraph2DescriptiontRef.current.innerHTML = words
-      .map((word) => `<span class="word">${word}</span>`)
-      .join(' ')
-
-    // Select all the word spans
-    const wordSpans =
-      paragraph2DescriptiontRef.current.querySelectorAll('.word')
-
-    // Animate each word span
-    gsap.fromTo(
-      wordSpans,
-      { opacity: 0.1 },
+    mm.add(
       {
-        opacity: 1,
-        stagger: 0.1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: paragraph2DescriptiontRef.current,
-          start: 'top 90%',
-          end: 'bottom 20%',
-          // scrub: 4,
-          markers: true
+        isMobile: '(max-width: 500px)',
+        // if is min width is 500px and max width is 1000px
+        isDesktop: '(min-width: 500px) and (max-width: 1500px)',
+        isLargeScreen: '(min-width: 1500px)'
+      },
+      (context) => {
+        const conditions = context.conditions as {
+          isMobile: boolean
+          isDesktop: boolean
+          isLargeScreen: boolean
         }
+        const { isMobile, isDesktop, isLargeScreen } = conditions
+
+        if (
+          !titleLetters.current ||
+          !blogTitle.current ||
+          !descriptionRef.current ||
+          !dateRef.current ||
+          !playingCardsInTheSandPhotoRef.current ||
+          !paragraph5Item2Ref.current
+        ) {
+          return
+        }
+
+        // Target all p elements within descriptionRef.current
+        const paragraphs = descriptionRef.current.querySelectorAll('p')
+        const dateParagraphs = dateRef.current?.querySelectorAll('p')
+        gsap.set([paragraphs, dateParagraphs], { y: 50 })
+
+        gsap.from([blogTitle.current], {
+          yPercent: 130,
+          delay: 0.2,
+          stagger: 0.1
+        })
+
+        gsap.fromTo(
+          titleLetters.current.querySelectorAll('span'),
+          { autoAlpha: 0, yPercent: 100 },
+          { autoAlpha: 1, y: 0, stagger: 0.2, delay: 0.5 }
+        )
+
+        gsap.to([paragraphs, dateParagraphs], {
+          y: 0,
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: descriptionRef.current,
+            start: 'top 80%',
+            end: 'bottom 20%'
+            // scrub: true,
+            // markers: true
+          }
+        })
+
+        // Target the img tag inside netartPhotography.current
+        const imgElement =
+          playingCardsInTheSandPhotoRef.current.querySelector('img')
+        if (imgElement) {
+          gsap.fromTo(
+            imgElement,
+            { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
+            {
+              clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+              ease: 'power1.out',
+              duration: 2,
+              scrollTrigger: {
+                trigger: playingCardsInTheSandPhotoRef.current,
+                start: 'center bottom',
+                end: 'bottom top',
+                toggleActions: 'play none none none'
+              },
+              onComplete: () => {
+                gsap.set(playingCardsInTheSandPhotoRef.current, {
+                  background: 'transparent'
+                })
+              }
+            }
+          )
+        }
+        const imgElement2 =
+          standingOnTheBeachPhotoRef?.current?.querySelector('img')
+        if (imgElement2) {
+          gsap.fromTo(
+            imgElement2,
+            { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
+            {
+              clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+              ease: 'power1.out',
+              duration: 2,
+              scrollTrigger: {
+                trigger: standingOnTheBeachPhotoRef.current,
+                start: 'top -40%',
+                end: 'bottom top',
+                toggleActions: 'play none none none'
+
+                // scrub: 3
+              },
+              onComplete: () => {
+                gsap.set(standingOnTheBeachPhotoRef.current, {
+                  background: 'transparent'
+                })
+              }
+            }
+          )
+        }
+
+        const imgElement3 = womenPhotoRef?.current?.querySelector('img')
+        if (imgElement3) {
+          gsap.fromTo(
+            imgElement3,
+            { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
+            {
+              clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+              ease: 'power1.out',
+              duration: 2,
+              scrollTrigger: {
+                trigger: womenPhotoRef.current,
+                start: 'top -80%',
+                end: 'bottom top',
+                toggleActions: 'play none none none'
+                // scrub: 3
+              },
+              onComplete: () => {
+                gsap.set(womenPhotoRef.current, {
+                  background: 'transparent'
+                })
+              }
+            }
+          )
+        }
+
+        // Paragraph 1 animations
+
+        // Set the same end value for all three elements
+        // const endValue = 'bottom -20%'
+
+        // Paragraph title animation
+        if (!isMobile) {
+          gsap.from(paragraph1TitleRef.current, {
+            scrollTrigger: {
+              trigger: paragraph1TitleRef.current,
+              start: 'top 20%',
+              end: 'bottom -20%',
+
+              pin: true,
+              pinSpacing: false,
+              scrub: 4
+            }
+          })
+        }
+
+        // Paragraph content animation
+
+        // Paragraph image animation
+        gsap.from(paragraph1ImageRef.current, {
+          scrollTrigger: {
+            trigger: paragraph1ImageRef.current,
+            start: 'top 20%',
+            // end: endValue,
+            end: 'bottom -20%',
+
+            // end: '+-' + paragraph1ImageRef.current.clientHeight,
+            pin: true
+            // pinSpacing: false,
+            // markers: true
+          }
+        })
+
+        // what is net art content
+        // Split the paragraph text into words and wrap each word in a span
+        const words = paragraph2DescriptiontRef.current.innerText.split(' ')
+        paragraph2DescriptiontRef.current.innerHTML = words
+          .map((word) => `<span class="word">${word}</span>`)
+          .join(' ')
+
+        // Select all the word spans
+        const wordSpans =
+          paragraph2DescriptiontRef.current.querySelectorAll('.word')
+
+        // Animate each word span
+        gsap.fromTo(
+          wordSpans,
+          { opacity: 0.1 },
+          {
+            opacity: 1,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: paragraph2DescriptiontRef.current,
+              start: 'top 90%',
+              end: 'bottom 20%'
+              // scrub: 4,
+            }
+          }
+        )
+        gsap.fromTo(
+          paragraph2ContentRef.current,
+          {
+            opacity: 0.1
+          },
+          {
+            opacity: 1,
+            scrollTrigger: {
+              trigger: paragraph2ContentRef.current,
+              start: 'top 50%',
+              end: 'bottom 20%',
+              scrub: 4
+            }
+          }
+        )
+
+        // creating bebeto pizza
+        // Animate consonants in paragraph3TitleRef
+
+        gsap.from(
+          paragraph3ContentRef.current?.querySelectorAll('.consonant'),
+          {
+            scrollTrigger: {
+              trigger: paragraph3ContentRef.current,
+              start: 'top 100%',
+              end: 'bottom 20%',
+              scrub: 4
+            },
+            y: isMobile ? -350 : -500
+          }
+        )
+
+        // improve my project in three main apsects
+
+        if (isMobile) {
+          gsap.from(paragraph5Item1Ref.current, {
+            scrollTrigger: {
+              trigger: paragraph5Ref.current,
+              start: 'top 50%',
+              end: 'bottom 20%',
+              scrub: 4
+            },
+            x: -100
+          })
+        }
+        if (!isMobile) {
+          gsap.to(paragraph5Item2Ref.current, {
+            scrollTrigger: {
+              trigger: paragraph5Ref.current,
+              start: 'top 50%',
+              end: 'bottom 20%',
+              scrub: 4
+            },
+            x: -200
+          })
+        } else {
+          gsap.from(paragraph5Item2Ref.current, {
+            scrollTrigger: {
+              trigger: paragraph5Ref.current,
+              start: 'top 50%',
+              end: 'bottom 20%',
+              scrub: 4
+            },
+            x: 180
+          })
+        }
+
+        // Migrate my static site to a bundler tool
+
+        // Animation for the second target with increased transformation
+        if (!isMobile) {
+          gsap.to(paragraph5Item3Ref.current, {
+            scrollTrigger: {
+              trigger: paragraph5Ref.current,
+              start: 'top 50%',
+              end: 'bottom 20%',
+              scrub: 4
+            },
+            x: -400
+          })
+        } else {
+          gsap.from(paragraph5Item3Ref.current, {
+            scrollTrigger: {
+              trigger: paragraph5Ref.current,
+              start: 'top 50%',
+              end: 'bottom 20%',
+              scrub: 4
+            },
+            x: -100
+          })
+        }
+
+        // Challenges with ES Modules
+
+        if (!isMobile) {
+          gsap.to(paragraph9Item1Ref.current, {
+            scrollTrigger: {
+              trigger: paragraph9Ref.current,
+              start: 'top 50%',
+              end: 'bottom 20%',
+              scrub: 4
+            },
+            x: -200
+          })
+
+          gsap.from(paragraph9Item2Ref.current, {
+            scrollTrigger: {
+              trigger: paragraph9Ref.current,
+              start: 'top 50%',
+              end: 'bottom 20%',
+              scrub: 4
+            },
+            x: 200
+          })
+          gsap.to(paragraph9Item3Ref.current, {
+            scrollTrigger: {
+              trigger: paragraph9Ref.current,
+              start: 'top 50%',
+              end: 'bottom 20%',
+              scrub: 4
+            },
+            x: 200
+          })
+        }
+
+        // Implementing Webpack
+        gsap.from(paragraph10ContentRef.current, {
+          scrollTrigger: {
+            trigger: paragraph10ContentRef.current,
+            endTrigger: paragraph10Title2Ref.current,
+            start: 'top 10%',
+            // end: 'bottom 20%',
+            scrub: 4,
+            // markers: true,
+            pin: true,
+            pinSpacing: true
+          }
+        })
+
+        // Key Benefits of Webpack:
+
+        // Conclusion
+        gsap.to(paragraph13ContentRef.current, {
+          scrollTrigger: {
+            trigger: paragraph13ContentRef.current,
+            start: 'top 50%',
+            end: 'bottom 30%',
+            scrub: 4,
+            // markers: true,
+            pin: true,
+            pinSpacing: false,
+            onUpdate: (self) => {
+              const rotation = self.progress * 360 * 10
+              gsap.set(paragraph13TitleRef.current, { rotation })
+              const scale = 1 + self.progress * 5
+              gsap.set(paragraph13TitleRef.current, { scale })
+            }
+          },
+          xPercent: 20
+        })
       }
     )
-    gsap.fromTo(
-      paragraph2ContentRef.current,
-      {
-        opacity: 0.1
-      },
-      {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: paragraph2ContentRef.current,
-          start: 'top 50%',
-          end: 'bottom 20%',
-          scrub: 4,
-          markers: true
-        }
-      }
-    )
-
-    // gsap.fromTo(
-    //   [paragraph2ContentRef.current, paragraph2DescriptiontRef.current],
-    //   {
-    //     autoAlpha: 0.15
-    //     // y: 50
-    //   },
-    //   {
-    //     autoAlpha: 1,
-    //     y: 0,
-    //     stagger: 1,
-    //     ease: 'power4.inOut',
-    //     scrollTrigger: {
-    //       trigger: paragraph2ContentRef.current,
-    //       start: 'top 50%',
-    //       end: 'bottom 20%',
-    //       markers: true,
-    //       scrub: 4
-    //     }
-    //   }
-    // )
-
-    // creating bebeto pizza
-    // Animate consonants in paragraph3TitleRef
-
-    gsap.from(paragraph3ContentRef.current?.querySelectorAll('.consonant'), {
-      scrollTrigger: {
-        trigger: paragraph3ContentRef.current,
-        start: 'top 100%',
-        end: 'bottom 20%',
-        scrub: 4,
-        markers: true
-      },
-      y: -500
-    })
-
-    // Animation for the first target
-    gsap.to(paragraph5Item2Ref.current, {
-      scrollTrigger: {
-        trigger: paragraph5Ref.current,
-        start: 'top 50%',
-        end: 'bottom 20%',
-        scrub: 4,
-        markers: true
-      },
-      x: -200
-    })
-
-    // Migrate my static site to a bundler tool
-
-    // Animation for the second target with increased transformation
-    gsap.to(paragraph5Item3Ref.current, {
-      scrollTrigger: {
-        trigger: paragraph5Ref.current,
-        start: 'top 50%',
-        end: 'bottom 20%',
-        scrub: 4,
-        markers: true
-      },
-      x: -400
-    })
-
-    // Challenges with ES Modules
-    // gsap.from(paragraph9Ref.current.querySelectorAll('div'), {
-    //   scrollTrigger: {
-    //     trigger: paragraph9Ref.current,
-    //     start: 'top 50%',
-    //     end: 'bottom 20%',
-    //     scrub: 4,
-    //     markers: true
-    //   },
-    //   autoAlpha: 0,
-    //   stagger: 0.1
-    // })
-
-    // gsap.from(paragraph9Item1Ref.current, {
-    //   scrollTrigger: {
-    //     trigger: paragraph9Item1Ref.current,
-    //     start: 'top 80%',
-    //     end: 'bottom 20%',
-    //     scrub: 4,
-    //     markers: true
-    //   },
-    //   x: -200,
-    //   autoAlpha: 0
-    // })
-    // gsap.from(paragraph9Item2Ref.current, {
-    //   scrollTrigger: {
-    //     trigger: paragraph9Item2Ref.current,
-    //     start: 'top 80%',
-    //     end: 'bottom 20%',
-    //     scrub: 4,
-    //     markers: true
-    //   },
-    //   // skewX: '-12deg',
-    //   // skewY: '56deg',
-    //   scale: 0.5,
-    //   autoAlpha: 0
-    // })
-    // gsap.from(paragraph9Item3Ref.current, {
-    //   scrollTrigger: {
-    //     trigger: paragraph9Item3Ref.current,
-    //     start: 'top 80%',
-    //     end: 'bottom 20%',
-    //     scrub: 4,
-    //     markers: true
-    //   },
-    //   x: 200,
-    //   autoAlpha: 0
-    // })
-
-    // Implementing Webpack
-    gsap.from(paragraph10ContentRef.current, {
-      scrollTrigger: {
-        trigger: paragraph10ContentRef.current,
-        endTrigger: paragraph10Title2Ref.current,
-        start: 'top 10%',
-        // end: 'bottom 20%',
-        scrub: 4,
-        markers: true,
-        pin: true,
-        pinSpacing: true
-      }
-    })
-
-    // Key Benefits of Webpack:
-
-    // Conclusion
-    gsap.to(paragraph13ContentRef.current, {
-      scrollTrigger: {
-        trigger: paragraph13ContentRef.current,
-        start: 'top 50%',
-        end: 'bottom 30%',
-        scrub: 4,
-        markers: true,
-        pin: true,
-        pinSpacing: false,
-        onUpdate: (self) => {
-          const rotation = self.progress * 360 * 10
-          gsap.set(paragraph13TitleRef.current, { rotation })
-          const scale = 1 + self.progress * 10
-          gsap.set(paragraph13TitleRef.current, { scale })
-        }
-      },
-      xPercent: 20
-    })
   }, [])
-
-  const lenis = useLenis(({ scroll }) => {
-    // console.log(scroll)
-  })
 
   return (
     <ReactLenis root>
@@ -430,6 +458,13 @@ const Page = () => {
             <p>June 11, 2023.</p>
           </div>
         </section>
+        {/* <section className={s.main__photography}>
+          <ResponsiveImage
+            src={playingCardsInTheSand}
+            alt="Not forever art"
+            ref={playingCardsInTheSandPhotoRef}
+          />
+        </section> */}
         <section className={s.main__photography}>
           <div
             className={s.main__photography__wrapper}
@@ -437,6 +472,9 @@ const Page = () => {
           >
             <Image src={playingCardsInTheSand} alt="Not forever art" />
           </div>
+          <figcaption>
+            Fig 1. Playing cards in the sand. Porto, 2023.
+          </figcaption>
         </section>
         <article className={s.main}>
           <div className={s.paragraph__1}>
@@ -462,12 +500,23 @@ const Page = () => {
             </div> */}
             </div>
             <div className={s.paragraph__image} ref={paragraph1ImageRef}>
-              <Image src={mbcbftw} alt="My boyfriend came back from the war" />
+              <Image
+                src={mbcbftw}
+                alt="Screenshot of the net art work 'My boyfriend came back from the war'"
+              />
             </div>
+            <figcaption>
+              Screenshot of My Boyfriend Came Back From The War. Olia Lialina,
+              1996
+            </figcaption>
           </div>
           <div className={s.paragraph__2}>
             <div className={s.paragraph__image}>
               <Image src={diagram} alt="Net art diagram" />
+              <figcaption>
+                Abe Linkoln (Rick Silva), Complex Net Art Diagram, 2003 - a
+                response to MTAA's Simple Net Art Diagram (1997).
+              </figcaption>
             </div>
             <div className={s.paragraph__content}>
               <h2>
@@ -558,7 +607,7 @@ const Page = () => {
                 create a website to accompany a music album I was planning to
                 release. I designed the site to showcase different aspects of
                 the character I portrayed in my music. For this project, I drew
-                inspiration not only from the early net art movement but also
+                in spiration not only from the early net art movement but also
                 from concepts related to relational aesthetics in contemporary
                 art and works like Quehué by Marisa Rubio and exhibitions like
                 Experiencia Infinita at the Malba museum. My goal was to engage
@@ -683,6 +732,7 @@ const Page = () => {
             >
               <Image src={elviaje} alt="bebeto.pizza webpage" />
             </div>
+            <figcaption>Screenshots of bebeto.pizza, 2018.</figcaption>
           </section>
           <div className={s.paragraph__4}>
             <h2 className={s.paragraph__title}>3</h2>
@@ -713,7 +763,7 @@ const Page = () => {
           </div> */}
           </div>
           <div className={s.paragraph__5} ref={paragraph5Ref}>
-            <div className={s.paragraph__item1}>
+            <div className={s.paragraph__item1} ref={paragraph5Item1Ref}>
               <h2>Migrate my static site to a bundler tool:</h2>
               <p>
                 To improve performance, optimize builds, and utilize modern
@@ -737,9 +787,16 @@ const Page = () => {
               className={s.main__photography__wrapper}
               ref={standingOnTheBeachPhotoRef}
             >
-              <Image src={standingOnTheBeach} alt="Not forever art" />
+              <Image
+                src={standingOnTheBeach}
+                alt="A group of people standing on the beach"
+              />
             </div>
+            <figcaption>
+              Fig 2. A group of people standing on the beach. Porto, 2023.
+            </figcaption>
           </section>
+
           <div className={s.paragraph__6}>
             <h2 className={s.paragraph__title}>4</h2>
             <div className={s.paragraph__content}>
@@ -892,9 +949,6 @@ const Page = () => {
               </p>
             </div>
           </div>
-          {/* <section className={s.photography}>
-            <Image src={women} alt="A women getting out of a car with her purchases" />
-          </section> */}
           <section className={s.main__photography}>
             <div className={s.main__photography__wrapper} ref={womenPhotoRef}>
               <Image
@@ -902,7 +956,12 @@ const Page = () => {
                 alt="A women getting out of a car with her purchases"
               />
             </div>
+            <figcaption>
+              Fig 3. A women getting out of a car with her purchases. Lisbon,
+              2023.
+            </figcaption>
           </section>
+
           <div className={s.paragraph__12}>
             <h2 className={s.paragraph__title}>9</h2>
             <div className={s.paragraph__content}>
