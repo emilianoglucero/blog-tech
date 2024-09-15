@@ -238,7 +238,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
         <section className={s.page__draw}>
           <video autoPlay muted playsInline>
             <source
-              src="./assets/videos/drawing-in-black.mp4"
+              src="./assets/videos/drawing-in-black-compressed.mp4"
               type="video/mp4"
             />
           </video>
