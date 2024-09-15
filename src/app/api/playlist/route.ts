@@ -38,10 +38,12 @@ export async function GET(request: NextRequest) {
       description: playlistData.body.description,
       images: playlistData.body.images,
       external_urls: playlistData.body.external_urls,
-      tracks: playlistData.body.tracks.items.map((item) => ({
+      tracks: playlistData.body.tracks.items.map((item: { track: any }) => ({
         id: item.track.id,
         name: item.track.name,
-        artists: item.track.artists.map((artist) => artist.name),
+        artists: item.track.artists.map(
+          (artist: { name: string }) => artist.name
+        ),
         album: item.track.album.name,
         duration_ms: item.track.duration_ms,
         preview_url: item.track.preview_url
@@ -54,7 +56,11 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(transformedData)
   } catch (error) {
     console.error('Error fetching playlist:', error)
-    if (error.statusCode === 404) {
+    if (
+      error instanceof Error &&
+      'statusCode' in error &&
+      error.statusCode === 404
+    ) {
       return NextResponse.json({ error: 'Playlist not found' }, { status: 404 })
     }
     return NextResponse.json(
