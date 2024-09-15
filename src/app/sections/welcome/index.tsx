@@ -136,6 +136,24 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
     }
   }, [])
 
+  //Properly size images for different screen sizes
+  type Breakpoint = {
+    maxWidth: number
+    size: string
+  }
+
+  const breakpoints: Breakpoint[] = [
+    { maxWidth: 768, size: '100vw' },
+    { maxWidth: 1200, size: '50vw' },
+    { maxWidth: Infinity, size: '33vw' }
+  ]
+
+  const calculateSizes = (breakpoints: Breakpoint[]): string => {
+    return breakpoints
+      .map((bp) => `(max-width: ${bp.maxWidth}px) ${bp.size}`)
+      .join(', ')
+  }
+
   return (
     <>
       <div className={s.welcome}>
@@ -190,7 +208,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
 
         <menu className={s.posts__links}>
           {posts.docs.map((post: Post, index: number) => (
-            <div className={s.posts__links__item} key={post.id}>
+            <ul className={s.posts__links__item} key={post.id}>
               <li
                 ref={(el) => {
                   linksRefDecoration.current[index] = el
@@ -222,7 +240,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
                         alt={post.meta.image.alt}
                         width={post.meta.image.width ?? 0}
                         height={post.meta.image.height ?? 0}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        sizes={calculateSizes(breakpoints)}
                         priority={index === 0}
                         loading={index === 0 ? 'eager' : 'lazy'}
                         style={{
@@ -232,7 +250,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
                     </div>
                   )}
               </li>
-            </div>
+            </ul>
           ))}
         </menu>
         <section className={s.page__draw}>
