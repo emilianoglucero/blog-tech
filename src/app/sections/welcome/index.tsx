@@ -121,17 +121,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
   }, [])
 
   useEffect(() => {
-    const colors = [
-      // '#f0b737',
-      // '#e4472f',
-      // '#149366',
-      // '#5569a6',
-      //#e8ffe7',
-      // '#0038ff',
-      // '#0f0',
-      '#e7e7e7',
-      '#27272a'
-    ]
+    const colors = ['#e7e7e7', '#27272a']
 
     if (descriptionRef.current) {
       const letters = descriptionRef.current.querySelectorAll('span')
@@ -155,7 +145,11 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
             alt="Photo of the author of the blog - Emiliano Lucero"
             width={869}
             height={1303}
-            loading="lazy"
+            sizes="(max-width: 1120px) 420px,
+             (max-width: 1880px) 680px,
+             (max-width: 2680px) 869px,
+             (max-width: 3000px) 1120px,
+             1320px"
           />
         </div>
         <div className={s.header}>
@@ -228,7 +222,9 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
                         alt={post.meta.image.alt}
                         width={post.meta.image.width ?? 0}
                         height={post.meta.image.height ?? 0}
-                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority={index === 0}
+                        loading={index === 0 ? 'eager' : 'lazy'}
                         style={{
                           float: 'right'
                         }}
