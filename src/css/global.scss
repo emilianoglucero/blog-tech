@@ -16,6 +16,8 @@
   --color-gray: #0f0f0f;
   --color-gray-lighter: #262626;
   --color-blue: #0038ff;
+  --color-green: #0f0;
+  --color-light-green: #e8ffe7;
   --primary-color: #e7e7e7;
   --secondary-color: #27272a;
 
@@ -31,6 +33,7 @@
   // Breakpoints
   --breakpoint-laptop: 93.75rem; /* Equivalent to 1500px */
   --breakpoint-tablet: 68.75rem; /* Equivalent to 1100px */
+  --breakpoint-mobile: 46.25rem; /* Equivalent to 740px */
 
   // base
   --base-padding-mobile: 1.6rem;
@@ -40,7 +43,34 @@
   // Font Sizes
   --font-size-title: 1.25rem;
   --font-size-regular: 1rem;
-  --font-size-title-huge: 9.28rem;
+  --font-size-1: 1.25rem;
+  --font-size-2: 1.5625rem;
+  --font-size-3: 1.95rem;
+  --font-size-4: 2.44rem;
+  --font-size-5: 3.05rem;
+  --font-size-6: 3.81rem;
+  --font-size-7: 4.76rem;
+  --font-size-8: 5.96rem;
+  --font-size-9: 7.45rem;
+  --font-size-10: 9.31rem;
+  --font-size-11: 11.64rem;
+  --font-size-12: 14.55rem;
+  --font-size-13: 18.18rem;
+
+  /* spacing values */
+  --space-unit: 1rem;
+  --space-xxxs: calc(0.25 * var(--space-unit));
+  --space-xxs: calc(0.375 * var(--space-unit));
+  --space-xs: calc(0.5 * var(--space-unit));
+  --space-sm: calc(0.75 * var(--space-unit));
+  --space-md: calc(1.25 * var(--space-unit));
+  --space-lg: calc(2 * var(--space-unit));
+  --space-xl: calc(3.25 * var(--space-unit));
+  --space-xxl: calc(5.25 * var(--space-unit));
+  --space-xxxl: calc(8.5 * var(--space-unit));
+  --space-xxxxl: calc(13.75 * var(--space-unit));
+  --space-xxxxxl: calc(22.25 * var(--space-unit));
+  --space-xxxxxxl: calc(35.75 * var(--space-unit));
 }
 
 html {

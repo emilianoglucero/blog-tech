@@ -13,7 +13,6 @@ import authorPic from '../../images/author/emi.jpg'
 import s from './welcome.module.css'
 
 const Welcome = ({ posts }: { posts: PostsResponse }) => {
-  console.log('Welcome -> posts', posts)
   const linksRefDecoration = useRef<Record<number, HTMLLIElement | null>>({})
   const linksRefText = useRef<Record<number, HTMLSpanElement | null>>({})
   const authorPhotoRef = useRef<HTMLDivElement>(null)
@@ -123,14 +122,14 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
 
   useEffect(() => {
     const colors = [
-      '#f0b737',
-      '#e4472f',
-      '#149366',
-      '#5569a6',
-      '#0038ff',
-      '#27272a',
-      '#27272a',
-      '#27272a',
+      // '#f0b737',
+      // '#e4472f',
+      // '#149366',
+      // '#5569a6',
+      //#e8ffe7',
+      // '#0038ff',
+      // '#0f0',
+      '#e7e7e7',
       '#27272a'
     ]
 

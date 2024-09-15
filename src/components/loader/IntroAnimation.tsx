@@ -10,7 +10,7 @@ import { gsap } from '~/lib/gsap'
 import LoaderOverlay from '../loader-overlay'
 import s from './loader.module.css'
 
-const Loader = () => {
+const IntroAnimation = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const textContainerOverlayRef = useRef<HTMLDivElement | null>(null)
   const asciiContainerRef = useRef<HTMLPreElement | null>(null)
@@ -411,4 +411,4 @@ const Loader = () => {
   )
 }
 
-export default Loader
+export default IntroAnimation
