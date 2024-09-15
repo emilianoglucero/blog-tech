@@ -5,7 +5,7 @@
   /* padding: 20px; */
   background-color: var(--color-blue);
   font-family: var(--font-open);
-  border: solid 2px #e8ffe7;
+  border: solid 2px var(--color-light-green);
   color: var(--primary-color);
 }
 
@@ -26,11 +26,7 @@
 }
 
 .headerContent {
-  /* display: flex;
-  align-items: flex-start; */
   display: grid;
-
-  /* gap: 24px; */
   grid-template:
     'name name'
     'description image'
@@ -52,7 +48,7 @@
 
 .playlistImage {
   grid-area: image;
-  border-bottom: 1px solid #e8ffe7;
+  border-bottom: 1px solid var(--color-light-green);
 }
 
 .playlistImage img {
@@ -68,7 +64,7 @@
 
 .playlistName h1 {
   padding: 1rem;
-  border-bottom: 1px solid #e8ffe7;
+  border-bottom: 1px solid var(--color-light-green);
 }
 
 .playlistDescription {
@@ -78,50 +74,32 @@
   flex-direction: column;
   justify-content: end;
   padding: 1.25rem;
-  border-bottom: 1px solid #e8ffe7;
+  border-bottom: 1px solid var(--color-light-green);
+  border-right: 1px solid var(--color-light-green);
+  text-wrap: pretty;
 }
 
 .openSpotifyLink {
-  /* display: inline-block;
-  background-color: #1db954;
-  color: #fff;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.2s; */
   grid-area: openSpotifyLink;
   padding: 1rem;
   height: 8rem;
   display: flex;
   flex-direction: column-reverse;
-  border-bottom: 1px solid #e8ffe7;
+  border-bottom: 1px solid var(--color-light-green);
   font-size: var(--font-size-2);
   text-align: end;
 }
 
 .openSpotifyLink a {
   text-decoration: underline;
-  text-decoration-color: #e8ffe7;
+  text-decoration-color: var(--color-light-green);
   text-underline-offset: 0.3ex;
   text-decoration-thickness: 0.15ex;
 }
 
 .openSpotifyLink a:hover {
-  color: #e8ffe7;
+  color: var(--color-light-green);
   text-decoration: none;
-}
-
-.openSpotifyLink:hover,
-.openSpotifyLink:focus {
-  /* background-color: #1ed760;
-  outline: none;
-  box-shadow: 0 0 0 2px #fff; */
-}
-
-.cardContent {
-  /* padding: 1rem; */
 }
 
 .trackList {
@@ -134,7 +112,7 @@
   display: flex;
   align-items: end;
   padding: 1rem;
-  border-bottom: 1px solid #e8ffe7;
+  border-bottom: 1px solid var(--color-light-green);
   gap: 1rem;
 }
 
@@ -154,6 +132,7 @@
 .trackName {
   font-size: 16px;
   margin: 0 0 4px;
+  text-wrap: balance;
 }
 
 .trackArtists {
@@ -186,7 +165,7 @@
 .error {
   text-align: center;
   font-size: var(--font-size-9);
-  color: #e8ffe7;
+  color: var(--color-light-green);
   padding: 20px;
 }
 
