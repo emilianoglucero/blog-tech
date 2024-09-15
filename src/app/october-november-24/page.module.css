@@ -28,7 +28,7 @@
   position: relative;
   padding: 1rem;
   background-color: var(--color-blue);
-  border: 2px solid #e8ffe7;
+  border: 2px solid var(--color-light-green);
 }
 
 .blog__title a {
@@ -39,18 +39,16 @@
   font-size: var(--font-size-3);
   font-family: var(--font-open);
   margin-top: var(--space-xl);
-
-  /* border: solid 2px #e8ffe7; */
 }
 
 .title__words__wrapper {
-  border: solid 2px #e8ffe7;
+  border: solid 2px var(--color-light-green);
   padding: 4rem;
   background-color: var(--color-blue);
 }
 
 .description {
-  border: solid 2px #e8ffe7;
+  border: solid 2px var(--color-light-green);
   padding: 5rem;
   background-color: var(--color-blue);
   width: 29rem;
@@ -84,7 +82,22 @@
 }
 
 .photo__wrapper img {
-  border: 2px solid #e8ffe7;
+  border: 2px solid var(--color-light-green);
+}
+
+.photo__wrapper figcaption {
+  font-size: var(--font-size-regular);
+  font-family: var(--font-open);
+  overflow: hidden;
+  line-height: 1.1;
+  margin: -4rem -1rem 4rem;
+}
+
+.photo__wrapper figcaption span {
+  display: inline-block;
+  position: relative;
+  padding: 0.5rem 2rem 4rem;
+  border: 2px solid var(--color-light-green);
 }
 
 .player__wrapper {
@@ -92,7 +105,7 @@
 }
 
 .canvas {
-  border: solid 2px #e8ffe7;
+  border: solid 2px var(--color-light-green);
   padding: 2rem;
   width: 15rem;
   height: 34rem;
@@ -112,7 +125,7 @@
 }
 
 .canvas__two {
-  border: solid 2px #e8ffe7;
+  border: solid 2px var(--color-light-green);
   border-radius: 50%;
   margin-top: -19rem;
   cursor: grab;
@@ -125,7 +138,7 @@
 }
 
 .canvas__three {
-  border: solid 2px #e8ffe7;
+  border: solid 2px var(--color-light-green);
   padding: 2rem;
   width: 14rem;
   height: 14rem;
@@ -137,7 +150,7 @@
 }
 
 .canvas__four {
-  border: solid 2px #e8ffe7;
+  border: solid 2px var(--color-light-green);
   padding: 2rem;
   width: 8%;
   height: 100%;
@@ -163,4 +176,14 @@
   background-color: var(--secondary-color);
   z-index: 9999; /* Ensure it is on top of other elements */
   clip-path: inset(0 0 0 0); /* Initial state covering the entire screen */
+}
+
+.footer {
+  padding-top: var(--space-xxl);
+}
+
+@media (width <= 46.25rem) {
+  .footer {
+    padding-top: var(--space-xl);
+  }
 }

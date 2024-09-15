@@ -31,18 +31,20 @@ const Page = () => {
       <div className={s.container}>
         <div className={s.header}>
           <div className={s.blog__title}>
-            <TransitionLink href="/">
-              <p>
-                <span>hola :)</span>
-              </p>
-            </TransitionLink>
+            <p>
+              <TransitionLink href="/">
+                <span>I 🖤 my computer job</span>
+              </TransitionLink>
+            </p>
           </div>
 
           <h1 className={s.title}>
             <div className={s.title__words__wrapper}>
-              <span>ESTE</span> <br />
-              <span> JUEVES!</span> <br />
-              <span> EN FLOYD!</span>
+              <span>Hey!</span> <br />
+              <span> Hey!</span> <br />
+              <span> You!</span>
+              <br />
+              <span> You!</span>
             </div>
           </h1>
         </div>
@@ -50,9 +52,8 @@ const Page = () => {
         <section>
           <div className={s.description}>
             <p>
-              Ciclo Jit Jot Vol 10: <br />
-              Lauri Fire + <br /> El Nombre Secreto + <br /> Los Rayos <br />
-              22hs
+              Ambient Textures: <br />A curated selection of sounds in the shape
+              of a playlist every two-months
             </p>
           </div>
         </section>
@@ -63,6 +64,11 @@ const Page = () => {
             width={400}
             height={400}
           />
+          <figcaption className={s.photo__caption}>
+            <p>
+              <span>Kids having fun in Sonar Festival, Barcelona, 2023</span>
+            </p>
+          </figcaption>
         </section>
         <Draggable>
           <section className={s.canvas}>
@@ -87,6 +93,15 @@ const Page = () => {
         <section className={s.player__wrapper}>
           <SpotifyPlaylist playlistId="1tcGJDiXPCR4uCkDd0ChYG" />
         </section>
+        <footer className={s.footer}>
+          <div className={s.blog__title}>
+            <p>
+              <TransitionLink href="/">
+                <span>I 🖤 my computer job</span>
+              </TransitionLink>
+            </p>
+          </div>
+        </footer>
       </div>
     </>
   )
