@@ -20,7 +20,7 @@ export const AppHooks = () => {
   // TODO delete this basement log if not a basement project.
   if (isProd && isClient) {
     // eslint-disable-next-line no-console
-    console.log(basementLog)
+    // console.log(basementLog)
   }
 
   if (gaTrackingId) useAppGA()

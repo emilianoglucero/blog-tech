@@ -29,7 +29,6 @@ interface SpotifyPlaylistProps {
 
 export default function SpotifyPlaylist({ playlistId }: SpotifyPlaylistProps) {
   const [playlist, setPlaylist] = useState<Playlist | null>(null)
-  console.log(playlist)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null)

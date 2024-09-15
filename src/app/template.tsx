@@ -11,10 +11,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
   useGSAP(() => {
     if (pathName === '/') {
-      console.log('animateHomePageIn')
       animateHomePageIn()
     } else {
-      console.log('animatePostPageIn')
       animatePostPageIn()
     }
   })
