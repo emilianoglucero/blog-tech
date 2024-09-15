@@ -153,6 +153,9 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
           <Image
             src={authorPic}
             alt="Photo of the author of the blog - Emiliano Lucero"
+            width={869}
+            height={1303}
+            loading="lazy"
           />
         </div>
         <div className={s.header}>
@@ -225,6 +228,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
                         alt={post.meta.image.alt}
                         width={post.meta.image.width ?? 0}
                         height={post.meta.image.height ?? 0}
+                        loading="lazy"
                         style={{
                           float: 'right'
                         }}

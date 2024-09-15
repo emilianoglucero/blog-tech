@@ -9,7 +9,7 @@ import SpotifyPlaylist from '~/components/spotify/SpotifyPlaylist'
 import TransitionLink from '~/components/transition-link/page'
 import { gsap } from '~/lib/gsap'
 
-import kidsInConcert from '../images/playlist-sep-oct-24/playlist-sep-oct.jpg'
+import kidsInConcert from '../images/playlist-sep-oct-24/playlist-oct-nov.jpg'
 import s from './page.module.css'
 import Scene from './Scene'
 
