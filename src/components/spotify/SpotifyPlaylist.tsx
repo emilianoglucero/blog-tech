@@ -1,5 +1,5 @@
 'use client'
-
+import DOMPurify from 'dompurify'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
@@ -29,6 +29,7 @@ interface SpotifyPlaylistProps {
 
 export default function SpotifyPlaylist({ playlistId }: SpotifyPlaylistProps) {
   const [playlist, setPlaylist] = useState<Playlist | null>(null)
+  console.log(playlist)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null)
@@ -110,8 +111,7 @@ export default function SpotifyPlaylist({ playlistId }: SpotifyPlaylistProps) {
         <div className={styles.cardHeader}>
           <div className={styles.headerContent}>
             <div className={styles.playlistName}>
-              {/* <h1>{playlist.name}</h1> */}
-              ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+              <h1>{playlist.name}</h1>
             </div>
             <div className={styles.playlistImage}>
               <Image
@@ -122,7 +122,11 @@ export default function SpotifyPlaylist({ playlistId }: SpotifyPlaylistProps) {
               />
             </div>
             <div className={styles.playlistDescription}>
-              <p>{playlist.description}</p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(playlist.description)
+                }}
+              ></p>
             </div>
             <div className={styles.openSpotifyLink}>
               <a
