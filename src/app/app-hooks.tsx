@@ -5,13 +5,7 @@ import gsap from 'gsap'
 import React, { useEffect } from 'react'
 
 import { useAppStore } from '~/context/use-app-store'
-import {
-  basementLog,
-  gaTrackingId,
-  isClient,
-  isDev,
-  isProd
-} from '~/lib/constants'
+import { gaTrackingId, isClient, isDev, isProd } from '~/lib/constants'
 import { GAScripts, useAppGA } from '~/lib/ga'
 
 gsap.registerPlugin(useGSAP)
