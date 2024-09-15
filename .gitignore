@@ -38,3 +38,6 @@ yarn-error.log*
 # vercel
 .vercel
 tsconfig.tsbuildinfo
+
+# Yarn lock file
+package-lock.json
