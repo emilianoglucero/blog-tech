@@ -116,12 +116,12 @@ const MainArticle = () => {
                 start: 'center bottom',
                 end: 'bottom top',
                 toggleActions: 'play none none none'
-              },
-              onComplete: () => {
-                gsap.set(playingCardsInTheSandPhotoRef.current, {
-                  background: 'transparent'
-                })
               }
+              // onComplete: () => {
+              //   gsap.set(playingCardsInTheSandPhotoRef.current, {
+              //     background: 'transparent'
+              //   })
+              // }
             }
           )
         }
@@ -142,12 +142,12 @@ const MainArticle = () => {
                 toggleActions: 'play none none none'
 
                 // scrub: 3
-              },
-              onComplete: () => {
-                gsap.set(standingOnTheBeachPhotoRef.current, {
-                  background: 'transparent'
-                })
               }
+              // onComplete: () => {
+              //   gsap.set(standingOnTheBeachPhotoRef.current, {
+              //     background: 'transparent'
+              //   })
+              // }
             }
           )
         }
@@ -168,12 +168,12 @@ const MainArticle = () => {
                 toggleActions: 'play none none none'
                 // markers: true
                 // scrub: 3
-              },
-              onComplete: () => {
-                gsap.set(womenPhotoRef.current, {
-                  background: 'transparent'
-                })
               }
+              // onComplete: () => {
+              //   gsap.set(womenPhotoRef.current, {
+              //     background: 'transparent'
+              //   })
+              // }
             }
           )
         }

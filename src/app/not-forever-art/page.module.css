@@ -155,7 +155,8 @@
   padding: 0; /* Ensure no padding */
   margin: 0; /* Ensure no margin */
   overflow: hidden;
-  background: var(--color-blue);
+
+  /* background: var(--color-blue); */
   position: relative;
   width: 100%;
   height: 0;
