@@ -116,6 +116,7 @@ const MainArticle = () => {
                 start: 'center bottom',
                 end: 'bottom top',
                 toggleActions: 'play none none none'
+                // markers: true
               }
               // onComplete: () => {
               //   gsap.set(playingCardsInTheSandPhotoRef.current, {
@@ -140,6 +141,7 @@ const MainArticle = () => {
                 start: 'top -40%',
                 end: 'bottom top',
                 toggleActions: 'play none none none'
+                // markers: true
 
                 // scrub: 3
               }
@@ -273,9 +275,10 @@ const MainArticle = () => {
           gsap.from(paragraph5Item1Ref.current, {
             scrollTrigger: {
               trigger: paragraph5Ref.current,
-              start: 'top 50%',
+              start: 'top 90%',
               end: 'bottom 20%',
               scrub: 4
+              // markers: true
             },
             x: -100
           })
@@ -294,9 +297,10 @@ const MainArticle = () => {
           gsap.from(paragraph5Item2Ref.current, {
             scrollTrigger: {
               trigger: paragraph5Ref.current,
-              start: 'top 50%',
+              start: 'top 90%',
               end: 'bottom 20%',
               scrub: 4
+              // markers: true
             },
             x: 180
           })
@@ -319,9 +323,10 @@ const MainArticle = () => {
           gsap.from(paragraph5Item3Ref.current, {
             scrollTrigger: {
               trigger: paragraph5Ref.current,
-              start: 'top 50%',
+              start: 'top 90%',
               end: 'bottom 20%',
               scrub: 4
+              // markers: true
             },
             x: -100
           })
@@ -389,7 +394,7 @@ const MainArticle = () => {
             onUpdate: (self) => {
               const rotation = self.progress * 360 * 10
               gsap.set(paragraph13TitleRef.current, { rotation })
-              const scale = 1 + self.progress * 2.5
+              const scale = 1 + self.progress * (isMobile ? 0.75 : 2.5)
               gsap.set(paragraph13TitleRef.current, { scale })
             }
           },

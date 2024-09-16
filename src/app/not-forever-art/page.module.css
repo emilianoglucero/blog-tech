@@ -248,6 +248,14 @@
   z-index: 1;
 }
 
+@media (width <= 46.25rem) {
+  .paragraph__1 figcaption {
+    top: 90%;
+    left: 18%;
+    width: 64%;
+  }
+}
+
 .paragraph__2 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -430,6 +438,15 @@
   left: 45%;
   font-size: var(--font-size-regular);
   font-style: italic;
+}
+
+@media (width <= 46.25rem) {
+  .imageGallery figcaption {
+    position: unset;
+    top: 0;
+    left: 0;
+    padding-top: var(--space-xxl);
+  }
 }
 
 /* .imageGallery img {
