@@ -413,7 +413,7 @@ const MainArticle = () => {
         className={s.main__photography}
         ref={playingCardsInTheSandPhotoRef}
       />
-      <Paragraph number="1" className={s.paragraph__1}>
+      <Paragraph className={s.paragraph__1}>
         <h2 className={s.paragraph__title} ref={paragraph1TitleRef}>
           1
         </h2>
@@ -509,24 +509,29 @@ const MainArticle = () => {
         </div>
       </Paragraph>
 
-      <Paragraph number="2" className={s.paragraph__3}>
+      <Paragraph className={s.paragraph__3}>
         <h2 className={s.paragraph__title} ref={paragraph3TitleRef}>
           2
         </h2>
         <div className={s.paragraph__content}>
           <h2 ref={paragraph3ContentRef}>
             {/* 'Creating bebeto.pizza'*/}
-            <span className="consonant">C</span>
-            <span className="consonant">r</span>ea
-            <span className="consonant">t</span>i
-            <span className="consonant">n</span>
-            <span className="consonant">g</span>{' '}
-            <span className="consonant">b</span>e
-            <span className="consonant">b</span>e
-            <span className="consonant">t</span>o.
-            <span className="consonant">p</span>i
-            <span className="consonant">z</span>
-            <span className="consonant">z</span>a
+            <div>
+              <span className="consonant">C</span>
+              <span className="consonant">r</span>ea
+              <span className="consonant">t</span>i
+              <span className="consonant">n</span>
+              <span className="consonant">g</span>
+              <span className="consonant"> </span>
+            </div>
+            <div>
+              <span className="consonant">b</span>e
+              <span className="consonant">b</span>e
+              <span className="consonant">t</span>o.
+              <span className="consonant">p</span>i
+              <span className="consonant">z</span>
+              <span className="consonant">z</span>a
+            </div>
           </h2>
           <p>
             In 2016, while learning web development, I had the idea to create a

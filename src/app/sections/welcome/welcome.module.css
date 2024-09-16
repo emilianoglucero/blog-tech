@@ -199,6 +199,7 @@
   font-weight: 380;
   display: inline-block;
   position: relative;
+  text-wrap: balance;
 }
 
 .footer .author_email {

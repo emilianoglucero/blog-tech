@@ -69,10 +69,10 @@ const Header = () => {
       <div className={s.subtitle}>
         <div className={s.description} ref={descriptionRef}>
           <div className={s.description__wrapper}>
-            <p>Some thoughts about maintaining</p>
-          </div>
-          <div className={s.description__wrapper}>
-            <p> my net art project through the years.</p>
+            <p>
+              Some thoughts about maintaining my net art project through the
+              years.
+            </p>
           </div>
         </div>
       </div>
