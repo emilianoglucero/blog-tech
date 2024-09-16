@@ -77,7 +77,8 @@
 @media (width <= 46.25rem) {
   .photo__wrapper {
     margin: 0;
-    padding-bottom: 4rem;
+    padding-bottom: var(--space-xxl);
+    padding-top: var(--space-xl);
   }
 }
 
@@ -98,10 +99,6 @@
   position: relative;
   padding: 0.5rem 2rem 4rem;
   border: 2px solid var(--color-light-green);
-}
-
-.player__wrapper {
-  padding-top: 6rem;
 }
 
 .canvas {
