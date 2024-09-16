@@ -1,6 +1,8 @@
 'use client'
 
+import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import React from 'react'
 
 import { animateHomePageOut, animatePostPageOut } from '~/utils/animations'
 
@@ -13,11 +15,17 @@ interface TransitionLinkProps {
   onMouseLeave?: () => void
 }
 
-const TransitionLink = ({ href, children }: TransitionLinkProps) => {
+const TransitionLink: React.FC<TransitionLinkProps> = ({
+  href,
+  children,
+  onMouseEnter,
+  onMouseLeave
+}) => {
   const router = useRouter()
   const pathname = usePathname()
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
     if (pathname !== href) {
       if (href === '/') {
         animatePostPageOut(href, router)
@@ -28,9 +36,15 @@ const TransitionLink = ({ href, children }: TransitionLinkProps) => {
   }
 
   return (
-    <a className={s.transition__link} onClick={handleClick}>
+    <Link
+      href={href}
+      className={s.transition__link}
+      onClick={handleClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {children}
-    </a>
+    </Link>
   )
 }
 

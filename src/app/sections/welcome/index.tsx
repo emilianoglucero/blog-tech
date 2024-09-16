@@ -30,25 +30,22 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
   const { isMobile, isTouch } = useDeviceDetect()
 
   // Modify the event handlers to check for mobile or touch devices
-  const handleBlogHover = (e: React.MouseEvent<HTMLElement>, id: number) => {
-    if (isMobile || isTouch) return // Do nothing if it's a mobile or touch device
+  const handleBlogHover = (id: number) => {
+    if (isMobile || isTouch) return
     const element = blogImagesRef.current[id]
     if (element) {
       gsap.to(element, {
-        autoAlpha: e ? 1 : 0
+        autoAlpha: 1
       })
     }
   }
 
-  const handleBlogHoverExit = (
-    e: React.MouseEvent<HTMLElement>,
-    id: number
-  ) => {
-    if (isMobile || isTouch) return // Do nothing if it's a mobile or touch device
+  const handleBlogHoverExit = (id: number) => {
+    if (isMobile || isTouch) return
     const element = blogImagesRef.current[id]
     if (element) {
       gsap.to(element, {
-        autoAlpha: e ? 0 : 1
+        autoAlpha: 0
       })
     }
   }
@@ -206,7 +203,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
           </div>
         </div>
 
-        <menu className={s.posts__links}>
+        <nav className={s.posts__links}>
           {posts.docs.map((post: Post, index: number) => (
             <ul className={s.posts__links__item} key={post.id}>
               <li
@@ -220,10 +217,12 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
                   ref={(el) => {
                     linksRefText.current[index] = el
                   }}
-                  onMouseEnter={(e) => handleBlogHover(e, index)}
-                  onMouseLeave={(e) => handleBlogHoverExit(e, index)}
                 >
-                  <TransitionLink href={`/${post.slug}`}>
+                  <TransitionLink
+                    href={`/${post.slug}`}
+                    onMouseEnter={() => handleBlogHover(index)}
+                    onMouseLeave={() => handleBlogHoverExit(index)}
+                  >
                     {post.title}, {post.subtitle}, {post.dateToShow}
                   </TransitionLink>
                 </span>
@@ -238,8 +237,8 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
                       <Image
                         src={post.meta.image.url}
                         alt={post.meta.image.alt}
-                        width={post.meta.image.width ?? 0}
-                        height={post.meta.image.height ?? 0}
+                        width={post.meta.image.width || 0}
+                        height={post.meta.image.height || 0}
                         sizes={calculateSizes(breakpoints)}
                         priority={index === 0}
                         loading={index === 0 ? 'eager' : 'lazy'}
@@ -252,7 +251,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
               </li>
             </ul>
           ))}
-        </menu>
+        </nav>
         <section className={s.page__draw}>
           <video autoPlay muted playsInline>
             <source
