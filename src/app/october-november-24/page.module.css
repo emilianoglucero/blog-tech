@@ -57,6 +57,14 @@
   left: 60%;
 }
 
+/* Tablets from 550-1100px */
+
+@media (width <= 68.75rem) {
+  .description {
+    left: 29%;
+  }
+}
+
 @media (width <= 46.25rem) {
   .description {
     width: 60%;

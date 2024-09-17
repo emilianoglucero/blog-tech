@@ -85,7 +85,27 @@ export default function SpotifyPlaylist({ playlistId }: SpotifyPlaylistProps) {
   if (isLoading) {
     return (
       <div className={styles.loading} aria-live="polite">
+        ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+        <br />
         Loading playlist...
+        <br />
+        ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ <br />
+        ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+        <br />
+        ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+        <br />
+        ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+        <br />
+        ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+        <br />
+        ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+        <br />
+        ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+        <br />
+        ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+        <br />
+        ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+        <br />
       </div>
     )
   }
