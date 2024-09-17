@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: '%s | Emiliano Lucero'
   },
   metadataBase: siteURL,
-  description: `Writings, music, technology, explorations and stuff.`,
+  description: `Writing, music, technology. And stuff.`,
   icons: [
     {
       rel: 'apple-touch-icon',
