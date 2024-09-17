@@ -60,18 +60,18 @@ const MainArticle = () => {
   useGSAP(() => {
     mm.add(
       {
-        isMobile: '(max-width: 500px)',
+        isMobileAndTablet: '(max-width: 1100px)',
         // if is min width is 500px and max width is 1000px
         isDesktop: '(min-width: 500px) and (max-width: 1500px)',
         isLargeScreen: '(min-width: 1500px)'
       },
       (context) => {
         const conditions = context.conditions as {
-          isMobile: boolean
+          isMobileAndTablet: boolean
           isDesktop: boolean
           isLargeScreen: boolean
         }
-        const { isMobile } = conditions
+        const { isMobileAndTablet } = conditions
 
         if (
           !playingCardsInTheSandPhotoRef.current ||
@@ -185,7 +185,7 @@ const MainArticle = () => {
         // Set the same end value for all three elements
 
         // Paragraph title animation
-        if (!isMobile) {
+        if (!isMobileAndTablet) {
           gsap.from(paragraph1TitleRef.current, {
             scrollTrigger: {
               trigger: paragraph1TitleRef.current,
@@ -265,13 +265,13 @@ const MainArticle = () => {
               end: 'bottom 20%',
               scrub: 4
             },
-            y: isMobile ? -350 : -500
+            y: isMobileAndTablet ? -350 : -500
           }
         )
 
         // improve my project in three main apsects
 
-        if (isMobile) {
+        if (isMobileAndTablet) {
           gsap.from(paragraph5Item1Ref.current, {
             scrollTrigger: {
               trigger: paragraph5Ref.current,
@@ -283,7 +283,7 @@ const MainArticle = () => {
             x: -100
           })
         }
-        if (!isMobile) {
+        if (!isMobileAndTablet) {
           gsap.to(paragraph5Item2Ref.current, {
             scrollTrigger: {
               trigger: paragraph5Ref.current,
@@ -309,7 +309,7 @@ const MainArticle = () => {
         // Migrate my static site to a bundler tool
 
         // Animation for the second target with increased transformation
-        if (!isMobile) {
+        if (!isMobileAndTablet) {
           gsap.to(paragraph5Item3Ref.current, {
             scrollTrigger: {
               trigger: paragraph5Ref.current,
@@ -334,7 +334,7 @@ const MainArticle = () => {
 
         // Challenges with ES Modules
 
-        if (!isMobile) {
+        if (!isMobileAndTablet) {
           gsap.to(paragraph9Item1Ref.current, {
             scrollTrigger: {
               trigger: paragraph9Ref.current,
@@ -394,7 +394,7 @@ const MainArticle = () => {
             onUpdate: (self) => {
               const rotation = self.progress * 360 * 10
               gsap.set(paragraph13TitleRef.current, { rotation })
-              const scale = 1 + self.progress * (isMobile ? 0.75 : 2.5)
+              const scale = 1 + self.progress * (isMobileAndTablet ? 0.75 : 2.5)
               gsap.set(paragraph13TitleRef.current, { scale })
             }
           },
