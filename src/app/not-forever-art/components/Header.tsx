@@ -50,11 +50,11 @@ const Header = () => {
   return (
     <section className={s.header}>
       <div className={s.blog__title}>
-        <TransitionLink href="/">
-          <p>
+        <p>
+          <TransitionLink href="/">
             <span ref={blogTitle}>I 🩶 my computer job</span>
-          </p>
-        </TransitionLink>
+          </TransitionLink>
+        </p>
       </div>
       <div className={s.title}>
         <h1 className={s.post__title}>
@@ -77,7 +77,7 @@ const Header = () => {
         </div>
       </div>
       <div className={s.date} ref={dateRef}>
-        <p>June 11, 2023.</p>
+        <p>September 17, 2024.</p>
       </div>
     </section>
   )
