@@ -8,11 +8,11 @@ const Footer = () => {
   return (
     <footer className={s.footer}>
       <div className={s.blog__title}>
-        <TransitionLink href="/">
-          <p>
+        <p>
+          <TransitionLink href="/">
             <span>I 🩶 my computer job</span>
-          </p>
-        </TransitionLink>
+          </TransitionLink>
+        </p>
       </div>
     </footer>
   )
