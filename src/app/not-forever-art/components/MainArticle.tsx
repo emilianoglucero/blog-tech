@@ -2,6 +2,12 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 import React, { useRef } from 'react'
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
+import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'
+
+SyntaxHighlighter.registerLanguage('javascript', js)
+
+import { nnfxDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 import { gsap } from '~/lib/gsap'
 
@@ -34,8 +40,10 @@ const MainArticle = () => {
   const paragraph1ImageRef = useRef<HTMLDivElement>(null)
 
   const paragraph2ContentRef = useRef<HTMLDivElement>(null)
-  const paragraph2DescriptionRef = useRef<HTMLParagraphElement>(null)
+  const paragraph2DescriptionItem1Ref = useRef<HTMLLIElement>(null)
+  const paragraph2DescriptionItem2Ref = useRef<HTMLLIElement>(null)
 
+  // ... rest of the code remains the same
   const paragraph3TitleRef = useRef<HTMLDivElement>(null)
   const paragraph3ContentRef = useRef<HTMLDivElement>(null)
 
@@ -81,7 +89,8 @@ const MainArticle = () => {
           !paragraph1ContentRef.current ||
           !paragraph1ImageRef.current ||
           !paragraph2ContentRef.current ||
-          !paragraph2DescriptionRef.current ||
+          !paragraph2DescriptionItem1Ref.current ||
+          !paragraph2DescriptionItem2Ref.current ||
           !paragraph3TitleRef.current ||
           !paragraph3ContentRef.current ||
           !paragraph5Item1Ref.current ||
@@ -212,28 +221,37 @@ const MainArticle = () => {
 
         // what is net art content
         // Split the paragraph text into words and wrap each word in a span
-        const words = paragraph2DescriptionRef.current.innerText.split(' ')
-        paragraph2DescriptionRef.current.innerHTML = words
+        const item1 = paragraph2DescriptionItem1Ref.current.innerText.split(' ')
+        paragraph2DescriptionItem1Ref.current.innerHTML = item1
+          .map((word) => `<span class="word">${word}</span>`)
+          .join(' ')
+
+        const item2Text = paragraph2DescriptionItem2Ref.current.innerText
+        const item2 = item2Text.split(' ')
+        paragraph2DescriptionItem2Ref.current.innerHTML = item2
           .map((word) => `<span class="word">${word}</span>`)
           .join(' ')
 
         // Select all the word spans
-        const wordSpans =
-          paragraph2DescriptionRef.current.querySelectorAll('.word')
+        const item1Spans =
+          paragraph2DescriptionItem1Ref.current.querySelectorAll('.word')
+        const item2Spans =
+          paragraph2DescriptionItem2Ref.current.querySelectorAll('.word')
 
         // Animate each word span
         gsap.fromTo(
-          wordSpans,
+          [item1Spans, item2Spans],
           { opacity: 0.1 },
           {
             opacity: 1,
             stagger: 0.1,
             ease: 'power2.out',
             scrollTrigger: {
-              trigger: paragraph2DescriptionRef.current,
+              trigger: paragraph2DescriptionItem2Ref.current,
               start: 'top 90%',
-              end: 'bottom 20%'
-              // scrub: 4,
+              end: 'bottom 20%',
+              scrub: 4
+              // markers: true
             }
           }
         )
@@ -421,14 +439,87 @@ const MainArticle = () => {
           <h2>The origins:</h2>
           <p>
             It all began with{' '}
-            <a href="https://anthology.rhizome.org/my-boyfriend-came-back-from-the-war">
+            <a
+              href="https://anthology.rhizome.org/my-boyfriend-came-back-from-the-war"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               “My Boyfriend Came Back From The War”
             </a>{' '}
             by Olia Lialina. The storytelling, visuals, and interactions crafted
-            purely with images and HTML captivated me. Then came JODI, Alexei
-            Shulgin, Cory Arcangel, then Vuk Cosic, Molly Soda, Ben Growser then
-            Mariela Yeregui, Gustavo Romano, Broken English and so many others.
-            I quickly got trapped into the net art movement.
+            purely with images and HTML captivated me. Then came{' '}
+            <a
+              href="https://net-art.org/jodi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              JODI
+            </a>
+            ,{' '}
+            <a
+              href="https://g.co/arts/MHSwEAo34W3GMdXj8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Alexei Shulgin
+            </a>
+            ,{' '}
+            <a
+              href="https://coryarcangel.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Cory Arcangel
+            </a>
+            , and then{' '}
+            <a
+              href="https://monoskop.org/Vuk_%C4%86osi%C4%87"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Vuk Ćosić
+            </a>
+            ,{' '}
+            <a
+              href="https://www.instagram.com/bloatedandalone4evr1993"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Molly Soda
+            </a>
+            ,{' '}
+            <a
+              href="https://bengrosser.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ben Grosser
+            </a>{' '}
+            and then{' '}
+            <a
+              href="https://marielayeregui.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Mariela Yeregui
+            </a>
+            ,{' '}
+            <a
+              href="https://www.gustavoromano.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Gustavo Romano
+            </a>
+            ,{' '}
+            <a
+              href="https://brokenenglish.lol/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Broken English,
+            </a>{' '}
+            and so many others. I quickly got trapped in the net art movement.
           </p>
         </div>
         <div className={s.paragraph__image} ref={paragraph1ImageRef}>
@@ -456,14 +547,27 @@ const MainArticle = () => {
             <br />
             <span ref={paragraph2ContentRef}>What is net art?</span>
           </h2>
-          <p ref={paragraph2DescriptionRef}>
-            “Net art encompasses two distinct categories: artistic expressions
-            that rely on the internet for their existence, and the early web
-            movement that opposed dominant usage patterns. This movement,
-            aligned with its initial manifesto, focused on telematic networks
-            and highlighted governmental and corporate strategies aimed at
-            standardizing technology use and consumption.”
-          </p>
+          <div>
+            <p>
+              Juan Martín Prada, in his book "Prácticas artísticas e Internet en
+              la época de las redes sociales" (2012), provides a concise
+              definition of net art. He states that "net art encompasses two
+              distinct categories:
+            </p>
+            <ul>
+              <li ref={paragraph2DescriptionItem1Ref}>
+                Artistic expressions that rely on the internet for their
+                existence.
+              </li>{' '}
+              <li ref={paragraph2DescriptionItem2Ref}>
+                The early web movement that opposed dominant usage patterns.
+                This movement, aligned with its initial manifesto, focused on
+                telematic networks and highlighted governmental and corporate
+                strategies aimed at standardizing technology use and
+                consumption.
+              </li>
+            </ul>
+          </div>
           <h2>Guiding forces</h2>
           <p>
             In my early high school years (2003/2004), there was a government
@@ -476,18 +580,20 @@ const MainArticle = () => {
             platforms, but through diverse and often unique web portals. These
             sites, while sharing certain design trends, still offered much more
             room for diversity compared to the repetitive templates of today's
-            social media platforms. In a 2016 interview, Olia Lialina lamented
-            the loss of personal web pages, stating, "The most important
-            phenomena we lost [was] personal web pages. People don't build them
-            and don't feel responsible for building the World Wide Web. That's
-            the tragedy of today's Internet...we should take it very serious[ly]
-            and [not] give up our 'corners of the cyberspace' to the aggregation
-            networks of the future." In our contemporary online life, heavily
-            mediated by a few centralized corporations, this concept drives my
-            desire to build a more diverse and open internet. Another of
-            Lialina's ideas that resonates with me is the concept of the
-            "General Purpose User or Turing Complete User," a nod to Alan
-            Turing. Lialina contrasts users, who control their computers, with
+            social media platforms.
+            <br /> In a 2016 interview, Olia Lialina lamented the loss of
+            personal web pages, stating, "The most important phenomena we lost
+            [was] personal web pages. People don't build them and don't feel
+            responsible for building the World Wide Web. That's the tragedy of
+            today's Internet...we should take it very serious[ly] and [not] give
+            up our 'corners of the cyberspace' to the aggregation networks of
+            the future."
+            <br /> In our contemporary online life, heavily mediated by a few
+            centralized corporations, this concept drives my desire to build a
+            more diverse and open internet. Another of Lialina's ideas that
+            resonates with me is the concept of the "General Purpose User or
+            Turing Complete User," a nod to Alan Turing.
+            <br /> Lialina contrasts users, who control their computers, with
             people who passively experience technology. She challenges us to
             reclaim our user rights and demand better software, the ability to
             choose "none of the above," to delete our files, to recover lost
@@ -535,24 +641,49 @@ const MainArticle = () => {
           </h2>
           <p>
             In 2016, while learning web development, I had the idea to create a
-            website to accompany a music album I was planning to release. I
-            designed the site to showcase different aspects of the character I
-            portrayed in my music. For this project, I drew in spiration not
-            only from the early net art movement but also from concepts related
-            to relational aesthetics in contemporary art and works like Quehué
-            by Marisa Rubio and exhibitions like Experiencia Infinita at the
-            Malba museum. My goal was to engage users by placing them in two
-            states: inconvenience and constant doubt. So I built this website
-            using the old boys: vanilla JavaScript, PHP, JQuery, p5.js, MySQL,
-            CSS, a few Ajax calls (you may be old, but are you this old?), and a
-            couple other libraries. Initially, I hosted it on a shared cheap
-            hosting but later upgraded to a VPS to store and display user-drawn
-            images, which wasn't possible on shared hosting. (A VPS is like
-            renting your own mini-computer in the cloud. Unlike shared hosting
-            where you're sharing resources with many other websites, a VPS gives
-            you dedicated resources and more control over your hosting
-            environment, allowing for more advanced features and better
-            performance.) For the domain, I chose an elegant .pizza.
+            website to accompany a{' '}
+            <a
+              href="https://youtu.be/q6FzJBzKgJg?si=SnfP_WWLy_e2tC-k"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              music album
+            </a>{' '}
+            I was planning to release. I designed the site to showcase different
+            aspects of the character I portrayed in my music. For this project,
+            I drew inspiration not only from the early net art movement but also
+            from concepts related to relational aesthetics in contemporary art
+            and works like{' '}
+            <a
+              href="https://www.arteinformado.com/galeria/marisa-rubio/quehue-33450"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Quehué
+            </a>{' '}
+            by Marisa Rubio and exhibitions like{' '}
+            <a
+              href="https://www.malba.org.ar/evento/experiencia-infinita/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Experiencia Infinita
+            </a>{' '}
+            at the Malba Museum. My goal was to engage users by placing them in
+            two states: inconvenience and constant doubt. So I built this
+            website using the old boys: vanilla JavaScript, PHP, jQuery, p5.js,
+            MySQL, CSS, a bunch of Ajax calls, and a couple of other libraries
+            (you may be old, but are you this old?).
+            <br /> Initially, I hosted it on a shared cheap hosting but later
+            upgraded to a VPS to store and display user-drawn images, which
+            wasn't possible on shared hosting.
+            <br />
+            (A VPS is like renting your own mini-computer in the cloud. Unlike
+            shared hosting where you're sharing resources with many other
+            websites, a VPS gives you dedicated resources and more control over
+            your hosting environment, allowing for more advanced features and
+            better performance).
+            <br /> For the domain, I chose an elegant .pizza 🎀
           </p>
         </div>
       </Paragraph>
@@ -588,17 +719,31 @@ const MainArticle = () => {
         <div className={s.paragraph__content}>
           <h2>The decision to migrate and improve</h2>
           <p>
-            Maintaining a net art project over the years can be quite
-            challenging. I recommend reading
-            <a href="">“Preservation by Accident is Not a Plan”</a> where Vint
-            Cerf (Vice President and Chief Internet Evangelist for Google) and
-            Dragan Espenschied (Preservation Director at Rhizome) discuss this
-            topic in depth. I initially paid $31 monthly for my VPS, before
-            migrating to a cheaper $10/month option. I also renewed my domain
-            annually (side note: my .pizza domain eventually increased to $99
-            per year—just a reminder that exotic domains can become expensive
-            over time). Some people visited the site and hated it, others loved
-            it. It was showcased in a few digital art pavilions. <br />
+            Maintaining a (web) net art project over the years can be
+            challenging. I recommend reading{' '}
+            <a
+              href="https://rhizome.org/editorial/2017/may/30/preservation-by-accident-is-not-a-plan/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              “Preservation by Accident is Not a Plan”
+            </a>{' '}
+            where Vint Cerf (Vice President and Chief Internet Evangelist for
+            Google) and Dragan Espenschied (Preservation Director at Rhizome)
+            discuss this topic in depth.
+            <br /> I initially paid $31 monthly for my VPS, before migrating to
+            a cheaper $10/month option. I also renewed my domain annually (side
+            note: my .pizza domain eventually increased to $99 per year—just a
+            reminder that exotic domains can become more expensive over time).
+            <br /> Some people visited the site and hated it, others loved it.{' '}
+            <a
+              href="https://www.instagram.com/p/B4VMVqeFJcG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              It was showcased in a few digital art pavilions.
+            </a>{' '}
+            <br />
             <br /> After years (2024), I decided it was time to improve my
             project in three main aspects:
           </p>
@@ -642,9 +787,10 @@ const MainArticle = () => {
           <p>
             I explored various bundler tools, including Vite, Webpack, Parcel,
             and Snowpack. Initially, I decided to try Vite due to its
-            popularity, a few developers I know had started to use it and had
-            good references, and also because features like instant server start
-            and optimized build that were what I looked for.
+            popularity, as a few developers I knew had started to use it and had
+            positive feedback. I was also drawn to features like instant server
+            start and optimized builds, which were exactly what I was looking
+            for.
           </p>
         </div>
       </Paragraph>
@@ -653,12 +799,29 @@ const MainArticle = () => {
         <h2 className={s.paragraph__title}>5</h2>
         <div className={s.paragraph__content}>
           <h2>Migrating to Vite</h2>
-          <p>
-            During the migration, I noticed that Vite requires updating script
-            tags to use the type="module" attribute. This change is necessary
-            for Vite to handle scripts correctly and leverage modern browser
-            features. Before Migration: After Migration:
-          </p>
+          <div>
+            <p>
+              During the migration, I noticed that Vite requires updating script
+              tags to use the type="module" attribute. This change is necessary
+              for Vite to handle scripts correctly and leverage modern browser
+              features.
+            </p>
+            <br />
+            <div className={s.paragraph__code}>
+              <div>
+                <p>Before Migration:</p>
+                <SyntaxHighlighter language="javascript" style={nnfxDark}>
+                  {`<script src="main.js"></script>`}
+                </SyntaxHighlighter>
+              </div>
+              <div>
+                <p>After Migration:</p>
+                <SyntaxHighlighter language="javascript" style={nnfxDark}>
+                  {`<script type="module" src="main.js"></script>`}
+                </SyntaxHighlighter>
+              </div>
+            </div>
+          </div>
         </div>
       </Paragraph>
 
@@ -677,7 +840,7 @@ const MainArticle = () => {
         <div className={s.paragraph__item1} ref={paragraph9Item1Ref}>
           <h2>Library Compatibility:</h2>
           <p>
-            Many libraries I relied on were not designed to be used as ES
+            Some libraries I relied on were not designed to be used as ES
             modules, requiring significant refactoring.
           </p>
         </div>
@@ -738,8 +901,23 @@ const MainArticle = () => {
         <div className={s.paragraph__content}>
           <h2>Migrating to Webpack</h2>
           <p>
-            I used this multipage Webpack template from Marcin Wosinek and
-            started following his article.
+            I used this{' '}
+            <a
+              href="https://github.com/marcin-wosinek/webpack-multipage-example"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              multipage Webpack template
+            </a>{' '}
+            from Marcin Wosinek and started following his{' '}
+            <a
+              href="https://how-to.dev/how-to-building-multipage-website-with-webpack-5"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              article
+            </a>
+            .
             <br /> One of the challenges I faced was accessing assets in the
             build directory and managing JavaScript scripts in production.
             <br />
@@ -748,29 +926,52 @@ const MainArticle = () => {
         </div>
         <div className={s.paragraph__content2}>
           <p>
-            <a href="">Copy Webpack Plugin:</a> Copies files from the build
-            directory to the output directory.
+            <a
+              href="https://webpack.js.org/plugins/copy-webpack-plugin/"
+              target="_blank"
+              rel="noopener"
+            >
+              Copy Webpack Plugin:
+            </a>{' '}
+            Copies files from the build directory to the output directory.
           </p>
         </div>
         <div className={s.paragraph__content3}>
           <p>
-            <a href="">HTML Webpack Deploy Plugin:</a> Simplifies the creation
-            of HTML files to serve the bundled JavaScript.
+            <a
+              href="https://github.com/jharris4/html-webpack-deploy-plugin"
+              target="_blank"
+              rel="noopener"
+            >
+              HTML Webpack Deploy Plugin:
+            </a>{' '}
+            Simplifies the creation of HTML files to serve the bundled
+            JavaScript.
           </p>
         </div>
         <div className={s.paragraph__content4}>
-          <p>Just in case, this is how my Webpack configuration files looks:</p>
+          <p>Just in case, this is how my Webpack configuration files look:</p>
         </div>
         <div className={s.paragraph__content5}>
           <p>
-            <a href="https://webpack.js.org/concepts/">webpack.common.js</a>
+            <a
+              href="https://github.com/emilianoglucero/bebeto-pizza-webpack/blob/main/webpack.common.js"
+              target="_blank"
+              rel="noopener"
+            >
+              webpack.common.js
+            </a>
             <br /> The configuration file defines the entry points, output
             paths, and plugins used in the build process.
           </p>
         </div>
         <div className={s.paragraph__content6}>
           <p>
-            <a href="https://webpack.js.org/concepts/plugins/">
+            <a
+              href="https://github.com/emilianoglucero/bebeto-pizza-webpack/blob/main/webpack.dev.js"
+              target="_blank"
+              rel="noopener"
+            >
               webpack.dev.js
             </a>
             <br /> Plugins extend Webpack's functionality, such as copying files
@@ -779,7 +980,7 @@ const MainArticle = () => {
         </div>
         <div className={s.paragraph__content7}>
           <p>
-            <a href={'https://webpack.js.org/concepts/loaders/'}>
+            <a href="https://github.com/emilianoglucero/bebeto-pizza-webpack/blob/main/webpack.prod.js">
               {' '}
               webpack.prod.js{' '}
             </a>
@@ -802,77 +1003,84 @@ const MainArticle = () => {
       <Paragraph number="9" className={s.paragraph__12}>
         <div className={s.paragraph__content}>
           <h2>Updating my project</h2>
-          <p>I also made the following improves to my project:</p>
+          <p>I also made the following improvements to my project:</p>
         </div>
         <div className={s.paragraph__content2}>
           <p>
-            <span>Migrate from PHP to Node.js:</span>
-            <br /> Why? Mainly because I hadn’t touched PHP for a few years.
-            Instead, I’ve been using Node.js, so I feel more confident. Also, I
-            like the idea of using only JavaScript and the benefits that Node.js
-            offers, like easier integration with modern frontend frameworks like
-            React, native support for JSON, a rich ecosystem, and better support
-            for hosting platforms like Vercel or Heroku. For that, I created
-            this Node.js + Express backend.
+            <span>Migration from PHP to Node.js</span>
+            <br /> I chose to move to Node.js because of my growing expertise
+            with it over recent years. Working with JavaScript across the entire
+            stack streamlines development and integrates well with modern
+            frontend frameworks like React. Node.js offers advantages such as
+            native JSON support, access to a rich ecosystem, and better
+            compatibility with hosting platforms like Vercel or Heroku.
+            <br /> To facilitate this, I created a{' '}
+            <a href="https://github.com/emilianoglucero/bebeto-pizza-backend">
+              new Node.js + Express backend
+            </a>
+            .
           </p>
         </div>
         <div className={s.paragraph__content3}>
           <p>
             <span>
-              Migrate from a MySQL database running with phpMyAdmin to a
-              non-relational database with MongoDB:
+              Transition from a MySQL database running with phpMyAdmin to
+              MongoDB
             </span>
             <br />
-            Why? Well, now I’m no longer using PHP, and the project doesn’t have
-            complex database requirements. Since I’ve felt more confident with
-            non-relational databases like MongoDB because of my work experience
-            at a previous organization, it was suitable to use the schema-less
-            nature for flexibility and scalability while unifying the
-            development language.
+            With the shift away from PHP, and considering the project's
+            relatively simple database requirements, I opted for MongoDB. My
+            previous work experience with non-relational databases made MongoDB
+            an attractive choice. Its schema-less nature offers flexibility and
+            scalability while allowing me to use JavaScript throughout the
+            stack.
           </p>
         </div>
         <div className={s.paragraph__content4}>
           <p>
-            <span>
-              Migrate from storing user-drawings directly on the server to
-              hosting with a third-party service.
-            </span>
+            <span>Migration of User-Generated Content Storage</span>
             <br />
-            Why? Because Vercel doesn't provide persistent storage for uploaded
-            files. So I explored some external services like Amazon S3 and
-            Google Cloud Storage. I finally picked Google Cloud Storage because
-            it fits my simple needs and offers a free tier that I wanted to try.
+            As Vercel doesn't provide persistent storage for uploaded files, I
+            needed an alternative solution for storing user-generated drawings.
+            After exploring options like Amazon S3 and Google Cloud Storage, I
+            settled on Google Cloud Storage. It meets my needs and offers a free
+            tier, which aligns with my project goals.
           </p>
         </div>
         <div className={s.paragraph__content5}>
           <p>
-            <span>
-              Migrate from a VPS server to a hosting service that provides a
-              free-tier. :
-            </span>
+            <span>Shift from VPS to Free-Tier Hosting</span>
             <br />
-            Why? One of my main goals was to decrease the cost of my project.
-            Since the visitors for this project are my friends and some freaks
-            from the internet (I’m joking I love you), I could take advantage of
-            some free tier that a hosting platform offers. I picked Vercel
-            because I feel comfortable with the platform, having used it for the
-            last three years, and it fits the current needs of the project.
+            To reduce costs for this hobby project, I migrated from a VPS to a
+            hosting service with a free tier. I chose Vercel due to my
+            familiarity with the platform and its ability to meet the project's
+            current needs.
           </p>
         </div>
         <div className={s.paragraph__content6}>
           <p>
-            <span>
-              Redesign some sections of the project to adapt to mobile devices
-              and small screens, and add 3D graphics and motion. :
-            </span>
+            <span>Mobile-Friendly Redesign and Enhanced Graphics</span>
             <br />
-            Why? Like I mentioned early in the article when I released this
-            project in 2018, I didn’t prioritize mobile screens. But now in
-            2024, I think it is essential to offer the experience on people’s
-            phones. I redesigned and re-adapted some interactive sections to
-            work with mobile gestures. I’ve also been learning to render 3D
-            graphics with Three.js, so I migrated from A-frame to Three.js and
-            added some motion using GSAP (GreenSock Animation Platform).
+            When I initially launched this project in 2018, mobile compatibility
+            wasn't a priority. However, in 2024, it's crucial to offer a
+            mobile-friendly experience. I redesigned and adapted interactive
+            sections to work with mobile gestures. Additionally, I upgraded the
+            graphics by migrating from A-frame to Three.js for 3D rendering and
+            incorporated GSAP (GreenSock Animation Platform) for smoother
+            animations.
+          </p>
+        </div>
+        <div className={s.paragraph__content7}>
+          <p>
+            <span>Integration of React projects as pages</span>
+            <br />
+            Given my extensive experience with React, I wanted the flexibility
+            to add new pages using React components. I established a process to
+            configure my Webpack project to incorporate React build code,
+            allowing for a gradual integration of React into the existing
+            structure. This approach enables me to leverage React's powerful
+            features while maintaining the project's original architecture. I
+            may delve into the details of this process in a future article.
           </p>
         </div>
       </Paragraph>
@@ -888,22 +1096,22 @@ const MainArticle = () => {
           <h2>Conclusion</h2>
           <p>
             Creating, adapting, and migrating bebeto.pizza over the years has
-            been an invaluable journey of learning and growth. This project has
-            served as my personal playground for experimentation, pushing me to
-            explore new technologies and overcome various challenges. It’s
-            almost painful to revisit the initial codebase of the project
-            released in 2018 filled with impractical patterns and
-            less-than-ideal practices. However, I've come to embrace this as a
-            testament to my evolution as a developer and the progress I've made
-            over time. Working on a personal project like this comes with its
-            own set of challenges. When you're the sole code reviewer, tech
-            lead, and designer all rolled into one, maintaining best practices
-            can be difficult. But it's precisely this hands-on, multifaceted
-            experience that has been so educational. Finally
-            https://bebeto.pizza is now more performant, cost-effective, and
-            mobile-friendly. Please feel free to email me with any suggestion,
-            questions or just to chat. I’m always eager to connect and learn
-            from others in the community :)
+            been a really fun journey of learning. This project has served as my
+            playground for experimentation, pushing me to explore new
+            technologies, and concepts, and overcome various challenges.
+            <br /> While it's almost painful to revisit the initial codebase
+            from 2018, filled with impractical patterns and less-than-ideal
+            practices, I've come to embrace this as a testament to my evolution
+            as a developer and the progress I've made over time.
+            <br /> Working on a personal project like this comes with its own
+            set of challenges. When you're the sole code reviewer, tech lead,
+            and designer all rolled into one, maintaining best practices can be
+            difficult. But it's precisely this hands-on, multifaceted experience
+            that has been so educational.
+            <br /> Now https://bebeto.pizza is more performant, cost-effective,
+            and mobile-friendly. Please feel free to email me with any
+            suggestions, or questions or just to chat. I’m always eager to
+            connect and learn from others in the community :)
           </p>
         </div>
         <div className={s.paragraph__content2}>
