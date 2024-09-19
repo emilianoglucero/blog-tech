@@ -93,7 +93,7 @@ const IntroAnimation = () => {
         }
         const { isMobile, isDesktop, isLargeScreen } = conditions
 
-        const tl = gsap.timeline()
+        const timeLine = gsap.timeline()
         if (
           asciiContainerRef.current &&
           containerRef.current &&
@@ -111,11 +111,12 @@ const IntroAnimation = () => {
 
           const textDivscOverlay =
             textContainerOverlayRef.current?.querySelectorAll('div')
-          tl.to(chars, {
-            opacity: 1,
-            delay: 0.3,
-            stagger: 0.001
-          })
+          timeLine
+            .to(chars, {
+              opacity: 1,
+              delay: 0.3,
+              stagger: 0.001
+            })
             .to(
               [
                 containerOverlayColor1Ref.current,
