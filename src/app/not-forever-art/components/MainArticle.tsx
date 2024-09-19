@@ -112,80 +112,91 @@ const MainArticle = () => {
         // Target the img tag inside netartPhotography.current
         const imgElement =
           playingCardsInTheSandPhotoRef.current.querySelector('img')
+
         if (imgElement) {
-          gsap.fromTo(
-            imgElement,
-            { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
-            {
-              clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-              ease: 'power1.out',
-              duration: 2,
-              scrollTrigger: {
-                trigger: playingCardsInTheSandPhotoRef.current,
-                start: 'center bottom',
-                end: 'bottom top',
-                toggleActions: 'play none none none'
-                // markers: true
-              }
-              // onComplete: () => {
-              //   gsap.set(playingCardsInTheSandPhotoRef.current, {
-              //     background: 'transparent'
-              //   })
-              // }
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: playingCardsInTheSandPhotoRef.current,
+              start: 'center bottom',
+              end: 'bottom top',
+              toggleActions: 'play none none none'
             }
+          })
+
+          // Add clip-path animation
+          tl.fromTo(
+            imgElement,
+            { clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' },
+            {
+              clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+              ease: 'power3.out',
+              duration: 1.5
+            }
+          )
+          // Add scale animation
+          tl.from(
+            imgElement,
+            { scale: 1.2, duration: 3, ease: 'power3.out' },
+            0
           )
         }
         const imgElement2 =
           standingOnTheBeachPhotoRef?.current?.querySelector('img')
         if (imgElement2) {
-          gsap.fromTo(
-            imgElement2,
-            { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
-            {
-              clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-              ease: 'power1.out',
-              duration: 2,
-              scrollTrigger: {
-                trigger: standingOnTheBeachPhotoRef.current,
-                start: 'top -40%',
-                end: 'bottom top',
-                toggleActions: 'play none none none'
-                // markers: true
-
-                // scrub: 3
-              }
-              // onComplete: () => {
-              //   gsap.set(standingOnTheBeachPhotoRef.current, {
-              //     background: 'transparent'
-              //   })
-              // }
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: standingOnTheBeachPhotoRef.current,
+              start: 'top -40%',
+              end: 'bottom top',
+              toggleActions: 'play none none none'
             }
+          })
+
+          // Add clip-path animation
+          tl.fromTo(
+            imgElement2,
+            { clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' },
+            {
+              clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+              ease: 'power3.out',
+              duration: 1.5
+            }
+          )
+          // Add scale animation
+          tl.from(
+            imgElement2,
+            { scale: 1.2, duration: 3, ease: 'power3.out' },
+            0
           )
         }
 
         const imgElement3 = womenPhotoRef?.current?.querySelector('img')
+
         if (imgElement3) {
-          gsap.fromTo(
-            imgElement3,
-            { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
-            {
-              clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-              ease: 'power1.out',
-              duration: 2,
-              scrollTrigger: {
-                trigger: womenPhotoRef.current,
-                start: 'top -80%',
-                end: 'bottom top',
-                toggleActions: 'play none none none'
-                // markers: true
-                // scrub: 3
-              }
-              // onComplete: () => {
-              //   gsap.set(womenPhotoRef.current, {
-              //     background: 'transparent'
-              //   })
-              // }
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: womenPhotoRef.current,
+              start: 'top -80%',
+              end: 'bottom top',
+              toggleActions: 'play none none none'
             }
+          })
+
+          // Add clip-path animation
+          tl.fromTo(
+            imgElement3,
+            { clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' },
+            {
+              clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+              ease: 'power3.out',
+              duration: 1.5
+            }
+          )
+          // Add scale animation
+          tl.from(
+            imgElement3,
+            { scale: 1.2, duration: 3, ease: 'power3.out' },
+            0
           )
         }
 

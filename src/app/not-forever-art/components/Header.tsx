@@ -52,7 +52,9 @@ const Header = () => {
       <div className={s.blog__title}>
         <p>
           <TransitionLink href="/">
-            <span ref={blogTitle}>I 🩶 my computer job</span>
+            <span ref={blogTitle}>
+              I <span className={s.emojiText}>🩶</span> my computer job
+            </span>
           </TransitionLink>
         </p>
       </div>

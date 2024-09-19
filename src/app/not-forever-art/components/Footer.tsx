@@ -10,7 +10,9 @@ const Footer = () => {
       <div className={s.blog__title}>
         <p>
           <TransitionLink href="/">
-            <span>I 🩶 my computer job</span>
+            <span>
+              I <span className={s.emojiText}>🩶</span> my computer job
+            </span>
           </TransitionLink>
         </p>
       </div>

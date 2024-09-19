@@ -52,6 +52,11 @@
   overflow-wrap: break-word;
 }
 
+.emojiText {
+  font-family: 'Noto Color Emoji', 'Segoe UI Emoji', 'Apple Color Emoji',
+    'Segoe UI Symbol', 'Noto Sans Symbols', sans-serif;
+}
+
 @media (width <= 68.75rem) {
   .title {
     font-size: var(--font-size-8);
@@ -78,6 +83,7 @@
 .blog__title p span {
   display: inline-block;
   position: relative;
+  padding-bottom: 0.1rem;
 }
 
 .blog__title a {
@@ -170,7 +176,6 @@
 }
 
 .main__photography img {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   width: 100%;
   height: 100%;
   object-fit: cover;
