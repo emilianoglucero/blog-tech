@@ -6,6 +6,11 @@
   color: var(--primary-color);
 }
 
+.container ::selection {
+  background-color: var(--color-green);
+  color: var(--color-blue);
+}
+
 /* mobile  */
 @media (width <= 46.25rem) {
   .container {
