@@ -575,7 +575,7 @@ const MainArticle = () => {
                 This movement, aligned with its initial manifesto, focused on
                 telematic networks and highlighted governmental and corporate
                 strategies aimed at standardizing technology use and
-                consumption.
+                consumption."
               </li>
             </ul>
           </div>
@@ -730,7 +730,7 @@ const MainArticle = () => {
         <div className={s.paragraph__content}>
           <h2>The decision to migrate and improve</h2>
           <p>
-            Maintaining a (web) net art project over the years can be
+            The maintenance of a (web) net art project over time can be
             challenging. I recommend reading{' '}
             <a
               href="https://rhizome.org/editorial/2017/may/30/preservation-by-accident-is-not-a-plan/"
