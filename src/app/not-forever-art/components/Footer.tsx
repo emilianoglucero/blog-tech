@@ -1,21 +1,12 @@
 import React from 'react'
 
-import TransitionLink from '~/components/transition-link/page'
-
 import s from '../page.module.css'
+import Title from './Title'
 
 const Footer = () => {
   return (
     <footer className={s.footer}>
-      <div className={s.blog__title}>
-        <p>
-          <TransitionLink href="/">
-            <span>
-              I <span className={s.emojiText}>🩶</span> my computer job
-            </span>
-          </TransitionLink>
-        </p>
-      </div>
+      <Title useAnimation={false} />
     </footer>
   )
 }

@@ -2,15 +2,14 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import React, { useRef } from 'react'
 
-import TransitionLink from '~/components/transition-link/page'
 import { gsap } from '~/lib/gsap'
 
 import s from '../page.module.css'
+import Title from './Title'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Header = () => {
-  const blogTitle = useRef<HTMLSpanElement>(null)
   const titleLetters = useRef<HTMLDivElement>(null)
   const descriptionRef = useRef<HTMLParagraphElement>(null)
   const dateRef = useRef<HTMLParagraphElement>(null)
@@ -20,12 +19,6 @@ const Header = () => {
     const paragraphs = descriptionRef?.current?.querySelectorAll('p')
     const dateParagraphs = dateRef.current?.querySelectorAll('p')
     gsap.set([paragraphs, dateParagraphs], { y: 50 })
-
-    gsap.from([blogTitle.current], {
-      yPercent: 130,
-      delay: 0.2,
-      stagger: 0.1
-    })
 
     const spans = titleLetters.current?.querySelectorAll('span')
     if (spans) {
@@ -49,15 +42,7 @@ const Header = () => {
 
   return (
     <section className={s.header}>
-      <div className={s.blog__title}>
-        <p>
-          <TransitionLink href="/">
-            <span ref={blogTitle}>
-              I <span className={s.emojiText}>🩶</span> my computer job
-            </span>
-          </TransitionLink>
-        </p>
-      </div>
+      <Title useAnimation={true} />
       <div className={s.title}>
         <h1 className={s.post__title}>
           not forever <br />
