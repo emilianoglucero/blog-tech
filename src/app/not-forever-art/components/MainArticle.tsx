@@ -1101,10 +1101,10 @@ const MainArticle = () => {
         <div className={s.paragraph__content}>
           <h2>Conclusion</h2>
           <p>
-            Creating, adapting, and migrating bebeto.pizza over the years has
-            been a really fun journey of learning. This project has served as my
-            playground for experimentation, pushing me to explore new
-            technologies, and concepts, and overcome various challenges.
+            Creating, adapting, and migrating lohacemosporbebeto.pizza over the
+            years has been a really fun journey of learning. This project has
+            served as my playground for experimentation, pushing me to explore
+            new technologies, and concepts, and overcome various challenges.
             <br /> While it's almost painful to revisit the initial codebase
             from 2018, filled with impractical patterns and less-than-ideal
             practices, I've come to embrace this as a testament to my evolution
@@ -1120,7 +1120,7 @@ const MainArticle = () => {
               target="_blank"
               rel="noopener"
             >
-              lohacemosporbebeto.pizza
+              https://lohacemosporbebeto.pizza
             </a>{' '}
             is more performant, cost-effective, and mobile-friendly. Please feel
             free to email me with any suggestions, or questions or just to chat.
