@@ -239,7 +239,7 @@ const MainArticle = () => {
 
         // Animate each word span
         gsap.fromTo(
-          [item1Spans, item2Spans],
+          [paragraph2ContentRef.current, item1Spans, item2Spans],
           { opacity: 0.1 },
           {
             opacity: 1,
@@ -248,24 +248,9 @@ const MainArticle = () => {
             scrollTrigger: {
               trigger: paragraph2DescriptionItem2Ref.current,
               start: 'top 90%',
-              end: 'bottom 20%',
+              end: 'bottom 50%',
               scrub: 4
               // markers: true
-            }
-          }
-        )
-        gsap.fromTo(
-          paragraph2ContentRef.current,
-          {
-            opacity: 0.1
-          },
-          {
-            opacity: 1,
-            scrollTrigger: {
-              trigger: paragraph2ContentRef.current,
-              start: 'top 50%',
-              end: 'bottom 20%',
-              scrub: 4
             }
           }
         )
