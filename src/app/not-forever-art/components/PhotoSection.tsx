@@ -19,7 +19,7 @@ const PhotoSection = forwardRef<HTMLDivElement, PhotoSectionProps>(
         className={`${s.main__photography__wrapper} ${wrapperClassName}`}
         ref={ref}
       >
-        <Image src={src} alt={alt} fill />
+        <Image src={src} alt={alt} fill loading="eager" />
       </div>
       <figcaption>{caption}</figcaption>
     </section>
