@@ -828,7 +828,8 @@
     'content2 . content3'
     '. content4 .'
     'content5 . content6'
-    '. content7 .';
+    '. content7 .'
+    '. . content8';
   gap: var(--space-lg);
   padding-top: var(--space-xxxl);
   padding-bottom: var(--space-xxxl);
@@ -845,7 +846,8 @@
       'content4'
       'content5'
       'content6'
-      'content7';
+      'content7'
+      'content8';
     gap: var(--space-md);
     padding-top: var(--space-xl);
     padding-bottom: var(--space-xl);
@@ -883,6 +885,10 @@
 
 .paragraph__12 .paragraph__content7 {
   grid-area: content7;
+}
+
+.paragraph__12 .paragraph__content8 {
+  grid-area: content8;
 }
 
 .paragraph__12 span {

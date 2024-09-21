@@ -964,7 +964,11 @@ const MainArticle = () => {
         </div>
         <div className={s.paragraph__content7}>
           <p>
-            <a href="https://github.com/emilianoglucero/bebeto-pizza-webpack/blob/main/webpack.prod.js">
+            <a
+              href="https://github.com/emilianoglucero/bebeto-pizza-webpack/blob/main/webpack.prod.js"
+              target="_blank"
+              rel="noopener"
+            >
               {' '}
               webpack.prod.js{' '}
             </a>
@@ -1067,6 +1071,24 @@ const MainArticle = () => {
             may delve into the details of this process in a future article.
           </p>
         </div>
+        <div className={s.paragraph__content8}>
+          <p>
+            <span>Updating the domain</span>
+            <br />
+            As part of my ongoing efforts to optimize the project, I've made a
+            change in the domain name. My previous domain, https://bebeto.pizza,
+            expired and was acquired by Dan.com (a GoDaddy brand) asking me 100$
+            to purchase the domain. While this price matched the previous
+            renewal cost at Namecheap.com, I realized it was higher than
+            necessary. After researching alternatives, I found that other
+            companies offer renewals for $50 or less. <br />
+            Taking this opportunity to reduce costs, I decided to rebrand with a
+            new domain name. I've registered https://lohacemosporbebeto.pizza
+            through Porkbun.com, which offers more competitive pricing. This
+            change not only helps in managing expenses but also gives the
+            project a fresh identity 👒
+          </p>
+        </div>
       </Paragraph>
 
       <Paragraph className={s.paragraph__13} ref={paragraph13ContentRef}>
@@ -1092,10 +1114,18 @@ const MainArticle = () => {
             and designer all rolled into one, maintaining best practices can be
             difficult. But it's precisely this hands-on, multifaceted experience
             that has been so educational.
-            <br /> Now https://bebeto.pizza is more performant, cost-effective,
-            and mobile-friendly. Please feel free to email me with any
-            suggestions, or questions or just to chat. I’m always eager to
-            connect and learn from others in the community :)
+            <br /> Now{' '}
+            <a
+              href="https://lohacemosporbebeto.pizza"
+              target="_blank"
+              rel="noopener"
+            >
+              lohacemosporbebeto.pizza
+            </a>{' '}
+            is more performant, cost-effective, and mobile-friendly. Please feel
+            free to email me with any suggestions, or questions or just to chat.
+            I’m always eager to connect and learn from others in the community
+            :)
           </p>
         </div>
         <div className={s.paragraph__content2}>
