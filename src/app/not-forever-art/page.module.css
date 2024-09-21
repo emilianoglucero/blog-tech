@@ -176,28 +176,14 @@
 }
 
 .main__photography img {
+  will-change: clip-path, transform;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
   width: 100%;
   height: 100%;
   object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.photography {
-  padding-top: var(--space-xxxl);
-}
-
-.photography img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media (width <= 68.75rem) {
-  .photography {
-    padding-top: var(--space-xl);
-  }
 }
 
 .main {

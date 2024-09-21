@@ -124,15 +124,11 @@ const MainArticle = () => {
           })
 
           // Add clip-path animation
-          tl.fromTo(
-            imgElement,
-            { clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' },
-            {
-              clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-              ease: 'power3.out',
-              duration: 1.5
-            }
-          )
+          tl.to(imgElement, {
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+            ease: 'power3.out',
+            duration: 1.5
+          })
           // Add scale animation
           tl.from(
             imgElement,
@@ -153,15 +149,11 @@ const MainArticle = () => {
           })
 
           // Add clip-path animation
-          tl.fromTo(
-            imgElement2,
-            { clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' },
-            {
-              clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-              ease: 'power3.out',
-              duration: 1.5
-            }
-          )
+          tl.to(imgElement2, {
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+            ease: 'power3.out',
+            duration: 1.5
+          })
           // Add scale animation
           tl.from(
             imgElement2,
@@ -183,15 +175,11 @@ const MainArticle = () => {
           })
 
           // Add clip-path animation
-          tl.fromTo(
-            imgElement3,
-            { clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' },
-            {
-              clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-              ease: 'power3.out',
-              duration: 1.5
-            }
-          )
+          tl.to(imgElement3, {
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+            ease: 'power3.out',
+            duration: 1.5
+          })
           // Add scale animation
           tl.from(
             imgElement3,
