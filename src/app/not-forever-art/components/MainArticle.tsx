@@ -1003,7 +1003,11 @@ const MainArticle = () => {
             native JSON support, access to a rich ecosystem, and better
             compatibility with hosting platforms like Vercel or Heroku.
             <br /> To facilitate this, I created a{' '}
-            <a href="https://github.com/emilianoglucero/bebeto-pizza-backend">
+            <a
+              href="https://github.com/emilianoglucero/bebeto-pizza-backend"
+              target="_blank"
+              rel="noopener"
+            >
               new Node.js + Express backend
             </a>
             .
