@@ -1106,19 +1106,14 @@ const MainArticle = () => {
           <h2>Conclusion</h2>
           <p>
             Creating, adapting, and migrating lohacemosporbebeto.pizza over the
-            years has been a really fun journey of learning. This project has
-            served as my playground for experimentation, pushing me to explore
-            new technologies, and concepts, and overcome various challenges.
-            <br /> While it's almost painful to revisit the initial codebase
-            from 2018, filled with impractical patterns and less-than-ideal
-            practices, I've come to embrace this as a testament to my evolution
-            as a developer and the progress I've made over time.
-            <br /> Working on a personal project like this comes with its own
-            set of challenges. When you're the sole code reviewer, tech lead,
-            and designer all rolled into one, maintaining best practices can be
-            difficult. But it's precisely this hands-on, multifaceted experience
-            that has been so educational.
-            <br /> Now{' '}
+            years has been really really fun 😋. This project has served as a
+            playground for experimentation, allowing me to explore new
+            technologies and concepts while navigating various challenges.
+            <br /> It has underscored the importance of maintaining diversity
+            and fostering innovation within the web ecosystem, all while
+            highlighting the complexities of long-term project maintenance.{' '}
+            <br />
+            Now,{' '}
             <a
               href="https://lohacemosporbebeto.pizza"
               target="_blank"
@@ -1126,10 +1121,13 @@ const MainArticle = () => {
             >
               https://lohacemosporbebeto.pizza
             </a>{' '}
-            is more performant, cost-effective, and mobile-friendly. Please feel
-            free to email me with any suggestions, or questions or just to chat.
-            I’m always eager to connect and learn from others in the community
-            :)
+            stands as a testament to this balance—more performant,
+            cost-effective, and mobile-friendly, yet still retaining its
+            experimental spirit.
+            <br />
+            Please feel free to email me with any suggestions, or questions or
+            just to chat. I’m always eager to connect and learn from others in
+            the community :)
           </p>
         </div>
         <div className={s.paragraph__content2}>
