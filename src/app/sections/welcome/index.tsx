@@ -26,6 +26,8 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
   const authorNameRef = useRef<HTMLParagraphElement>(null)
   const authorDescriptionRef = useRef<HTMLParagraphElement>(null)
   const authorEmailRef = useRef<HTMLParagraphElement>(null)
+
+  const containerPageRef = useRef<HTMLDivElement>(null)
   // Use the hook to get device information
   const { isMobile, isTouch } = useDeviceDetect()
 
@@ -50,11 +52,24 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
     }
   }
 
+  const backgroundColors = [
+    'rgb(49 58 159)',
+    'rgb(202, 49, 49)',
+    'rgb(20, 121, 58)',
+    'rgb(255, 159, 28)'
+  ]
+
   const handleAuthorHover = (e: any) => {
     if (isMobile || isTouch) return // Do nothing if it's a mobile or touch device
     if (authorPhotoRef.current) {
+      const randomIndex = Math.floor(Math.random() * backgroundColors.length)
+      const randomColor = backgroundColors[randomIndex]
       gsap.to(authorPhotoRef.current, {
         autoAlpha: e ? 1 : 0
+      })
+      gsap.to(containerPageRef.current, {
+        backgroundColor: randomColor,
+        color: '#e7e7e7'
       })
     }
   }
@@ -63,6 +78,10 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
     if (isMobile || isTouch) return // Do nothing if it's a mobile or touch device
     gsap.to(authorPhotoRef.current, {
       autoAlpha: e ? 0 : 1
+    })
+    gsap.to(containerPageRef.current, {
+      backgroundColor: '#e7e7e7',
+      color: '#27272a'
     })
   }
 
@@ -153,7 +172,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
 
   return (
     <>
-      <div className={s.welcome}>
+      <div className={s.welcome} ref={containerPageRef}>
         <div className={s.authorPic} ref={authorPhotoRef}>
           <Image
             src={authorPic}

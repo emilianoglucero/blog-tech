@@ -9,8 +9,8 @@
   top: 0;
   left: 0;
   min-width: 100%;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
   font-family: var(--font-open);
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
   z-index: 1000;

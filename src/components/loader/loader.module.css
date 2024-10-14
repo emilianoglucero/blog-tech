@@ -4,11 +4,11 @@
   top: 0;
   left: 0;
   min-width: 100%;
-  color: var(--primary-color);
+  color: var(--color-primary);
   font-family: var(--font-open);
   clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
   background-image: url('../../app/images/background/loader.webp');
-  background-color: var(--secondary-color);
+  background-color: var(--color-secondary);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -35,7 +35,7 @@
   position: fixed;
   height: 100vh;
   width: 100vw;
-  background-color: var(--primary-color);
+  background-color: var(--color-primary);
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
   z-index: 9999;
 }
@@ -51,8 +51,8 @@
   top: 0;
   left: 0;
   min-width: 100%;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
   font-family: var(--font-open);
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
   z-index: 1000;
@@ -63,7 +63,7 @@
 .ascii__container__overlay {
   font-size: 0.4rem;
   position: relative;
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 
 .text__container__overlay {
@@ -75,7 +75,7 @@
   justify-content: space-between;
   font-size: 4vh;
   overflow: hidden;
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 
 /* For mobile */

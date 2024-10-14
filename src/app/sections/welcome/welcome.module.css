@@ -7,8 +7,8 @@
   --rounded-md: 4px;
 
   min-height: 100vh;
-  color: var(--secondary-color);
-  background-color: var(--primary-color);
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
   padding: var(--base-padding-desktop);
   z-index: 1;
 }

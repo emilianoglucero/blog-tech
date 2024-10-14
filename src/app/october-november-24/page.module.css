@@ -1,9 +1,9 @@
 .container {
   min-height: 100vh;
-  background-color: var(--primary-color);
+  background-color: var(--color-primary);
   padding: var(--base-padding-desktop);
   font-family: var(--font-bitter);
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 
 .container ::selection {
@@ -183,7 +183,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--secondary-color);
+  background-color: var(--color-secondary);
   z-index: 9999; /* Ensure it is on top of other elements */
   clip-path: inset(0 0 0 0); /* Initial state covering the entire screen */
 }
