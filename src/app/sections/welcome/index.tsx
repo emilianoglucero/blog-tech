@@ -195,7 +195,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
               <div ref={subtitleRef}>
                 by{' '}
                 <Link
-                  href="https://www.emilianolucero.ar"
+                  href="https://www.emilianolucero.info/"
                   target="_blank"
                   rel="noopener"
                 >
