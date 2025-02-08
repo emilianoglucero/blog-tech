@@ -1,0 +1,68 @@
+.container {
+  position: relative;
+  margin: 4rem 0;
+  min-height: 100vh;
+}
+
+.content {
+  position: relative;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  padding-bottom: var(--space-xl);
+  flex: 2;
+}
+
+.listItem {
+  margin-bottom: 2rem;
+}
+
+.author {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: var(--font-size-regular);
+  padding-bottom: var(--space-md);
+  max-width: 50%;
+  padding-top: var(--space-xxxs);
+  font-family: var(--font-bitter);
+  line-height: 1.5;
+}
+
+.imageWrapper {
+  max-height: 10rem;
+
+  /* position: sticky;
+  top: 20vh;
+  height: 100%;
+  flex: 1;
+  display: flex; */
+}
+
+.imageContainer {
+  position: relative;
+  height: 100%;
+}
+
+.listItem a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-green-2);
+  text-underline-offset: 0.3ex;
+  text-decoration-thickness: 0.3ex;
+  font-size: var(--font-size-title);
+  text-transform: uppercase;
+}
+
+.listItem a:hover {
+  color: var(--color-green-2);
+  text-decoration: none;
+}
+
+.listItem span {
+  font-style: italic;
+  color: var(--color-gray);
+}
