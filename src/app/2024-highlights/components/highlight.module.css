@@ -1,0 +1,37 @@
+.highlight {
+  padding-bottom: var(--space-xxxxl);
+  padding-top: var(--space-xxl);
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* .contentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+} */
+
+.title {
+  text-decoration: underline;
+  text-decoration-color: var(--color-green-2);
+  text-underline-offset: 0.3ex;
+  text-decoration-thickness: 0.3ex;
+  font-size: var(--font-size-title);
+  text-transform: uppercase;
+}
+
+.title:hover {
+  color: var(--color-green-2);
+  text-decoration: none;
+}
+
+.description {
+  font-size: var(--font-size-regular);
+  text-wrap: balance;
+  font-family: var(--font-bitter);
+  color: var(--color-gray-lighter);
+}
