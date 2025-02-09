@@ -12,7 +12,12 @@ enum WEBGL_TYPE {
 export const HIGHLIGHTS_WEBSITES_2024 = [
   {
     title: 'Stripe Black Friday and Cyber Monday Recap 2024',
-    description: `Remember when tech companies used to push the boundaries of web design? Stripe's keeping that spirit alive. Their Black Friday recap made data beautiful again, but don't sleep on their [Dev Docs](https://stripe.com/docs) and [Price Adapter](https://stripe.com/docs/payments/accept-a-payment) releases, they're both gems.`,
+    description: `Special mention to Stripe—
+    a tech company pushing the boundaries of the web, who would have thought?
+    Their Black Friday recap made data beautiful again, 
+    but don't sleep on their [Dev Docs](https://stripe.com/docs) 
+    and [Price Adapter](https://stripe.com/docs/payments/accept-a-payment) 
+    releases. They're both high quality.`,
     url: 'https://stripe.dev/',
     image: {
       url: '/assets/images/2024-highlights/websites/stripe.jpg',
@@ -70,17 +75,17 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 14,
-      end: 23,
+      start: 1,
+      end: 10,
       mobileSpan: 8,
-      order: 2,
-      align: ALIGN.END
+      order: 8,
+      align: ALIGN.CENTER
     },
     imagePosition: {
-      start: 3,
-      end: 12,
+      start: 13,
+      end: 24,
       mobileSpan: 8,
-      order: 1
+      order: 2
     }
   },
   {
@@ -95,15 +100,15 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 14,
+      start: 15,
       end: 23,
       mobileSpan: 8,
       order: 2,
-      align: ALIGN.END
+      align: ALIGN.START
     },
     imagePosition: {
       start: 3,
-      end: 12,
+      end: 13,
       mobileSpan: 8,
       order: 1
     }
@@ -120,17 +125,17 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 14,
-      end: 23,
+      start: 4,
+      end: 10,
       mobileSpan: 8,
-      order: 2,
+      order: 1,
       align: ALIGN.END
     },
     imagePosition: {
-      start: 3,
-      end: 12,
+      start: 13,
+      end: 24,
       mobileSpan: 8,
-      order: 1
+      order: 2
     }
   },
   {
@@ -148,10 +153,10 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
       end: 23,
       mobileSpan: 8,
       order: 2,
-      align: ALIGN.END
+      align: ALIGN.START
     },
     imagePosition: {
-      start: 3,
+      start: 1,
       end: 12,
       mobileSpan: 8,
       order: 1
@@ -160,7 +165,7 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
   {
     title: 'Vera van de Seyp',
     description:
-      '♥ this portfolio. Original design choices, variable type experiments, and that sweet message section hits just right.',
+      '♥ this portfolio. Original design choices, variable type experiments, and the sweet message section.',
     url: 'https://veravandeseyp.com/',
     image: {
       url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
@@ -169,17 +174,17 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 14,
-      end: 23,
-      mobileSpan: 8,
-      order: 2,
-      align: ALIGN.END
-    },
-    imagePosition: {
-      start: 3,
+      start: 6,
       end: 12,
       mobileSpan: 8,
-      order: 1
+      order: 1,
+      align: ALIGN.CENTER
+    },
+    imagePosition: {
+      start: 13,
+      end: 24,
+      mobileSpan: 8,
+      order: 2
     }
   },
   {
@@ -219,17 +224,17 @@ photo gallery is ♡`,
       height: 100
     },
     contentPosition: {
-      start: 14,
-      end: 23,
+      start: 1,
+      end: 10,
       mobileSpan: 8,
-      order: 2,
-      align: ALIGN.END
+      order: 1,
+      align: ALIGN.START
     },
     imagePosition: {
-      start: 3,
-      end: 12,
+      start: 13,
+      end: 25,
       mobileSpan: 8,
-      order: 1
+      order: 2
     }
   },
   {
@@ -248,7 +253,7 @@ interactions and the subtle use of audio.`,
       end: 23,
       mobileSpan: 8,
       order: 2,
-      align: ALIGN.END
+      align: ALIGN.CENTER
     },
     imagePosition: {
       start: 3,
@@ -268,17 +273,17 @@ interactions and the subtle use of audio.`,
       height: 100
     },
     contentPosition: {
-      start: 14,
-      end: 23,
+      start: 6,
+      end: 10,
       mobileSpan: 8,
-      order: 2,
+      order: 1,
       align: ALIGN.END
     },
     imagePosition: {
-      start: 3,
-      end: 12,
+      start: 10,
+      end: 20,
       mobileSpan: 8,
-      order: 1
+      order: 2
     }
   },
   {
@@ -296,7 +301,7 @@ interactions and the subtle use of audio.`,
       end: 23,
       mobileSpan: 8,
       order: 2,
-      align: ALIGN.END
+      align: ALIGN.START
     },
     imagePosition: {
       start: 3,
@@ -316,17 +321,17 @@ interactions and the subtle use of audio.`,
       height: 100
     },
     contentPosition: {
-      start: 14,
-      end: 23,
+      start: 5,
+      end: 10,
       mobileSpan: 8,
-      order: 2,
-      align: ALIGN.END
+      order: 1,
+      align: ALIGN.START
     },
     imagePosition: {
-      start: 3,
-      end: 12,
+      start: 16,
+      end: 25,
       mobileSpan: 8,
-      order: 1
+      order: 2
     }
   },
   {
@@ -364,17 +369,17 @@ interactions and the subtle use of audio.`,
       height: 100
     },
     contentPosition: {
-      start: 14,
-      end: 23,
+      start: 1,
+      end: 10,
       mobileSpan: 8,
-      order: 2,
-      align: ALIGN.END
+      order: 1,
+      align: ALIGN.START
     },
     imagePosition: {
-      start: 3,
-      end: 12,
+      start: 13,
+      end: 25,
       mobileSpan: 8,
-      order: 1
+      order: 2
     }
   },
   {
@@ -392,7 +397,7 @@ interactions and the subtle use of audio.`,
       end: 23,
       mobileSpan: 8,
       order: 2,
-      align: ALIGN.END
+      align: ALIGN.CENTER
     },
     imagePosition: {
       start: 3,
@@ -412,17 +417,17 @@ interactions and the subtle use of audio.`,
       height: 100
     },
     contentPosition: {
-      start: 14,
-      end: 23,
+      start: 1,
+      end: 10,
       mobileSpan: 8,
-      order: 2,
+      order: 1,
       align: ALIGN.END
     },
     imagePosition: {
-      start: 3,
-      end: 12,
+      start: 13,
+      end: 25,
       mobileSpan: 8,
-      order: 1
+      order: 2
     }
   },
   {
@@ -440,7 +445,7 @@ interactions and the subtle use of audio.`,
       end: 23,
       mobileSpan: 8,
       order: 2,
-      align: ALIGN.END
+      align: ALIGN.START
     },
     imagePosition: {
       start: 3,
@@ -478,7 +483,8 @@ export const HIGHLIGHTS_MOVIES_2024 = [
   },
   {
     title: 'Terrifier 3',
-    description: `Maybe the gorest of the franchise. Don't let your children near Art the Clown.`,
+    description: `The trilogy closer might be the weakest entry but idk 
+    It's Damien Leone and Art the Clown.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
       url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
@@ -487,17 +493,17 @@ export const HIGHLIGHTS_MOVIES_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 1,
-      end: 10,
+      start: 14,
+      end: 25,
       mobileSpan: 8,
-      order: 1,
-      align: ALIGN.CENTER
+      order: 2,
+      align: ALIGN.END
     },
     imagePosition: {
-      start: 11,
-      end: 20,
+      start: 4,
+      end: 13,
       mobileSpan: 8,
-      order: 2
+      order: 1
     }
   },
   {
@@ -514,22 +520,23 @@ export const HIGHLIGHTS_MOVIES_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 1,
-      end: 10,
+      start: 2,
+      end: 13,
       mobileSpan: 8,
       order: 1,
-      align: ALIGN.CENTER
+      align: ALIGN.START
     },
     imagePosition: {
-      start: 11,
-      end: 20,
+      start: 14,
+      end: 22,
       mobileSpan: 8,
       order: 2
     }
   },
   {
     title: `MaXXXine`,
-    description: `The trilogy closer might be the weakest entry but idk it's Ty West and Mia Goth.`,
+    description: `The trilogy closer might be the weakest entry but idk 
+    it's Ty West and Mia Goth.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
       url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
@@ -538,17 +545,17 @@ export const HIGHLIGHTS_MOVIES_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 1,
-      end: 10,
+      start: 16,
+      end: 25,
       mobileSpan: 8,
-      order: 1,
+      order: 2,
       align: ALIGN.CENTER
     },
     imagePosition: {
-      start: 11,
-      end: 20,
+      start: 1,
+      end: 12,
       mobileSpan: 8,
-      order: 2
+      order: 1
     }
   }
 ]
@@ -565,17 +572,17 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 1,
-      end: 10,
+      start: 16,
+      end: 22,
       mobileSpan: 8,
-      order: 1,
+      order: 2,
       align: ALIGN.CENTER
     },
     imagePosition: {
-      start: 11,
-      end: 20,
+      start: 1,
+      end: 9,
       mobileSpan: 8,
-      order: 2
+      order: 1
     }
   },
   {
@@ -589,11 +596,11 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 1,
+      start: 4,
       end: 10,
       mobileSpan: 8,
       order: 1,
-      align: ALIGN.CENTER
+      align: ALIGN.END
     },
     imagePosition: {
       start: 11,
@@ -613,17 +620,17 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 1,
-      end: 10,
+      start: 13,
+      end: 23,
       mobileSpan: 8,
-      order: 1,
-      align: ALIGN.CENTER
+      order: 2,
+      align: ALIGN.START
     },
     imagePosition: {
-      start: 11,
-      end: 20,
+      start: 1,
+      end: 12,
       mobileSpan: 8,
-      order: 2
+      order: 1
     }
   },
   {
@@ -637,15 +644,15 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 1,
-      end: 10,
+      start: 5,
+      end: 12,
       mobileSpan: 8,
       order: 1,
       align: ALIGN.CENTER
     },
     imagePosition: {
-      start: 11,
-      end: 20,
+      start: 15,
+      end: 25,
       mobileSpan: 8,
       order: 2
     }
@@ -654,8 +661,8 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
 
 export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
   {
-    title: 'Ariel Pink at La Transtienda (Ciudad de Buenos Aires, Argentina)',
-    description: `My first time seeing live the man who created their own pop style and influenced all us. I enjoyed seeing how his raw recordings translated into this band format.`,
+    title: 'Ariel Pink at Uniclub (Ciudad de Buenos Aires, Argentina)',
+    description: `My first time seeing live the man who created their own pop style and influenced all us. We enjoyed seeing how his raw material translated into this band format.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
       url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
@@ -664,17 +671,17 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 1,
-      end: 10,
+      start: 13,
+      end: 22,
       mobileSpan: 8,
-      order: 1,
-      align: ALIGN.CENTER
+      order: 2,
+      align: ALIGN.END
     },
     imagePosition: {
-      start: 11,
-      end: 20,
+      start: 1,
+      end: 12,
       mobileSpan: 8,
-      order: 2
+      order: 1
     }
   },
   {
@@ -696,7 +703,7 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
     },
     imagePosition: {
       start: 11,
-      end: 20,
+      end: 25,
       mobileSpan: 8,
       order: 2
     }
@@ -717,17 +724,17 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
       height: 100
     },
     contentPosition: {
-      start: 1,
-      end: 10,
+      start: 14,
+      end: 23,
       mobileSpan: 8,
-      order: 1,
-      align: ALIGN.CENTER
+      order: 2,
+      align: ALIGN.START
     },
     imagePosition: {
-      start: 11,
-      end: 20,
+      start: 1,
+      end: 12,
       mobileSpan: 8,
-      order: 2
+      order: 1
     }
   }
 ]
@@ -735,7 +742,7 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
 export const HIGHLIGHTS_COMEDY_2024 = [
   {
     title: 'Rap World',
-    description: `Conner O'Malley is my current favorite comedian. An absurd suburban history located in 2009. Unforgettable finale.`,
+    description: `Conner O'Malley is my current favorite comedian. An absurd suburban history located in 2009. Loved the ending.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
       url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
@@ -752,7 +759,7 @@ export const HIGHLIGHTS_COMEDY_2024 = [
     },
     imagePosition: {
       start: 11,
-      end: 20,
+      end: 25,
       mobileSpan: 8,
       order: 2
     }
@@ -763,7 +770,7 @@ export const HIGHLIGHTS_PODCASTS_2024 = [
   {
     title: 'five podcasts:',
     subtitle: 'While riding bicycle, cooking, cleaning or walking.',
-    webglType: WEBGL_TYPE.GEOMETRIC_WIREFRAME,
+    webglType: WEBGL_TYPE.LINE_EXPLOSION,
     triggerId: 'podcasts',
     items: [
       {
@@ -786,7 +793,7 @@ export const HIGHLIGHTS_PODCASTS_2024 = [
         title: 'Pinkmoon radio',
         author: 'Zurita brothers',
         description:
-          'Another year where the Zurita brothers continue dropping regular episodes discussing cultural consumption with humor, irony and lots of hidden music gems.',
+          'An institution of my country. Another year where the Zurita brothers continue dropping regular episodes discussing cultural consumptions with humor and lots of hidden music gems.',
         url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
         decoration: '-------------------------------'
       },
@@ -834,7 +841,7 @@ export const HIGHLIGHTS_BOOKS_2024 = [
     title: 'extra one: three books',
     subtitle: `Ok I did not read any brand new 2024 books this year. But I read a few from other years and I'll recomend these:`,
 
-    webglType: WEBGL_TYPE.LINE_EXPLOSION,
+    webglType: WEBGL_TYPE.GEOMETRIC_WIREFRAME,
     triggerId: 'extra',
     items: [
       {
@@ -849,8 +856,12 @@ export const HIGHLIGHTS_BOOKS_2024 = [
         title: 'The Creative Act: A Way of Being',
         author: 'Rick Rubin',
         decoration: '--------------------------------',
-        description:
-          "Finally got around to this one. After reading, I understand why - it's digestible, occasionally profound, though rarely surprising. Think of it as a creative companion rather than a revelation. Still, I keep it on my coffee table - sometimes you need those gentle creative reminders within arm's reach.",
+        description: `Finally downloaded this one to my Kindle.
+           After reading, I understand why - it's digestible, occasionally profound,
+            though rarely surprising. 
+            A creative companion rather than any sort of revelation.
+            Still, I keep coming back to random pages in my 
+     library, like opening old tabs you never closed.`,
         url: 'https://www.goodreads.com/book/show/57278.The_Great_Gatsby'
       },
       {
