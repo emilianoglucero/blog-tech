@@ -9,12 +9,6 @@
   object-fit: cover;
 }
 
-/* .contentContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-} */
-
 .title {
   text-decoration: underline;
   text-decoration-color: var(--color-green-2);
@@ -24,7 +18,7 @@
   text-transform: uppercase;
 }
 
-.title:hover {
+.title a:hover {
   color: var(--color-green-2);
   text-decoration: none;
 }

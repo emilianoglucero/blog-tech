@@ -71,9 +71,11 @@ export const Highlight = ({
           className={s.content}
         >
           {/* <div className={s.contentContainer}> */}
-          <Link href={url} target="_blank" rel="noopener noreferrer">
-            <h3 className={s.title}>{title}</h3>
-          </Link>
+          <h3 className={s.title}>
+            <Link href={url} target="_blank" rel="noopener noreferrer">
+              {title}
+            </Link>
+          </h3>
           {description && (
             <div className={s.description}>
               <Markdown>{description}</Markdown>
