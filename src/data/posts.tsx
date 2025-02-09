@@ -28,19 +28,19 @@ export const POSTS = [
         height: '10734'
       }
     }
-  },
-  {
-    title: '2024',
-    subtitle: 'Highlihts of the year.',
-    dateToShow: 'September 17, 2024.',
-    slug: '2024-highlights',
-    meta: {
-      image: {
-        url: '/assets/images/2024-highlights/sandwich.jpg',
-        alt: 'Photo of a group of people in a concert.',
-        width: '1610',
-        height: '10734'
-      }
-    }
   }
+  // {
+  //   title: '2024',
+  //   subtitle: 'Highlihts of the year.',
+  //   dateToShow: 'September 17, 2024.',
+  //   slug: '2024-highlights',
+  //   meta: {
+  //     image: {
+  //       url: '/assets/images/2024-highlights/sandwich.jpg',
+  //       alt: 'Photo of a group of people in a concert.',
+  //       width: '1610',
+  //       height: '10734'
+  //     }
+  //   }
+  // }
 ]
