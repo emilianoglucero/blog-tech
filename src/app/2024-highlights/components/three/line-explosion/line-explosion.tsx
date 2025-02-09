@@ -1,11 +1,14 @@
+/* eslint-disable react/no-unknown-property */
 import { Float } from '@react-three/drei'
 import { ScrollTrigger } from 'gsap/all'
 import { useMemo, useRef } from 'react'
-import { Mesh } from 'three'
+import { Group } from 'three'
 import * as THREE from 'three'
 
 import useIsomorphicLayoutEffect from '~/hooks/use-isomorphic-layout'
 import { gsap } from '~/lib/gsap'
+
+import { Sphere } from '../sphere'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,8 +17,8 @@ interface LineExplosionProps {
   [key: string]: any
 }
 
-export const LineExplosion = ({ triggerRef, ...props }: LineExplosionProps) => {
-  const meshRef = useRef<Mesh>(null)
+export const LineExplosion = ({ triggerRef }: LineExplosionProps) => {
+  const meshRef = useRef<Group>(null)
 
   useIsomorphicLayoutEffect(() => {
     if (!meshRef.current || !triggerRef.current) {
@@ -32,8 +35,8 @@ export const LineExplosion = ({ triggerRef, ...props }: LineExplosionProps) => {
         trigger: triggerRef.current,
         start: 'top-=10% top',
         end: 'bottom+=10% bottom',
-        scrub: 0.4,
-        markers: true
+        scrub: 0.4
+        // markers: true
       }
     })
   }, [triggerRef])
@@ -76,7 +79,7 @@ export const LineExplosion = ({ triggerRef, ...props }: LineExplosionProps) => {
         Math.random() * Math.PI,
         Math.random() * Math.PI
       ]}
-      position={[3, 0, 0]}
+      position={[3, 2, 0]}
     >
       <Float speed={1} rotationIntensity={1} floatIntensity={1}>
         <lineSegments geometry={geometry}>
@@ -85,6 +88,13 @@ export const LineExplosion = ({ triggerRef, ...props }: LineExplosionProps) => {
             transparent
             opacity={0.6}
             linewidth={1}
+          />
+          <Sphere
+            color="#262626"
+            amount={30}
+            emissive="#42ff00"
+            position={[0, 0, 0]}
+            size={0.06}
           />
         </lineSegments>
       </Float>

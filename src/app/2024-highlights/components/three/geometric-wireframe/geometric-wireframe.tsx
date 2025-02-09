@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { Float } from '@react-three/drei'
 import { ScrollTrigger } from 'gsap/all'
 import { useRef } from 'react'
@@ -6,6 +7,8 @@ import { Mesh } from 'three'
 import useIsomorphicLayoutEffect from '~/hooks/use-isomorphic-layout'
 import { gsap } from '~/lib/gsap'
 
+import { Sphere } from '../sphere'
+
 gsap.registerPlugin(ScrollTrigger)
 
 interface GeometricWireframeProps {
@@ -13,10 +16,7 @@ interface GeometricWireframeProps {
   [key: string]: any
 }
 
-export const GeometricWireframe = ({
-  triggerRef,
-  ...props
-}: GeometricWireframeProps) => {
+export const GeometricWireframe = ({ triggerRef }: GeometricWireframeProps) => {
   const meshRef = useRef<Mesh>(null)
 
   useIsomorphicLayoutEffect(() => {
@@ -41,10 +41,9 @@ export const GeometricWireframe = ({
 
   return (
     <group
-      {...props}
       scale={[0.5, 0.7, 0.5]}
       rotation={[0.45, 0.3, 0.2]}
-      position={[4, -0.5, -3]}
+      position={[4, 2, -3]}
     >
       <mesh scale={[9, 9, 9]}>
         <boxGeometry args={[1.5, 1, 0.5, 2, 1, 2]} />
@@ -55,6 +54,12 @@ export const GeometricWireframe = ({
           <sphereGeometry args={[1, 2, 3]} />
           <meshBasicMaterial color="#262626" wireframe />
         </mesh>
+        <Sphere
+          color="#262626"
+          amount={30}
+          emissive="#42ff00"
+          position={[0, 0, 0]}
+        />
       </Float>
     </group>
   )
