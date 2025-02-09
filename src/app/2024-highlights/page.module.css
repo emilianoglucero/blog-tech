@@ -60,8 +60,6 @@
 .title {
   font-size: var(--font-size-5);
   font-weight: 500;
-
-  /* color: var(--color-secondary); */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -127,20 +125,8 @@
   text-wrap: balance;
 }
 
-.highlightsItems a {
-  text-decoration: underline;
-  text-decoration-color: var(--color-green-2);
-  text-underline-offset: 0.2ex;
-  text-decoration-thickness: 0.2ex;
-
-  /* font-size: var(--font-size-title); */
-
-  /* text-transform: uppercase; */
-}
-
-.highlightsItems a:hover {
+.blog__title h2 {
   color: var(--color-green-2);
-  text-decoration: none;
 }
 
 .websites {
@@ -160,6 +146,11 @@
 
 .extra {
   min-height: 100vh;
+}
+
+.highlightsItem {
+  padding-top: var(--space-xxxxl);
+  padding-bottom: var(--space-xxxxl);
 }
 
 .extra a {
