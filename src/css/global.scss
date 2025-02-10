@@ -72,6 +72,10 @@
   --space-xxxxl: calc(13.75 * var(--space-unit));
   --space-xxxxxl: calc(22.25 * var(--space-unit));
   --space-xxxxxxl: calc(35.75 * var(--space-unit));
+
+  // grid
+  --grid-gutter: 0rem;
+  --grid-gutter-mobile: var(--space-sm);
 }
 
 html {

@@ -221,14 +221,10 @@ const Page = () => {
             {/* MUSIC */}
             <div className={s.music}>
               <h2>extra two: sixty-one songs</h2>
-              <span>
-                <a href="https://www.goodreads.com/book/show/57278.The_Great_Gatsby">
-                  <span className={s.decoration}>
-                    ________________________________________________
-                  </span>
-                  my favs sixty-one songs of 2024 RELEASED IN SPOTIFY
-                </a>
-              </span>
+              <a href="https://www.goodreads.com/book/show/57278.The_Great_Gatsby">
+                <span className={s.decoration}>______________________</span>
+                my favs sixty-one songs of 2024 RELEASED IN SPOTIFY
+              </a>
             </div>
           </section>
         </section>

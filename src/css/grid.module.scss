@@ -18,6 +18,13 @@ $margin: (
   width: 100%;
 }
 
+@media (width <= 68.75rem) {
+  .row {
+    grid-template-columns: repeat($columns-mobile, minmax(0, 1fr));
+    gap: var(--grid-gutter-mobile);
+  }
+}
+
 // Generate start classes
 @for $i from 1 through $columns {
   .cell-start-#{$i} {

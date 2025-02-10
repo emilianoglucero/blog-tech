@@ -5,7 +5,7 @@
 
 .content {
   position: relative;
-  height: 150vh;
+  min-height: 150vh;
 }
 
 .imageContainer {
@@ -78,4 +78,11 @@
   padding-top: var(--space-xxxs);
   font-family: var(--font-bitter);
   line-height: 1.5;
+}
+
+/* mobile and tablet  */
+@media (width <= 68.75rem) {
+  .description {
+    max-width: 100%;
+  }
 }
