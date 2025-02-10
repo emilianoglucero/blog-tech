@@ -293,7 +293,7 @@ const Welcome = () => {
             </div>
             <div>
               <p className={s.author_email} ref={authorEmailRef}>
-                emilianoglucero@gmail.com
+                hello@emilianolucero.info
               </p>
             </div>
           </div>
