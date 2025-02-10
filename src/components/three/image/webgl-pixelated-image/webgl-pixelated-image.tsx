@@ -15,7 +15,9 @@ const CustomMaterial = shaderMaterial(
   {
     uTexture: null,
     uMouse: new THREE.Vector2(),
-    uPrevMouse: new THREE.Vector2()
+    uPrevMouse: new THREE.Vector2(),
+    uBrightness: 1.0,
+    uContrast: 1.1
   },
   pixelatedEffect.vertex,
   pixelatedEffect.fragment
@@ -40,6 +42,8 @@ export const WebglPixelatedImage = ({
     x: 0.5,
     y: 0.5
   })
+  const [isLeaving, setIsLeaving] = useState(false)
+  const [lastUpdateTime, setLastUpdateTime] = useState(0)
   const texture = useImageAsTexture(imgRef)
 
   const handleMouseMove = (event: any) => {
@@ -64,20 +68,36 @@ export const WebglPixelatedImage = ({
     setTargetMousePostion({ x, y })
     setPrevMousePosition({ x, y })
     setEaseFactor(0.005)
+    setIsLeaving(false)
   }
 
   const handleMouseLeave = () => {
     setEaseFactor(0.002)
+    setIsLeaving(true)
   }
 
-  useFrame(() => {
+  useFrame((state) => {
     if (!meshRef.material) return null
+
+    // Handle mouse position interpolation
     setMousePosition((prev) => ({
       x: prev.x + (targetMousePosition.x - prev.x) * easeFactor,
       y: prev.y + (targetMousePosition.y - prev.y) * easeFactor
     }))
+
+    // Update material uniforms
     meshRef.material.uMouse.set(mousePositon.x, mousePositon.y)
     meshRef.material.uPrevMouse.set(prevMousePosition.x, prevMousePosition.y)
+
+    // Handle ease factor increment when leaving
+    if (isLeaving) {
+      const currentTime = state.clock.getElapsedTime()
+      if (currentTime - lastUpdateTime >= 1) {
+        // Check if 1 second has passed
+        setEaseFactor((prev) => Math.min(prev + 0.002, 0.1)) // Increment but cap at 0.05
+        setLastUpdateTime(currentTime)
+      }
+    }
   })
 
   if (!texture) return null
@@ -98,6 +118,10 @@ export const WebglPixelatedImage = ({
         uMouse={new THREE.Vector2()}
         // eslint-disable-next-line react/no-unknown-property
         uPrevMouse={new THREE.Vector2()}
+        // eslint-disable-next-line react/no-unknown-property
+        uBrightness={1.2}
+        // eslint-disable-next-line react/no-unknown-property
+        uContrast={1}
       />
     </mesh>
   )
