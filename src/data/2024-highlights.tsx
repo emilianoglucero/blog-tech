@@ -462,7 +462,7 @@ export const HIGHLIGHTS_MOVIES_2024 = [
     description: `"Morir y nacer de nuevo". The Jockey felt like a mix of Marcos López, Lynch, Wes Anderson, Almodóvar, and *porteño* culture.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/movies/eljockey.jpg',
       alt: 'El Jockey',
       width: 100,
       height: 100
@@ -487,7 +487,7 @@ export const HIGHLIGHTS_MOVIES_2024 = [
     It's Damien Leone and Art the Clown.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/movies/terrifier3.jpg',
       alt: 'Terrifier 3',
       width: 100,
       height: 100
@@ -514,7 +514,7 @@ export const HIGHLIGHTS_MOVIES_2024 = [
      Frenkel continues to dominate the documentary genre in my country.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/movies/despuesdeunbuendia.jpg',
       alt: 'Después de un buen día',
       width: 100,
       height: 100
@@ -539,7 +539,7 @@ export const HIGHLIGHTS_MOVIES_2024 = [
     it's Ty West and Mia Goth.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/movies/maxxxine.jpg',
       alt: 'MaXXXine',
       width: 100,
       height: 100
@@ -566,8 +566,8 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
     description: `[Fantastic 3D Creation](https://www.youtube.com/channel/UCKxpefN2paZU6-pumGsCtaw) did it again.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
-      alt: 'Terrifier 3',
+      url: '/assets/images/2024-highlights/music-videos/moonstruck.jpg',
+      alt: 'Moonstruck by Jerry Paper',
       width: 100,
       height: 100
     },
@@ -586,12 +586,12 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
     }
   },
   {
-    title: 'TAUSER by nusar3000',
+    title: 'TAUSERT by nusar3000',
     description: `I really enjoyed the ride with the guys.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
-      alt: 'Terrifier 3',
+      url: '/assets/images/2024-highlights/music-videos/tausert.jpg',
+      alt: 'TAUSERT by nusar3000',
       width: 100,
       height: 100
     },
@@ -614,8 +614,8 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
     description: `[FOMOTRAUMA](https://www.instagram.com/fomotrauma/) && quality`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
-      alt: 'Terrifier 3',
+      url: '/assets/images/2024-highlights/music-videos/uwu.jpg',
+      alt: 'uwu^^ by rusowsky and Bb trickz',
       width: 100,
       height: 100
     },
@@ -638,8 +638,8 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
     description: `Simple and effective gangsta video. Fine work from [pleazzures](https://www.instagram.com/pleazzures/).`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
-      alt: 'Terrifier 3',
+      url: '/assets/images/2024-highlights/music-videos/martes13.jpg',
+      alt: 'Martes 13 by Little Boogie ft El Doctor',
       width: 100,
       height: 100
     },
@@ -665,7 +665,7 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
     description: `My first time seeing live the man who created their own pop style and influenced all us. We enjoyed seeing how his raw material translated into this band format.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/live-shows/arielpink.jpg',
       alt: 'Ariel Pink at La Transtienda',
       width: 100,
       height: 100
@@ -689,7 +689,7 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
     description: `After a few years of silence, Córdoba's own made their return to the stages, bringing their new record to Casa Babylon with a full band formation that made everything shine.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/live-shows/mizuki.jpg',
       alt: 'Mizuki Amapola at Casa Babylon (Ciudad de Cordoba, Argentina)',
       width: 100,
       height: 100
@@ -718,8 +718,8 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
       that beautiful equilibrium.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
-      alt: 'Mizuki Amapola at Casa Babylon (Ciudad de Cordoba, Argentina)',
+      url: '/assets/images/2024-highlights/live-shows/losveranos.jpg',
+      alt: 'Los Veranos at La Veleta Cultural (San Miguel de Tucumán, Argentina)',
       width: 100,
       height: 100
     },
@@ -745,8 +745,8 @@ export const HIGHLIGHTS_COMEDY_2024 = [
     description: `Conner O'Malley is my current favorite comedian. An absurd suburban history located in 2009. Loved the ending.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
-      alt: 'The Last of Us',
+      url: '/assets/images/2024-highlights/comedy/rapworld.jpg',
+      alt: 'Rap World',
       width: 100,
       height: 100
     },
@@ -815,7 +815,7 @@ export const HIGHLIGHTS_PODCASTS_2024 = [
       }
     ],
     image: {
-      url: '/assets/images/2024-highlights/podcasts/collection.jpg',
+      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
       alt: 'Podcast Collection 2024',
       width: 100,
       height: 100
@@ -874,7 +874,7 @@ export const HIGHLIGHTS_BOOKS_2024 = [
       }
     ],
     image: {
-      url: '/assets/images/2024-highlights/books/collection.jpg',
+      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
       alt: 'Book Collection 2024',
       width: 100,
       height: 100
