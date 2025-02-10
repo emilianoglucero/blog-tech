@@ -69,7 +69,7 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
       "Found myself lost in this WebGL experience from the Michael Schindhelm exhibition. I really liked their take on Longevity. There's something deliciously nostalgic about the narrative and the 3D post-processing style.",
     url: 'https://bidsforsurvival.com/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/bidsforsurvival.jpg',
       alt: 'Bid(s) for Survival',
       width: 100,
       height: 100
@@ -94,7 +94,7 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
       'Love good quality photography on web and this site implemented it with very distingués hover effects. Full disclosure: Yes, I reverse-engineered their hover style for this blog main page. Good artists copy, etc etc.',
     url: 'https://artlistparis.com/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/artlistparis.jpg',
       alt: 'Artlist Paris',
       width: 100,
       height: 100
@@ -119,7 +119,7 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
       'This one has a little bit of everything I obsess over in websites: physics interactions, illustration style, the motion design, the typography experiments, and a beautiful design that ties all together.',
     url: 'https://gt-america.com/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/gtamerica.jpg',
       alt: 'GT America Intl',
       width: 100,
       height: 100
@@ -143,7 +143,7 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
     description: 'First-class use of WebGL here.',
     url: 'https://labs.noomoagency.com/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/noomo.jpg',
       alt: 'Noomo Labs',
       width: 100,
       height: 100
@@ -168,8 +168,8 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
       '♥ this portfolio. Original design choices, variable type experiments, and the sweet message section.',
     url: 'https://veravandeseyp.com/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
-      alt: 'Noomo Labs',
+      url: '/assets/images/2024-highlights/websites/veravandeseyp.jpg',
+      alt: 'Vera van de Seyp',
       width: 100,
       height: 100
     },
@@ -193,7 +193,7 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
     feels a little bit strange so I love it.`,
     url: 'http://beurownmastr.com/ty/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/peachspring.jpg',
       alt: '世外桃源 The Peach Spring Beyond This World',
       width: 100,
       height: 100
@@ -218,7 +218,7 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
 photo gallery is ♡`,
     url: 'https://zesnullen.world/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/zesnullen.jpg',
       alt: 'Zes Nullen',
       width: 100,
       height: 100
@@ -243,7 +243,7 @@ photo gallery is ♡`,
 interactions and the subtle use of audio.`,
     url: 'https://dversostudio.io/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/dverso.jpg',
       alt: 'Dverso Studio',
       width: 100,
       height: 100
@@ -267,8 +267,8 @@ interactions and the subtle use of audio.`,
     description: `Typography experiments that make you want to scroll.`,
     url: 'https://romaingranai.xyz/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
-      alt: 'Dverso Studio',
+      url: '/assets/images/2024-highlights/websites/roman.jpg',
+      alt: 'Romain Granai',
       width: 100,
       height: 100
     },
@@ -291,7 +291,7 @@ interactions and the subtle use of audio.`,
     description: `Beautiful WebGL graphic adventure game experience by Kris Temmerman.`,
     url: 'https://foodforfish.org/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/foodforfish.jpg',
       alt: 'Food for Fish',
       width: 100,
       height: 100
@@ -315,7 +315,7 @@ interactions and the subtle use of audio.`,
     description: `Such good micro interactions and visual style.`,
     url: 'https://www.daisychainstudio.net/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/daisychainstudio.jpg',
       alt: 'Daisy Chain Studio',
       width: 100,
       height: 100
@@ -339,7 +339,7 @@ interactions and the subtle use of audio.`,
     description: `Love saga's work and this community visualizer.`,
     url: 'https://006.saga-pro.co/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/saga.jpg',
       alt: '[SAGAPRO006] – J.ALBERT & HOLODEC',
       width: 100,
       height: 100
@@ -363,7 +363,7 @@ interactions and the subtle use of audio.`,
     description: `I really enjoyed the high quality photography and 3D from this McDonald's experience.`,
     url: 'https://mcdonalds.hypebeast.com/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/mcdonalds.jpg',
       alt: `McDonald's Brings Back New Collector's Edition Cups`,
       width: 100,
       height: 100
@@ -387,7 +387,7 @@ interactions and the subtle use of audio.`,
     description: `I have to admit I loved the hardcore pixelated shader effect for the main images. Nice use of WebGL in the rest of the elements. We need to stop using the random text animation on hover effect.`,
     url: 'https://www.teletech.events/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/teletech.jpg',
       alt: `Teletech`,
       width: 100,
       height: 100
@@ -411,7 +411,7 @@ interactions and the subtle use of audio.`,
     description: `I like when 3D, visuals and sound combine that well.`,
     url: 'https://desktop.fm/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
+      url: '/assets/images/2024-highlights/websites/desktopfm.jpg',
       alt: `Desktop`,
       width: 100,
       height: 100
@@ -435,8 +435,8 @@ interactions and the subtle use of audio.`,
     description: `Thank you [darkroom.engineering](https://darkroom.engineering/) for existing.`,
     url: 'https://scrib3.co/',
     image: {
-      url: '/assets/images/2024-highlights/websites/twomuchstudio.jpg',
-      alt: `Desktop`,
+      url: '/assets/images/2024-highlights/websites/scrib3.jpg',
+      alt: `Scrib3`,
       width: 100,
       height: 100
     },
