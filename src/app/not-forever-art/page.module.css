@@ -897,7 +897,7 @@
 
 .paragraph__13 {
   position: relative;
-  height: 150vh;
+  min-height: 150vh;
   z-index: 0;
 }
 
