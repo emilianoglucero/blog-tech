@@ -32,10 +32,12 @@
 }
 
 .subtitle {
-  /* font-size: var(--font-size-4); */
   font-weight: 450;
   text-wrap: balance;
   padding-bottom: var(--space-xl);
+  text-align: start;
+  font-size: var(--font-size-1);
+  max-width: 50%;
 }
 
 .list {
