@@ -265,11 +265,12 @@ const Page = () => {
                   played four shows in seven days in the northeast of the
                   country. <br />
                   That first taste broke something loose. Suddenly we're
-                  crossing borders - Formosa, Paraguay, Rosario, Paraná. A team
-                  of four friends, one car and two shows to offer. <br />
+                  crossing borders - Formosa, Paraguay, Rosario, Paraná, San
+                  Luis. A team of four friends, one car and two shows to offer.{' '}
+                  <br />
                   Every night was different but the feeling was always the same:
                   this is exactly where we're supposed to be. Making noise and
-                  friends.
+                  sharing moments.
                   <br />
                   While we figure out where the road leads next, here are some
                   shows that lit up my 2024.

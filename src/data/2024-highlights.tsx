@@ -768,8 +768,7 @@ export const HIGHLIGHTS_COMEDY_2024 = [
 export const HIGHLIGHTS_PODCASTS_2024 = [
   {
     title: 'five podcasts:',
-    subtitle:
-      'In the bus, riding bicycle, cooking, cleaning or walking. And you?',
+    subtitle: 'In the bus, cooking, cleaning or walking. The usuals.',
     webglType: WEBGL_TYPE.LINE_EXPLOSION,
     triggerId: 'podcasts',
     items: [
