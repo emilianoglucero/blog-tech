@@ -15,10 +15,10 @@ export const HIGHLIGHTS_WEBSITES_2024 = [
     description: `Special mention to Stripe—
     a tech company pushing the boundaries of the web, who would have thought?
     Their Black Friday recap made data beautiful again, 
-    but don't sleep on their [Dev Docs](https://stripe.com/docs) 
-    and [Price Adapter](https://stripe.com/docs/payments/accept-a-payment) 
+    but don't sleep on their [Dev Docs](https://stripe.dev/) 
+    and [Price Adapter](https://www.priceadapter.com/) 
     releases. They're both high quality.`,
-    url: 'https://stripe.dev/',
+    url: 'https://bfcm.stripe.com/',
     image: {
       url: '/assets/images/2024-highlights/websites/stripe.jpg',
       alt: 'Stripe Black Friday and Cyber Monday recap 2024',
@@ -460,7 +460,7 @@ export const HIGHLIGHTS_MOVIES_2024 = [
   {
     title: 'El Jockey',
     description: `"Morir y nacer de nuevo". The Jockey felt like a mix of Marcos López, Lynch, Wes Anderson, Almodóvar, and *porteño* culture.`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/N2BSpDERJZk',
     image: {
       url: '/assets/images/2024-highlights/movies/eljockey.jpg',
       alt: 'El Jockey',
@@ -484,7 +484,7 @@ export const HIGHLIGHTS_MOVIES_2024 = [
   {
     title: 'Terrifier 3',
     description: `Maybe the goriest of the franchise. As someone who grew up on slasher films, I enjoyed seeing Art the Clown become a horror icon of the genre this decade. Thank you, Damien Leone, for the character design and special effects.`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/zaPcin5knJk',
     image: {
       url: '/assets/images/2024-highlights/movies/terrifier3.jpg',
       alt: 'Terrifier 3',
@@ -511,7 +511,7 @@ export const HIGHLIGHTS_MOVIES_2024 = [
      The director was supposed to be present but couldn't make it due to a (last-minute) transport strike (as far as I remember).
      This is a documentary about an Argentinian cinema phenomenon. I enjoyed the approach and get to know much more about the story of the protagonists.
      Frenkel continues to dominate the documentary genre in my country.`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/jSA0H8hDUwE',
     image: {
       url: '/assets/images/2024-highlights/movies/despuesdeunbuendia.jpg',
       alt: 'Después de un buen día',
@@ -536,7 +536,7 @@ export const HIGHLIGHTS_MOVIES_2024 = [
     title: `MaXXXine`,
     description: `The trilogy closer might be the weakest entry but idk 
     it's Ty West and Mia Goth.`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/y0uS3t6nFgY',
     image: {
       url: '/assets/images/2024-highlights/movies/maxxxine.jpg',
       alt: 'MaXXXine',
@@ -563,7 +563,7 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
   {
     title: 'Moonstruck by Jerry Paper',
     description: `[Fantastic 3D Creation](https://www.youtube.com/channel/UCKxpefN2paZU6-pumGsCtaw) did it again.`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/2g6QSF9pTWU?si=KsGy_DtbsBzaySPH',
     image: {
       url: '/assets/images/2024-highlights/music-videos/moonstruck.jpg',
       alt: 'Moonstruck by Jerry Paper',
@@ -587,7 +587,7 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
   {
     title: 'TAUSERT by nusar3000',
     description: `I really enjoyed the ride with the guys.`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/6cr9WvEt3g0?si=pZXFP460NNVnS4Vy',
     image: {
       url: '/assets/images/2024-highlights/music-videos/tausert.jpg',
       alt: 'TAUSERT by nusar3000',
@@ -611,7 +611,7 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
   {
     title: 'uwu^^ by rusowsky and Bb trickz',
     description: `[FOMOTRAUMA](https://www.instagram.com/fomotrauma/) && quality`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/-tAT4qRuB04?si=3L1Qs0TH9Ka2-ay0',
     image: {
       url: '/assets/images/2024-highlights/music-videos/uwu.jpg',
       alt: 'uwu^^ by rusowsky and Bb trickz',
@@ -635,7 +635,7 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
   {
     title: 'Martes 13 by Little Boogie ft El Doctor',
     description: `Simple and effective gangsta video. Fine work from [pleazzures](https://www.instagram.com/pleazzures/).`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/4u-bDJEPtG0?si=jDxDd-yVmF0y1O7s',
     image: {
       url: '/assets/images/2024-highlights/music-videos/martes13.jpg',
       alt: 'Martes 13 by Little Boogie ft El Doctor',
@@ -662,7 +662,7 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
   {
     title: 'Ariel Pink at Uniclub (Ciudad de Buenos Aires, Argentina)',
     description: `My first time seeing live the man who created their own pop style and influenced all us. We enjoyed seeing how his raw material translated into this band format.`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/ERoYJje0vA8',
     image: {
       url: '/assets/images/2024-highlights/live-shows/arielpink.jpg',
       alt: 'Ariel Pink at La Transtienda',
@@ -686,7 +686,7 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
   {
     title: 'Mizuki Amapola at Casa Babylon (Ciudad de Cordoba, Argentina)',
     description: `After a few years of silence, Córdoba's own made their return to the stages, bringing their new record to Casa Babylon with a full band formation that made everything shine.`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/SMTeeMVbLqg',
     image: {
       url: '/assets/images/2024-highlights/live-shows/mizuki.jpg',
       alt: 'Mizuki Amapola at Casa Babylon (Ciudad de Cordoba, Argentina)',
@@ -715,7 +715,7 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
       there's an equal and opposite reaction (Tucumán's avant-garde movement).
       Los Veranos are proof. Playing alongside them during our summer tour felt like being part of 
       that beautiful equilibrium.`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/n3ayYcdMMSM',
     image: {
       url: '/assets/images/2024-highlights/live-shows/losveranos.jpg',
       alt: 'Los Veranos at La Veleta Cultural (San Miguel de Tucumán, Argentina)',
@@ -742,7 +742,7 @@ export const HIGHLIGHTS_COMEDY_2024 = [
   {
     title: 'Rap World',
     description: `Conner O'Malley is my current favorite comedian. An absurd suburban history located in 2009. Loved the ending.`,
-    url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+    url: 'https://youtu.be/NkARD8oTzOM?si=z9sz0pGTLmzHshdu',
     image: {
       url: '/assets/images/2024-highlights/comedy/rapworld.jpg',
       alt: 'Rap World',
@@ -768,7 +768,8 @@ export const HIGHLIGHTS_COMEDY_2024 = [
 export const HIGHLIGHTS_PODCASTS_2024 = [
   {
     title: 'five podcasts:',
-    subtitle: 'In the bus, riding bicycle, cooking, cleaning or walking. And you?',
+    subtitle:
+      'In the bus, riding bicycle, cooking, cleaning or walking. And you?',
     webglType: WEBGL_TYPE.LINE_EXPLOSION,
     triggerId: 'podcasts',
     items: [
@@ -777,7 +778,7 @@ export const HIGHLIGHTS_PODCASTS_2024 = [
         author: 'Britton Stipetic',
         description:
           'Season 2 where Britton Stipetic brings insightful conversations with creative industry players.',
-        url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+        url: 'https://www.youtube.com/@Rogueworldwide',
         decoration: '-------'
       },
       {
@@ -785,7 +786,7 @@ export const HIGHLIGHTS_PODCASTS_2024 = [
         author: 'Santi Carrillo and Juan Cervera',
         description:
           "Discovered Santi Carrillo and Juan Cervera from Rockdelux magazine last year, and I've become a devoted follower of their borderless musical talks and explorations.",
-        url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+        url: 'https://open.spotify.com/show/5PB7OE17O05Fh3IFR6IDzx',
         decoration: '--------------------------------------------------'
       },
       {
@@ -793,14 +794,14 @@ export const HIGHLIGHTS_PODCASTS_2024 = [
         author: 'Zurita brothers',
         description:
           'An institution of my country. Another year where the Zurita brothers continue dropping regular episodes discussing cultural consumptions with humor and lots of hidden music gems.',
-        url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+        url: 'https://open.spotify.com/show/70msquG7Q1JGJGxKU2za1t',
         decoration: '-------------------------------'
       },
       {
         title: 'The pragmatic engineer',
         author: 'Gergely Orosz',
         description: `Late last year, Gergely Orosz launched his podcast that feels like a breath of fresh air, bringing interesting discussions with industry protagonists. I liked the variety of topics, interviews and the way they're approached. Another option in the vast tech podcast landscape.`,
-        url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+        url: 'https://www.youtube.com/@pragmaticengineer',
         decoration: '----------------------------------------------------------'
       },
       {
@@ -808,7 +809,7 @@ export const HIGHLIGHTS_PODCASTS_2024 = [
         author: 'Gerry Garbulsky',
         description:
           'My girlfriend laughs when she sees me listening to this podcast. She thinks I\'ve fallen into self-help content. I discovered Gerry Garbulsky\'s podcast through the amazing Melina Furman and got hooked by the diversity of guests and its "lifelong learning" spirit.',
-        url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
+        url: 'https://www.youtube.com/@AprenderdeGrandes',
         decoration:
           '---------------------------------------------------------------------------------'
       }
@@ -849,7 +850,7 @@ export const HIGHLIGHTS_BOOKS_2024 = [
         decoration: '-------',
         description:
           "I've become something of an evangelist for Melina's work this year. Spending more time with my nephew made me want to approach guidance from a more evidence-based perspective rather than pure instinct. This book was exactly what I needed - grounded in research but with a warm, approachable tone and packed with practical resources. Melina's legacy is truly irreplaceable. I still cannot believe she left us :(",
-        url: 'https://www.goodreads.com/book/show/57278.The_Great_Gatsby'
+        url: 'https://sigloxxieditores.com.ar/libro/guia-para-criar-hijos-curiosos/?srsltid=AfmBOopfDviQiYAHhlkFIHytD5qulnTgS8HA0GD_BfPnYbCwk7gL-9K-'
       },
       {
         title: 'The Creative Act: A Way of Being',
@@ -861,7 +862,7 @@ export const HIGHLIGHTS_BOOKS_2024 = [
             A creative companion rather than any sort of revelation.
             Still, I keep coming back to random pages in my 
      library, like opening old tabs you never closed.`,
-        url: 'https://www.goodreads.com/book/show/57278.The_Great_Gatsby'
+        url: 'https://www.amazon.com/Creative-Act-Way-Being/dp/0593652886'
       },
       {
         title: 'Design for Hackers: Reverse Engineering Beauty',
@@ -869,7 +870,7 @@ export const HIGHLIGHTS_BOOKS_2024 = [
         decoration: '------------------------------------------------------',
         description:
           'Nice as an intro for non-designers. Kadavy breaks down the fundamentals. A mix of history, theory and practical advice.',
-        url: 'https://www.goodreads.com/book/show/57278.The_Great_Gatsby'
+        url: 'https://www.amazon.com/Design-Hackers-Reverse-Engineering-Beauty/dp/1119998956'
       }
     ],
     image: {
