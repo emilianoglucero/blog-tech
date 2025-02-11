@@ -14,6 +14,7 @@ import { AspectBox } from '~/components/aspect-box'
 import { Cell } from '~/components/grid/cell'
 import { Row } from '~/components/grid/row'
 import { WebglPixelatedImage } from '~/components/three/image/webgl-pixelated-image/webgl-pixelated-image'
+import { getImageSizes } from '~/lib/utils/image'
 
 import s from './highlight.module.css'
 
@@ -59,6 +60,12 @@ export const Highlight = ({
   const trackedElement = useRef(null!)
   const imgRef = useRef(null!)
   const { hasSmoothScrollbar } = useScrollRig()
+
+  const sizes = getImageSizes(
+    image?.width ?? 0,
+    (image?.width ?? 0) / 2,
+    (image?.width ?? 0) / 3
+  )
 
   return (
     <div className={s.highlight}>
@@ -107,6 +114,7 @@ export const Highlight = ({
                   alt={image.alt}
                   ref={imgRef}
                   fill
+                  sizes={sizes}
                   // width={image.width}
                   // height={image.height}
                 />
