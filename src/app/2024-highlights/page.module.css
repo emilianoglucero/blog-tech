@@ -236,20 +236,6 @@
   }
 }
 
-.extra a {
-  text-decoration: underline;
-  text-decoration-color: var(--color-green-2);
-  text-underline-offset: 0.3ex;
-  text-decoration-thickness: 0.3ex;
-  font-size: var(--font-size-title);
-  text-transform: uppercase;
-}
-
-.extra a:hover {
-  color: var(--color-green-2);
-  text-decoration: none;
-}
-
 .extra p {
   font-size: var(--font-size-regular);
   padding-bottom: var(--space-md);
@@ -292,6 +278,21 @@
   .music {
     min-height: 130vh;
   }
+}
+
+.music a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-green-2);
+  text-underline-offset: 0.3ex;
+  text-decoration-thickness: 0.3ex;
+  font-size: var(--font-size-title);
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.music a:hover {
+  color: var(--color-green-2);
+  text-decoration: none;
 }
 
 .music .decoration {

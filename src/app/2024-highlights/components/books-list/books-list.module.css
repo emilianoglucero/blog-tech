@@ -70,13 +70,13 @@
   text-decoration: none;
 }
 
+.listItem .decoration {
+  color: var(--color-white);
+}
+
 .listItem span {
   font-style: italic;
   color: var(--color-gray);
-}
-
-.listItem .decoration {
-  color: var(--color-white);
 }
 
 .description {
