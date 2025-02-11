@@ -483,8 +483,7 @@ export const HIGHLIGHTS_MOVIES_2024 = [
   },
   {
     title: 'Terrifier 3',
-    description: `The trilogy closer might be the weakest entry but idk 
-    It's Damien Leone and Art the Clown.`,
+    description: `Maybe the goriest of the franchise. As someone who grew up on slasher films, I enjoyed seeing Art the Clown become a horror icon of the genre this decade. Thank you, Damien Leone, for the character design and special effects.`,
     url: 'https://www.youtube.com/watch?v=s3Bc_gH7zQ4',
     image: {
       url: '/assets/images/2024-highlights/movies/terrifier3.jpg',
@@ -769,7 +768,7 @@ export const HIGHLIGHTS_COMEDY_2024 = [
 export const HIGHLIGHTS_PODCASTS_2024 = [
   {
     title: 'five podcasts:',
-    subtitle: 'While riding bicycle, cooking, cleaning or walking.',
+    subtitle: 'In the bus, riding bicycle, cooking, cleaning or walking. And you?',
     webglType: WEBGL_TYPE.LINE_EXPLOSION,
     triggerId: 'podcasts',
     items: [
