@@ -221,7 +221,7 @@
   padding-bottom: var(--space-xxxxl);
 }
 
-.highlightsItem h4 {
+.highlightsItem h3 {
   font-weight: 450;
   padding-bottom: var(--space-xl);
   text-align: start;
@@ -231,7 +231,7 @@
 }
 
 @media (width <= 68.75rem) {
-  .highlightsItem h4 {
+  .highlightsItem h3 {
     max-width: 100%;
   }
 }

@@ -190,11 +190,11 @@ const Page = () => {
               {/*MOVIES*/}
               <div className={s.highlightsItem}>
                 <h2>four movies:</h2>
-                <h4>
+                <h3>
                   Now the movies. I have to admit I did not watch a lot of 2024
                   movies because the time I destinate for cinema I did tried to
                   watch all José Celestino Campusano's filmography.
-                </h4>
+                </h3>
                 {HIGHLIGHTS_MOVIES_2024.map((highlight) => (
                   <Highlight
                     key={highlight.title}
@@ -225,10 +225,10 @@ const Page = () => {
               {/*MUSIC VIDEOS*/}
               <div className={s.highlightsItem}>
                 <h2>four music videos:</h2>
-                <h4>
+                <h3>
                   Some day I'll release new music and hire El Cielo and
                   Fantastic 3D Creation and Fomotrauma and Pleazzures. Some day.
-                </h4>
+                </h3>
                 {HIGHLIGHTS_MUSIC_VIDEOS_2024.map((highlight) => (
                   <Highlight
                     key={highlight.title}
@@ -244,7 +244,7 @@ const Page = () => {
               {/*LIVE SHOWS*/}
               <div className={s.highlightsItem}>
                 <h2>three live shows:</h2>
-                <h4>
+                <h3>
                   I'm a simple boy with simple hobbies and I've always wanted to
                   go on tour with a band. I had traveled to play in other cities
                   before, but I wanted to do it as a proper tour—an <i>n</i>{' '}
@@ -274,7 +274,7 @@ const Page = () => {
                   <br />
                   While we figure out where the road leads next, here are some
                   shows that lit up my 2024.
-                </h4>
+                </h3>
 
                 {HIGHLIGHTS_LIVE_SHOWS_2024.map((highlight) => (
                   <Highlight
@@ -291,7 +291,7 @@ const Page = () => {
               {/*COMEDY*/}
               <div className={s.highlightsItem}>
                 <h2>one comedy piece:</h2>
-                <h4>It's an honor to present this award to O'Malley.</h4>
+                <h3>It's an honor to present this award to O'Malley.</h3>
                 {HIGHLIGHTS_COMEDY_2024.map((highlight) => (
                   <Highlight
                     key={highlight.title}
