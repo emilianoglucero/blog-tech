@@ -2,10 +2,14 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
+import { CanvasProvider } from '~/components/three/canvas-provider'
+
 const queryClient = new QueryClient()
 
 export const Providers = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <CanvasProvider>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </CanvasProvider>
   )
 }

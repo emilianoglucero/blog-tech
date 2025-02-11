@@ -1,0 +1,98 @@
+$columns: 24;
+$columns-mobile: 8;
+$gap: (
+  mobile: 16px,
+  desktop: 24px
+);
+$margin: (
+  mobile: 16px,
+  desktop: 24px
+);
+
+.row {
+  display: grid;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  gap: var(--grid-gutter);
+  padding-inline: var(--grid-spacer);
+  position: relative;
+  width: 100%;
+}
+
+@media (width <= 68.75rem) {
+  .row {
+    grid-template-columns: repeat($columns-mobile, minmax(0, 1fr));
+    gap: var(--grid-gutter-mobile);
+  }
+}
+
+// Generate start classes
+@for $i from 1 through $columns {
+  .cell-start-#{$i} {
+    grid-column-start: $i;
+  }
+}
+
+// Generate end classes
+@for $i from 1 through $columns + 1 {
+  .cell-end-#{$i} {
+    grid-column-end: $i;
+  }
+}
+
+// Generate order classes
+@for $i from -5 through 5 {
+  .cell-order-#{$i} {
+    order: $i;
+  }
+}
+
+// Generate span classes
+@for $i from 1 through $columns {
+  .cell-span-#{$i} {
+    grid-column: span $i;
+  }
+}
+
+// alignment classes
+.cell-align-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.cell-align-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cell-align-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+// Responsive classes
+@media (width <= 68.75rem) {
+  .row {
+    grid-template-columns: repeat($columns-mobile, minmax(0, 1fr));
+  }
+
+  @for $i from 1 through $columns-mobile {
+    .cell-mobile-start-#{$i} {
+      grid-column-start: $i;
+    }
+
+    .cell-mobile-end-#{$i} {
+      grid-column-end: $i;
+    }
+
+    .cell-mobile-span-#{$i} {
+      grid-column: span $i;
+    }
+
+    .cell-mobile-order-#{$i} {
+      order: $i;
+    }
+  }
+}

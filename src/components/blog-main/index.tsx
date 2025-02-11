@@ -1,14 +1,13 @@
 'use client'
 
 import Welcome from '~/app/sections/welcome'
-import { PostsResponse } from '~/lib/payload-types'
 
 import IntroLoader from '../loader/IntroLoader'
 
-const BlogMain: React.FC<{ posts: PostsResponse }> = ({ posts }) => {
+const BlogMain = () => {
   return (
     <IntroLoader>
-      <Welcome posts={posts} />
+      <Welcome />
     </IntroLoader>
   )
 }

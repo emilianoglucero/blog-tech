@@ -5,14 +5,14 @@ import Link from 'next/link'
 import React, { useEffect, useRef } from 'react'
 
 import TransitionLink from '~/components/transition-link/page'
+import { POSTS } from '~/data/posts'
 import { useDeviceDetect } from '~/hooks/use-device-detect'
 import { gsap } from '~/lib/gsap'
-import { Post, PostsResponse } from '~/lib/payload-types'
 
 import authorPic from '../../images/author/emi.jpg'
 import s from './welcome.module.css'
 
-const Welcome = ({ posts }: { posts: PostsResponse }) => {
+const Welcome = () => {
   const linksRefDecoration = useRef<Record<number, HTMLLIElement | null>>({})
   const linksRefText = useRef<Record<number, HTMLSpanElement | null>>({})
   const authorPhotoRef = useRef<HTMLDivElement>(null)
@@ -223,8 +223,8 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
         </div>
 
         <nav className={s.posts__links}>
-          {posts.docs.map((post: Post, index: number) => (
-            <ul className={s.posts__links__item} key={post.id}>
+          {POSTS.map((post: any, index: number) => (
+            <ul className={s.posts__links__item} key={index}>
               <li
                 ref={(el) => {
                   linksRefDecoration.current[index] = el
@@ -293,7 +293,7 @@ const Welcome = ({ posts }: { posts: PostsResponse }) => {
             </div>
             <div>
               <p className={s.author_email} ref={authorEmailRef}>
-                emilianoglucero@gmail.com
+                hello@emilianolucero.info
               </p>
             </div>
           </div>
