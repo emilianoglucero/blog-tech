@@ -273,7 +273,7 @@ interactions and the subtle use of audio.`,
       height: 100
     },
     contentPosition: {
-      start: 6,
+      start: 4,
       end: 10,
       mobileSpan: 8,
       order: 1,
