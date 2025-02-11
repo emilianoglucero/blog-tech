@@ -142,3 +142,20 @@ h2 {
   font-weight: 700;
   font-size: var(--font-size-regular);
 }
+
+html,
+body {
+  cursor: none !important;
+}
+
+* {
+  cursor: none !important;
+}
+
+@media (width <= 768px) {
+  html,
+  body,
+  * {
+    cursor: auto !important;
+  }
+}

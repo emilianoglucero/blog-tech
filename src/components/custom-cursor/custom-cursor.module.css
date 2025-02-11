@@ -1,0 +1,25 @@
+.cursor {
+  width: 2rem;
+  height: 2rem;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-20%, -10%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition:
+    width 0.3s ease,
+    height 0.3s ease;
+}
+
+.cursor__pointer {
+  width: 2rem;
+  height: 2rem;
+}
+
+@media (width <= 768px) {
+  .cursor {
+    display: none;
+  }
+}

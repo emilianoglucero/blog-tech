@@ -5,12 +5,12 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 
+import { CustomCursor } from '~/components/custom-cursor/custom-cursor'
 import { isDev, siteURL } from '~/lib/constants'
 
 import { AppHooks } from './app-hooks'
 import { bitter, open } from './fonts'
 import { Providers } from './providers'
-import cursorStyles from './styles/cursors.module.css'
 const GridDebugger = dynamic(() => import('~/lib/debug/grid-debugger'), {
   ssr: false
 })
@@ -40,11 +40,12 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" className={`${bitter.variable} ${open.variable}`}>
-      <body className={cursorStyles.customCursor}>
+      <body>
         <Providers>
           {children}
           {isDev && <GridDebugger />}
           <AppHooks />
+          <CustomCursor />
         </Providers>
         <Analytics />
         <SpeedInsights />
