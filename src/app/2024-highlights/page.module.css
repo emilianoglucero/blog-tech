@@ -1,3 +1,14 @@
+.container__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-secondary);
+  z-index: 9999;
+  clip-path: inset(0 0 0 0);
+}
+
 .container {
   font-family: var(--font-open);
   color: var(--color-green-2);
@@ -22,7 +33,7 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 100;
+  z-index: 103;
   padding: var(--base-padding-desktop);
 }
 
@@ -112,7 +123,7 @@
   position: relative;
   margin-top: 100vh;
   background-color: var(--color-white);
-  color: var(--color-gray);
+  color: var(--color-gray-lighter);
 }
 
 .highlightsContainer h2 {
@@ -167,8 +178,16 @@
   }
 }
 
-.blog__title h2 {
+.highlightsSubtitle a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-green-2);
+  text-underline-offset: 0.2ex;
+  text-decoration-thickness: 0.2ex;
+}
+
+.highlightsSubtitle a:hover {
   color: var(--color-green-2);
+  text-decoration: none;
 }
 
 .websites {
@@ -200,6 +219,15 @@
 .highlightsItem {
   padding-top: var(--space-xxxxl);
   padding-bottom: var(--space-xxxxl);
+}
+
+.highlightsItem h4 {
+  font-weight: 450;
+  padding-bottom: var(--space-xl);
+  text-align: start;
+  font-size: var(--font-size-1);
+  max-width: 50%;
+  text-wrap: balance;
 }
 
 .extra a {
