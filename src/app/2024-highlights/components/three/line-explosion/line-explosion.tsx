@@ -34,9 +34,8 @@ export const LineExplosion = ({ triggerRef }: LineExplosionProps) => {
       scrollTrigger: {
         trigger: triggerRef.current,
         start: 'top-=10% top',
-        end: 'bottom+=10% bottom',
+        end: '+=120%',
         scrub: 0.4
-        // markers: true
       }
     })
   }, [triggerRef])

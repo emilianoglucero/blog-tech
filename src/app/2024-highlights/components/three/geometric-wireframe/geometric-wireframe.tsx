@@ -33,7 +33,7 @@ export const GeometricWireframe = ({ triggerRef }: GeometricWireframeProps) => {
       scrollTrigger: {
         trigger: triggerRef.current,
         start: 'top-=20% top',
-        end: 'bottom bottom',
+        end: '+=130%',
         scrub: 0.2
       }
     })
