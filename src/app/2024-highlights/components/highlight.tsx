@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Suspense, useRef } from 'react'
 import Markdown from 'react-markdown'
+import rehypeExternalLinks from 'rehype-external-links'
 
 import { AspectBox } from '~/components/aspect-box'
 import { Cell } from '~/components/grid/cell'
@@ -78,7 +79,11 @@ export const Highlight = ({
           </h3>
           {description && (
             <div className={s.description}>
-              <Markdown>{description}</Markdown>
+              <Markdown
+                rehypePlugins={[[rehypeExternalLinks, { target: '_blank' }]]}
+              >
+                {description}
+              </Markdown>
             </div>
           )}
           {/* </div> */}

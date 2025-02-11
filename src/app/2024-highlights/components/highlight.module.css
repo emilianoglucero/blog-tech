@@ -9,7 +9,7 @@
   object-fit: cover;
 }
 
-.title {
+.title a {
   text-decoration: underline;
   text-decoration-color: var(--color-green-2);
   text-underline-offset: 0.3ex;
@@ -28,4 +28,16 @@
   text-wrap: balance;
   font-family: var(--font-bitter);
   color: var(--color-gray-lighter);
+}
+
+.description a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-green-2);
+  text-underline-offset: 0.2ex;
+  text-decoration-thickness: 0.2ex;
+}
+
+.description a:hover {
+  color: var(--color-green-2);
+  text-decoration: none;
 }
