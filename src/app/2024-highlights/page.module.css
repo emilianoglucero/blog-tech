@@ -230,6 +230,12 @@
   text-wrap: balance;
 }
 
+@media (width <= 68.75rem) {
+  .highlightsItem h4 {
+    max-width: 100%;
+  }
+}
+
 .extra a {
   text-decoration: underline;
   text-decoration-color: var(--color-green-2);

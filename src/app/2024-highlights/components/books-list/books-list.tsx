@@ -11,6 +11,7 @@ import { Suspense, useRef } from 'react'
 import { AspectBox } from '~/components/aspect-box'
 import { Cell } from '~/components/grid/cell'
 import { Row } from '~/components/grid/row'
+import { useDeviceDetect } from '~/hooks/use-device-detect'
 import { gsap } from '~/lib/gsap'
 
 import { GeometricWireframe } from '../three/geometric-wireframe/geometric-wireframe'
@@ -63,6 +64,7 @@ export const BooksList = ({
   const trackedElement = useRef(null!)
   const imgRef = useRef(null!)
   const { hasSmoothScrollbar } = useScrollRig()
+  const isMobile = useDeviceDetect().isMobile
 
   const renderWebGLComponent = (props: any) => {
     switch (webglType) {
@@ -82,9 +84,11 @@ export const BooksList = ({
             className={`${s.imageContainer} ${styles.hiddenWhenSmooth}`}
             ref={trackedElement}
           >
-            <AspectBox ratio={16 / 9}>
-              <Image src={image.url} alt={image.alt} ref={imgRef} fill />
-            </AspectBox>
+            {!isMobile && (
+              <AspectBox ratio={16 / 9}>
+                <Image src={image.url} alt={image.alt} ref={imgRef} fill />
+              </AspectBox>
+            )}
           </div>
 
           <div className={s.overlay}>

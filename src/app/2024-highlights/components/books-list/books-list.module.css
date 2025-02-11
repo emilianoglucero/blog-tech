@@ -40,6 +40,12 @@
   max-width: 50%;
 }
 
+@media (width <= 68.75rem) {
+  .subtitle {
+    max-width: 100%;
+  }
+}
+
 .list {
   list-style: none;
   padding: 0;
