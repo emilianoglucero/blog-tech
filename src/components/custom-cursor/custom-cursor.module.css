@@ -1,6 +1,6 @@
 .cursor {
-  width: 2rem;
-  height: 2rem;
+  width: 1.6rem;
+  height: 1.6rem;
   position: fixed;
   pointer-events: none;
   z-index: 99999;
@@ -14,8 +14,16 @@
 }
 
 .cursor__pointer {
-  width: 2rem;
-  height: 2rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.cursor__hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.02s ease,
+    visibility 0.02s ease;
 }
 
 @media (width <= 768px) {
