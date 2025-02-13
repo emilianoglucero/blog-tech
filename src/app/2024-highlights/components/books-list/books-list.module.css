@@ -1,11 +1,9 @@
 .container {
   position: relative;
-  min-height: 100vh;
 }
 
 .content {
   position: relative;
-  min-height: 150vh;
 }
 
 .imageContainer {
@@ -43,17 +41,27 @@
 @media (width <= 68.75rem) {
   .subtitle {
     max-width: 100%;
+    padding-bottom: var(--space-sm);
   }
 }
 
 .list {
   list-style: none;
   padding: 0;
-  padding-bottom: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* mobile and tablet  */
+@media (width <= 68.75rem) {
+  .list {
+    gap: var(--space-sm);
+    padding-top: var(--space-sm);
+  }
 }
 
 .listItem {
-  margin-bottom: 2rem;
 }
 
 .listItem a {
@@ -81,9 +89,7 @@
 
 .description {
   font-size: var(--font-size-regular);
-  padding-bottom: var(--space-md);
   max-width: 50%;
-  padding-top: var(--space-xxxs);
   font-family: var(--font-bitter);
   line-height: 1.5;
 }
