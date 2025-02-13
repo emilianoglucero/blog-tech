@@ -19,6 +19,7 @@ import { getImageSizes } from '~/lib/utils/image'
 import s from './highlight.module.css'
 
 interface HighlightProps {
+  isFirstInSection?: boolean
   title: string
   description?: string
   url: string
@@ -44,6 +45,7 @@ interface HighlightProps {
 }
 
 export const Highlight = ({
+  isFirstInSection,
   title,
   description,
   url,
@@ -68,7 +70,9 @@ export const Highlight = ({
   )
 
   return (
-    <div className={s.highlight}>
+    <div
+      className={`${s.highlight} ${isFirstInSection ? s.firstInSection : ''}`}
+    >
       <Row>
         <Cell
           start={contentPosition.start}

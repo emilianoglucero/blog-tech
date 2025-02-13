@@ -1,6 +1,12 @@
 .highlight {
-  padding-bottom: var(--space-xxxxl);
   padding-top: var(--space-xxl);
+}
+
+/* mobile and tablet  */
+@media (width <= 68.75rem) {
+  .firstInSection {
+    padding-top: var(--space-sm);
+  }
 }
 
 .imageContainer img {
