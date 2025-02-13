@@ -61,9 +61,6 @@
   }
 }
 
-.listItem {
-}
-
 .listItem a {
   text-decoration: underline;
   text-decoration-color: var(--color-green-2);
