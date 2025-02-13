@@ -95,6 +95,15 @@
   left: -7vh;
 }
 
+.title span:nth-child(2) {
+  position: absolute;
+}
+
+.title span:nth-child(3) {
+  position: absolute;
+  left: 2vw;
+}
+
 .title span:last-child {
   position: absolute;
   top: 12vh;
@@ -105,11 +114,17 @@
 @media (width <= 68.75rem) {
   .title {
     font-size: var(--font-size-3);
+    top: 44%;
+    left: 44%;
   }
 
   .title span:first-child {
     top: -10vh;
     left: -11vw;
+  }
+
+  .title span:nth-child(3) {
+    left: 5.6vw;
   }
 
   .title span:last-child {
@@ -126,6 +141,12 @@
   color: var(--color-gray-lighter);
 }
 
+@media (width <= 68.75rem) {
+  .highlightsContainer {
+    padding: var(--base-padding-mobile);
+  }
+}
+
 .highlightsContainer h2 {
   color: var(--color-green-2);
   align-self: center;
@@ -134,12 +155,9 @@
 .highlightsTitle {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
-  font-family: var(--font-open);
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   color: var(--color-green-2);
 }
@@ -158,11 +176,8 @@
 }
 
 .highlightsSubtitle {
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  align-items: start;
 }
 
 .highlightsSubtitle p {
@@ -191,12 +206,11 @@
 }
 
 .websites {
-  min-height: 100vh;
+  min-height: 50vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
 }
 
 .websites p {
@@ -217,8 +231,14 @@
 }
 
 .highlightsItem {
-  padding-top: var(--space-xxxxl);
   padding-bottom: var(--space-xxxxl);
+}
+
+/* mobile and tablet  */
+@media (width <= 68.75rem) {
+  .highlightsItem {
+    padding-bottom: var(--space-xxl);
+  }
 }
 
 .highlightsItem .highlightsItemDescription {
@@ -233,17 +253,31 @@
 @media (width <= 68.75rem) {
   .highlightsItem .highlightsItemDescription {
     max-width: 100%;
+    padding-bottom: var(--space-sm);
   }
 }
 
 .extra p {
-  font-size: var(--font-size-regular);
+  font-size: var(--font-size-1);
   padding-bottom: var(--space-md);
 }
 
+/* mobile and tablet  */
+@media (width <= 68.75rem) {
+  .extra p {
+    padding-bottom: var(--space-sm);
+  }
+}
+
 .extra ul {
-  padding-bottom: var(--space-xl);
   flex: 2;
+}
+
+/* mobile and tablet  */
+@media (width <= 68.75rem) {
+  .extra ul {
+    padding-top: var(--space-sm);
+  }
 }
 
 .extra ul li p {
@@ -270,13 +304,15 @@
 }
 
 .music {
-  min-height: 100vh;
+  padding-bottom: var(--space-xxxxl);
+  padding-top: var(--space-xxxxl);
 }
 
 /* mobile and tablet  */
 @media (width <= 68.75rem) {
   .music {
-    min-height: 130vh;
+    padding-bottom: var(--space-xxl);
+    padding-top: var(--space-xxl);
   }
 }
 

@@ -29,6 +29,11 @@ import { BooksList } from './components/books-list/books-list'
 const Page = () => {
   const containerOverlay = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
+
+  const numberTwo = useRef<HTMLSpanElement>(null)
+  const numberZero = useRef<HTMLSpanElement>(null)
+  const numberTwo2 = useRef<HTMLSpanElement>(null)
+  const numberFour = useRef<HTMLSpanElement>(null)
   const footerRef = useRef<HTMLDivElement>(null)
   useGSAP(() => {
     gsap.to(containerOverlay.current, {
@@ -37,6 +42,50 @@ const Page = () => {
       duration: 1,
       ease: 'power2.inOut'
     })
+
+    // 2024 number animation
+    const timeline = gsap.timeline({
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: '#websites',
+        start: 'top-=100% top',
+        end: '+=450%',
+        scrub: 1
+      }
+    })
+    timeline
+      .to(numberTwo.current, {
+        yPercent: -200,
+        xPercent: -4000,
+        rotate: 360
+      })
+      .to(
+        numberZero.current,
+        {
+          yPercent: 4000,
+          xPercent: -200,
+          rotate: 360
+        },
+        0
+      )
+      .to(
+        numberTwo2.current,
+        {
+          yPercent: -2000,
+          xPercent: 2000,
+          rotate: 360
+        },
+        0
+      )
+      .to(
+        numberFour.current,
+        {
+          yPercent: -200,
+          xPercent: 3500,
+          rotate: -360
+        },
+        0
+      )
   })
 
   useIsomorphicLayoutEffect(() => {
@@ -80,10 +129,10 @@ const Page = () => {
         duration: 0.1
       })
     }
-    const colorGrayLighter = ['#0038ff', '#262626', '#262626', '#262626']
-    const colorGreen2 = ['#42ff00', '#262626', '#f00', '#fb65c1']
-    const colorWhite = ['#f00', '#fb65c1', '#0038ff', '#42ff00']
-    const colorPrimary = ['#0038ff', '#262626', '#262626', '#262626']
+    const colorGrayLighter = ['#262626', '#0038ff', '#262626', '#262626']
+    const colorGreen2 = ['#262626', '#42ff00', '#f00', '#fb65c1']
+    const colorWhite = ['#fb65c1', '#f00', '#0038ff', '#42ff00']
+    const colorPrimary = ['#262626', '#0038ff', '#262626', '#262626']
 
     // Store initial values to reset later
     const initialColors = {
@@ -109,7 +158,7 @@ const Page = () => {
 
       const st = ScrollTrigger.create({
         trigger: footerRef.current,
-        start: 'top top',
+        start: 'bottom+=100px bottom',
         end: 'bottom bottom',
         onEnter: updateColors,
         toggleActions: 'play none none none'
@@ -139,10 +188,10 @@ const Page = () => {
           </div>
         </nav>
         <h1 className={s.title}>
-          <span>2</span>
-          <span>0</span>
-          <span>2</span>
-          <span>4</span>
+          <span ref={numberTwo}>2</span>
+          <span ref={numberZero}>0</span>
+          <span ref={numberTwo2}>2</span>
+          <span ref={numberFour}>4</span>
         </h1>
         <section className={s.hero}>
           <HeroVideo />
@@ -167,7 +216,7 @@ const Page = () => {
           </Row>
           <Row>
             <Cell start={1} end={11} mobileSpan={8} align="start">
-              <div className={s.websites}>
+              <div className={s.websites} id="websites">
                 <p>Let's start with the websites. The damn websites.</p>
               </div>
             </Cell>
@@ -176,7 +225,58 @@ const Page = () => {
             {/*WEBSITES*/}
             <div className={s.highlightsItem}>
               <h2>eighteen websites not nominated by awwwards:</h2>
-              {HIGHLIGHTS_WEBSITES_2024.map((highlight) => (
+              {HIGHLIGHTS_WEBSITES_2024.map((highlight, index) => (
+                <Highlight
+                  key={highlight.title}
+                  isFirstInSection={index === 0}
+                  {...highlight}
+                />
+              ))}
+            </div>
+            {/*MOVIES*/}
+            <div className={s.highlightsItem}>
+              <h2>four movies:</h2>
+              <div className={s.highlightsItemDescription}>
+                Now the movies. I have to admit I did not watch a lot of 2024
+                movies because the time I destinate for cinema I did tried to
+                watch all José Celestino Campusano's filmography.
+              </div>
+              {HIGHLIGHTS_MOVIES_2024.map((highlight, index) => (
+                <Highlight
+                  key={highlight.title}
+                  title={highlight.title}
+                  description={highlight.description}
+                  url={highlight.url ?? ''}
+                  image={highlight.image}
+                  contentPosition={highlight.contentPosition}
+                  imagePosition={highlight.imagePosition}
+                  isFirstInSection={index === 0}
+                />
+              ))}
+            </div>
+            {/*PODCASTS*/}
+            <div className={s.highlightsItem} id="podcasts">
+              {HIGHLIGHTS_PODCASTS_2024.map((section, index) => (
+                <BooksList
+                  key={index}
+                  title={section.title}
+                  subtitle={section.subtitle}
+                  items={section.items}
+                  image={section.image}
+                  contentPosition={section.contentPosition}
+                  imagePosition={section.imagePosition}
+                  webglType={section.webglType}
+                />
+              ))}
+            </div>
+            {/*MUSIC VIDEOS*/}
+            <div className={s.highlightsItem}>
+              <h2>four music videos:</h2>
+              <div className={s.highlightsItemDescription}>
+                Some day I'll release new music and hire El Cielo and Fantastic
+                3D Creation and Fomotrauma and Pleazzures. Some day.
+              </div>
+              {HIGHLIGHTS_MUSIC_VIDEOS_2024.map((highlight, index) => (
                 <Highlight
                   key={highlight.title}
                   title={highlight.title}
@@ -185,127 +285,74 @@ const Page = () => {
                   image={highlight.image}
                   contentPosition={highlight.contentPosition}
                   imagePosition={highlight.imagePosition}
+                  isFirstInSection={index === 0}
                 />
               ))}
-              {/*MOVIES*/}
-              <div className={s.highlightsItem}>
-                <h2>four movies:</h2>
-                <div className={s.highlightsItemDescription}>
-                  Now the movies. I have to admit I did not watch a lot of 2024
-                  movies because the time I destinate for cinema I did tried to
-                  watch all José Celestino Campusano's filmography.
-                </div>
-                {HIGHLIGHTS_MOVIES_2024.map((highlight) => (
-                  <Highlight
-                    key={highlight.title}
-                    title={highlight.title}
-                    description={highlight.description}
-                    url={highlight.url ?? ''}
-                    image={highlight.image}
-                    contentPosition={highlight.contentPosition}
-                    imagePosition={highlight.imagePosition}
-                  />
-                ))}
+            </div>
+            {/*LIVE SHOWS*/}
+            <div className={s.highlightsItem}>
+              <h2>three live shows:</h2>
+              <div className={s.highlightsItemDescription}>
+                I'm a simple boy with simple hobbies and I've always wanted to
+                go on tour with a band. I had traveled to play in other cities
+                before, but I wanted to do it as a proper tour—an <i>n</i>{' '}
+                number of gigs in <i>n</i> number of days. Travel and play.{' '}
+                <br />
+                Back when I lived in Mexico City, I met several people
+                organizing DIY tours with their underground bands, especially
+                from the U.S. Here in Argentina, it's much rarer to see bands
+                playing tours with more than two gigs. I don't know why but I
+                wanted that experience. <br />
+                This year, the planets aligned, and thanks to my friends and the
+                help of many people involved, we made it happen. <br />
+                It's tough because, as you can imagine, you have to organize a
+                lot—make connections, coordinate with people, bands, and venues
+                from other cities, take time off work (or whatever you're
+                doing), handle logistics, and more. <br />
+                But we got Lauri's precious Renault Clio on the road and played
+                four shows in seven days in the northeast of the country. <br />
+                That first taste broke something loose. Suddenly we're crossing
+                borders - Formosa, Paraguay, Rosario, Paraná, San Luis. A team
+                of four friends, one car and two shows to offer. <br />
+                Every night was different but the feeling was always the same:
+                this is exactly where we're supposed to be. Making noise and
+                sharing moments.
+                <br />
+                While we figure out where the road leads next, here are some
+                shows that lit up my 2024.
               </div>
-              {/*PODCASTS*/}
-              <div className={s.highlightsItem} id="podcasts">
-                {HIGHLIGHTS_PODCASTS_2024.map((section, index) => (
-                  <BooksList
-                    key={index}
-                    title={section.title}
-                    subtitle={section.subtitle}
-                    items={section.items}
-                    image={section.image}
-                    contentPosition={section.contentPosition}
-                    imagePosition={section.imagePosition}
-                    webglType={section.webglType}
-                  />
-                ))}
-              </div>
-              {/*MUSIC VIDEOS*/}
-              <div className={s.highlightsItem}>
-                <h2>four music videos:</h2>
-                <div className={s.highlightsItemDescription}>
-                  Some day I'll release new music and hire El Cielo and
-                  Fantastic 3D Creation and Fomotrauma and Pleazzures. Some day.
-                </div>
-                {HIGHLIGHTS_MUSIC_VIDEOS_2024.map((highlight) => (
-                  <Highlight
-                    key={highlight.title}
-                    title={highlight.title}
-                    description={highlight.description}
-                    url={highlight.url}
-                    image={highlight.image}
-                    contentPosition={highlight.contentPosition}
-                    imagePosition={highlight.imagePosition}
-                  />
-                ))}
-              </div>
-              {/*LIVE SHOWS*/}
-              <div className={s.highlightsItem}>
-                <h2>three live shows:</h2>
-                <div className={s.highlightsItemDescription}>
-                  I'm a simple boy with simple hobbies and I've always wanted to
-                  go on tour with a band. I had traveled to play in other cities
-                  before, but I wanted to do it as a proper tour—an <i>n</i>{' '}
-                  number of gigs in <i>n</i> number of days. Travel and play.{' '}
-                  <br />
-                  Back when I lived in Mexico City, I met several people
-                  organizing DIY tours with their underground bands, especially
-                  from the U.S. Here in Argentina, it's much rarer to see bands
-                  playing tours with more than two gigs. I don't know why but I
-                  wanted that experience. <br />
-                  This year, the planets aligned, and thanks to my friends and
-                  the help of many people involved, we made it happen. <br />
-                  It’s tough because, as you can imagine, you have to organize a
-                  lot—make connections, coordinate with people, bands, and
-                  venues from other cities, take time off work (or whatever
-                  you’re doing), handle logistics, and more. <br />
-                  But we got Lauri’s precious Renault Clio on the road and
-                  played four shows in seven days in the northeast of the
-                  country. <br />
-                  That first taste broke something loose. Suddenly we're
-                  crossing borders - Formosa, Paraguay, Rosario, Paraná, San
-                  Luis. A team of four friends, one car and two shows to offer.{' '}
-                  <br />
-                  Every night was different but the feeling was always the same:
-                  this is exactly where we're supposed to be. Making noise and
-                  sharing moments.
-                  <br />
-                  While we figure out where the road leads next, here are some
-                  shows that lit up my 2024.
-                </div>
 
-                {HIGHLIGHTS_LIVE_SHOWS_2024.map((highlight) => (
-                  <Highlight
-                    key={highlight.title}
-                    title={highlight.title}
-                    description={highlight.description}
-                    url={highlight.url}
-                    image={highlight.image}
-                    contentPosition={highlight.contentPosition}
-                    imagePosition={highlight.imagePosition}
-                  />
-                ))}
+              {HIGHLIGHTS_LIVE_SHOWS_2024.map((highlight, index) => (
+                <Highlight
+                  key={highlight.title}
+                  title={highlight.title}
+                  description={highlight.description}
+                  url={highlight.url}
+                  image={highlight.image}
+                  contentPosition={highlight.contentPosition}
+                  imagePosition={highlight.imagePosition}
+                  isFirstInSection={index === 0}
+                />
+              ))}
+            </div>
+            {/*COMEDY*/}
+            <div className={s.highlightsItem}>
+              <h2>one comedy piece:</h2>
+              <div className={s.highlightsItemDescription}>
+                It's an honor to present this award to O'Malley.
               </div>
-              {/*COMEDY*/}
-              <div className={s.highlightsItem}>
-                <h2>one comedy piece:</h2>
-                <div className={s.highlightsItemDescription}>
-                  It's an honor to present this award to O'Malley.
-                </div>
-                {HIGHLIGHTS_COMEDY_2024.map((highlight) => (
-                  <Highlight
-                    key={highlight.title}
-                    title={highlight.title}
-                    description={highlight.description}
-                    url={highlight.url}
-                    image={highlight.image}
-                    contentPosition={highlight.contentPosition}
-                    imagePosition={highlight.imagePosition}
-                  />
-                ))}
-              </div>
+              {HIGHLIGHTS_COMEDY_2024.map((highlight, index) => (
+                <Highlight
+                  key={highlight.title}
+                  title={highlight.title}
+                  description={highlight.description}
+                  url={highlight.url}
+                  image={highlight.image}
+                  contentPosition={highlight.contentPosition}
+                  imagePosition={highlight.imagePosition}
+                  isFirstInSection={index === 0}
+                />
+              ))}
             </div>
             {/*BOOKS*/}
             <section className={s.extra} id="extra">
@@ -338,7 +385,7 @@ const Page = () => {
               <Cell start={6} end={22} mobileSpan={8} align="start">
                 <section
                   className={s.highlightsSubtitle}
-                  style={{ justifyContent: 'start', marginBottom: '10rem' }}
+                  style={{ justifyContent: 'start', marginBottom: '9.25rem' }}
                 >
                   <p ref={footerRef}>
                     Hey you scrolled down all the way down here, are you crazy?{' '}
