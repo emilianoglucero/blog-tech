@@ -2,6 +2,10 @@
   padding-top: var(--space-xxl);
 }
 
+.firstInSection {
+  padding-top: 0;
+}
+
 /* mobile and tablet  */
 @media (width <= 68.75rem) {
   .firstInSection {

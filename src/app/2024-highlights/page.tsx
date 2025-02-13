@@ -158,7 +158,7 @@ const Page = () => {
 
       const st = ScrollTrigger.create({
         trigger: footerRef.current,
-        start: 'bottom+=100px bottom',
+        start: 'bottom+=80px bottom',
         end: 'bottom bottom',
         onEnter: updateColors,
         toggleActions: 'play none none none'

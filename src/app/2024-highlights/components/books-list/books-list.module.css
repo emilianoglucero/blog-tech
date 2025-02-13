@@ -32,7 +32,7 @@
 .subtitle {
   font-weight: 450;
   text-wrap: balance;
-  padding-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
   text-align: start;
   font-size: var(--font-size-1);
   max-width: 50%;
