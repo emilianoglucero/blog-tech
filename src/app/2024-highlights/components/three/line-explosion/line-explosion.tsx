@@ -6,7 +6,7 @@ import { Group } from 'three'
 import * as THREE from 'three'
 
 import useIsomorphicLayoutEffect from '~/hooks/use-isomorphic-layout'
-import { gsap } from '~/lib/gsap'
+import { EASE, gsap } from '~/lib/gsap'
 
 import { Sphere } from '../sphere'
 
@@ -25,19 +25,49 @@ export const LineExplosion = ({ triggerRef }: LineExplosionProps) => {
       console.warn('Missing refs for animation')
       return
     }
-
-    meshRef.current.scale.set(0.5, 0.5, 0.5)
-    gsap.to(meshRef.current.scale, {
-      x: 2,
-      y: 2,
-      z: 2,
+    const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: triggerRef.current,
-        start: 'top-=10% top',
+        start: 'top-=50% top',
         end: '+=120%',
-        scrub: 0.4
-      }
+        toggleActions: 'play none none none'
+      },
+      ease: EASE
     })
+    meshRef.current.scale.set(0.5, 0.5, 0.5)
+    meshRef.current.position.set(15, 5, 0)
+    meshRef.current.rotation.set(-25, -10, -30)
+    timeline.to(
+      meshRef.current.scale,
+      {
+        x: 2,
+        y: 2,
+        z: 2,
+        duration: 2
+      },
+      0
+    )
+    timeline.to(
+      meshRef.current.position,
+      {
+        x: 3,
+        y: 0,
+        z: 0,
+        duration: 2.6
+      },
+      0
+    )
+    timeline.to(
+      meshRef.current.rotation,
+      {
+        x: 0,
+        y: 0,
+        z: 0,
+        ease: 'elastic.out(0.5, 0.3)',
+        duration: 3.6
+      },
+      0
+    )
   }, [triggerRef])
 
   const geometry = useMemo(() => {
@@ -71,15 +101,7 @@ export const LineExplosion = ({ triggerRef }: LineExplosionProps) => {
   }, [])
 
   return (
-    <group
-      ref={meshRef}
-      rotation={[
-        Math.random() * Math.PI,
-        Math.random() * Math.PI,
-        Math.random() * Math.PI
-      ]}
-      position={[3, 2, 0]}
-    >
+    <group ref={meshRef}>
       <Float speed={1} rotationIntensity={1} floatIntensity={1}>
         <lineSegments geometry={geometry}>
           <lineBasicMaterial

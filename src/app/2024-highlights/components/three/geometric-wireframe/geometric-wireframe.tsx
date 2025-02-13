@@ -18,34 +18,70 @@ interface GeometricWireframeProps {
 
 export const GeometricWireframe = ({ triggerRef }: GeometricWireframeProps) => {
   const meshRef = useRef<Mesh>(null)
+  const mainMeshRef = useRef<Mesh>(null)
 
   useIsomorphicLayoutEffect(() => {
-    if (!meshRef.current || !triggerRef.current) {
+    if (!meshRef.current || !triggerRef.current || !mainMeshRef.current) {
       console.warn('Missing refs for animation')
       return
     }
 
-    gsap.to(meshRef.current?.rotation, {
-      y: Math.PI,
-      x: Math.PI / 2,
-      z: Math.PI,
-      ease: 'power2.inOut',
+    mainMeshRef.current.scale.set(0, 0, 0)
+    mainMeshRef.current.rotation.set(0.3, 0, 0.3)
+
+    const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: triggerRef.current,
-        start: 'top-=20% top',
-        end: '+=130%',
+        start: 'top-=80% top',
+        end: '+=100%',
         scrub: 0.2
       }
     })
+    timeline
+      .to(
+        meshRef.current.rotation,
+        {
+          y: Math.PI,
+          x: Math.PI / 2,
+          z: Math.PI,
+          ease: 'power2.inOut'
+        },
+        0
+      )
+      .to(
+        mainMeshRef.current.scale,
+        {
+          x: 9,
+          y: 9,
+          z: 9,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: 'top-=140% top',
+            end: '+=100%',
+            scrub: 2
+          }
+        },
+        0
+      )
+      .to(
+        mainMeshRef.current.rotation,
+        {
+          x: 0,
+          y: 0,
+          z: 0
+        },
+        0
+      )
   }, [triggerRef])
 
   return (
     <group
       scale={[0.5, 0.7, 0.5]}
       rotation={[0.45, 0.3, 0.2]}
-      position={[4, 2, -3]}
+      position={[4, 0, -3]}
     >
-      <mesh scale={[9, 9, 9]}>
+      <mesh ref={mainMeshRef}>
         <boxGeometry args={[1.5, 1, 0.5, 2, 1, 2]} />
         <meshBasicMaterial color="#262626" wireframe />
       </mesh>
