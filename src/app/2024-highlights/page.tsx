@@ -237,7 +237,7 @@ const Page = () => {
             <div className={s.highlightsItem}>
               <h2>four movies:</h2>
               <div className={s.highlightsItemDescription}>
-                Now the movies. I have to admit I did not watch a lot of 2024
+                Now the movies. Truth be told I did not watch a lot of 2024
                 movies because the time I destinate for cinema I did tried to
                 watch all José Celestino Campusano's filmography.
               </div>
