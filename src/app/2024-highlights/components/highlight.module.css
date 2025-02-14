@@ -21,7 +21,7 @@
 
 .title a {
   text-decoration: underline;
-  text-decoration-color: var(--color-green-2);
+  text-decoration-color: var(--color-green);
   text-underline-offset: 0.3ex;
   text-decoration-thickness: 0.3ex;
   font-size: var(--font-size-title);
@@ -29,7 +29,7 @@
 }
 
 .title a:hover {
-  color: var(--color-green-2);
+  color: var(--color-green);
   text-decoration: none;
 }
 
@@ -42,12 +42,12 @@
 
 .description a {
   text-decoration: underline;
-  text-decoration-color: var(--color-green-2);
+  text-decoration-color: var(--color-green);
   text-underline-offset: 0.2ex;
   text-decoration-thickness: 0.2ex;
 }
 
 .description a:hover {
-  color: var(--color-green-2);
+  color: var(--color-green);
   text-decoration: none;
 }

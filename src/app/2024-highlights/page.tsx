@@ -129,15 +129,15 @@ const Page = () => {
         duration: 0.1
       })
     }
-    const colorGrayLighter = ['#262626', '#0038ff', '#262626', '#262626']
-    const colorGreen2 = ['#262626', '#42ff00', '#f00', '#fb65c1']
-    const colorWhite = ['#fb65c1', '#f00', '#0038ff', '#42ff00']
-    const colorPrimary = ['#262626', '#0038ff', '#262626', '#262626']
+    const colorGrayLighter = ['#262626', '#ec8624', '#262626', '#262626']
+    const colorGreen2 = ['#262626', '#fb65c1', '#f00', '#fb65c1']
+    const colorWhite = ['#fb65c1', '#262626', '#0038ff', '#42ff00']
+    const colorPrimary = ['#262626', '#ec8624', '#262626', '#262626']
 
     // Store initial values to reset later
     const initialColors = {
       '--color-gray-lighter': '#262626',
-      '--color-green-2': '#42ff00',
+      '--color-green': '#42ff00',
       '--color-white': '#fff',
       '--color-primary': '#e7e7e7'
     }
@@ -148,7 +148,7 @@ const Page = () => {
       const updateColors = () => {
         gsap.to(document.documentElement, {
           '--color-gray-lighter': colorGrayLighter[currentIndex],
-          '--color-green-2': colorGreen2[currentIndex],
+          '--color-green': colorGreen2[currentIndex],
           '--color-white': colorWhite[currentIndex],
           '--color-primary': colorPrimary[currentIndex],
           duration: 1.5
