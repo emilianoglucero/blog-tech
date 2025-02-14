@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unknown-property */
+import { useGSAP } from '@gsap/react'
 import { Float } from '@react-three/drei'
 import { ScrollTrigger } from 'gsap/all'
 import { useRef } from 'react'
 import { Mesh } from 'three'
 
-import useIsomorphicLayoutEffect from '~/hooks/use-isomorphic-layout'
 import { gsap } from '~/lib/gsap'
 
 import { Sphere } from '../sphere'
@@ -17,62 +17,95 @@ interface GeometricWireframeProps {
 }
 
 export const GeometricWireframe = ({ triggerRef }: GeometricWireframeProps) => {
-  const meshRef = useRef<Mesh>(null)
-  const mainMeshRef = useRef<Mesh>(null)
+  const smallGeometryRef = useRef<Mesh>(null)
+  const largeGeometryRef = useRef<Mesh>(null)
+  const mm = gsap.matchMedia()
 
-  useIsomorphicLayoutEffect(() => {
-    if (!meshRef.current || !triggerRef.current || !mainMeshRef.current) {
-      console.warn('Missing refs for animation')
-      return
-    }
+  useGSAP(() => {
+    const mediaQueryContext = mm.add(
+      {
+        isLargeScreen: '(min-width: 1500px)',
+        isMediumScreen: '(max-width: 1499px)'
+      },
+      (context) => {
+        const conditions = context.conditions as {
+          isLargeScreen: boolean
+          isMediumScreen: boolean
+        }
+        if (
+          !smallGeometryRef.current ||
+          !triggerRef.current ||
+          !largeGeometryRef.current
+        ) {
+          console.warn('Missing refs for animation')
+          return
+        }
 
-    mainMeshRef.current.scale.set(0, 0, 0)
-    mainMeshRef.current.rotation.set(0.3, 0, 0.3)
+        // Initial state
+        largeGeometryRef.current.scale.set(0, 0, 0)
+        largeGeometryRef.current.rotation.set(0.8, 0, 0.8)
 
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: triggerRef.current,
-        start: 'top-=80% top',
-        end: '+=100%',
-        scrub: 0.2
-      }
-    })
-    timeline
-      .to(
-        meshRef.current.rotation,
-        {
-          y: Math.PI,
-          x: Math.PI / 2,
-          z: Math.PI,
-          ease: 'power2.inOut'
-        },
-        0
-      )
-      .to(
-        mainMeshRef.current.scale,
-        {
-          x: 9,
-          y: 9,
-          z: 9,
-          ease: 'power2.inOut',
+        const largeGeometryTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: triggerRef.current,
-            start: 'top-=140% top',
-            end: '+=100%',
+            start: conditions.isLargeScreen ? 'top-=100% top' : 'top-=60% top',
+            end: '+=80%',
             scrub: 2
           }
-        },
-        0
-      )
-      .to(
-        mainMeshRef.current.rotation,
-        {
-          x: 0,
-          y: 0,
-          z: 0
-        },
-        0
-      )
+        })
+
+        // Add animations to the large geometry timeline
+        largeGeometryTimeline
+          .to(largeGeometryRef.current.scale, {
+            x: 9,
+            y: 9,
+            z: 9,
+            ease: 'power2.inOut'
+          })
+          .to(
+            largeGeometryRef.current.rotation,
+            {
+              x: 0,
+              y: 0,
+              z: 0,
+              ease: 'power2.inOut'
+            },
+            0
+          )
+          .to(
+            smallGeometryRef.current.rotation,
+            {
+              y: Math.PI,
+              x: Math.PI / 2,
+              z: Math.PI,
+              ease: 'power2.inOut',
+              scrollTrigger: {
+                trigger: triggerRef.current,
+                start: conditions.isLargeScreen
+                  ? 'top-=100% top'
+                  : 'top-=40% top',
+                end: conditions.isLargeScreen ? '+=200%' : '+=170%',
+                scrub: 0.2
+              }
+            },
+            0
+          )
+
+        return () => {
+          largeGeometryTimeline.kill()
+          largeGeometryTimeline.scrollTrigger?.kill()
+        }
+      },
+      // Add initial states
+      {
+        isLargeScreen: window.matchMedia('(min-width: 1500px)').matches,
+        isMediumScreen: window.matchMedia('(max-width: 1499px)').matches
+      }
+    )
+
+    return () => {
+      mediaQueryContext.kill()
+    }
   }, [triggerRef])
 
   return (
@@ -81,12 +114,12 @@ export const GeometricWireframe = ({ triggerRef }: GeometricWireframeProps) => {
       rotation={[0.45, 0.3, 0.2]}
       position={[4, 0, -3]}
     >
-      <mesh ref={mainMeshRef}>
+      <mesh ref={largeGeometryRef}>
         <boxGeometry args={[1.5, 1, 0.5, 2, 1, 2]} />
         <meshBasicMaterial color="#262626" wireframe />
       </mesh>
       <Float speed={1.4} rotationIntensity={1.5} floatIntensity={1.5}>
-        <mesh scale={[1, 1, 1]} ref={meshRef}>
+        <mesh scale={[1, 1, 1]} ref={smallGeometryRef}>
           <sphereGeometry args={[1, 2, 3]} />
           <meshBasicMaterial color="#262626" wireframe />
         </mesh>

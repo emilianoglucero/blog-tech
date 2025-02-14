@@ -20,56 +20,84 @@ interface LineExplosionProps {
 export const LineExplosion = ({ triggerRef }: LineExplosionProps) => {
   const meshRef = useRef<Group>(null)
 
+  // Memoize material properties
+  const materialProps = useMemo(
+    () => ({
+      color: '#262626',
+      transparent: true,
+      opacity: 0.6,
+      linewidth: 1
+    }),
+    []
+  )
+
   useIsomorphicLayoutEffect(() => {
     if (!meshRef.current || !triggerRef.current) {
       console.warn('Missing refs for animation')
       return
     }
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: triggerRef.current,
-        start: 'top-=50% top',
-        end: '+=120%',
-        toggleActions: 'play none none none'
-      },
-      ease: EASE
-    })
+
+    // Set initial state
     meshRef.current.scale.set(0.5, 0.5, 0.5)
     meshRef.current.position.set(15, 5, 0)
     meshRef.current.rotation.set(-25, -10, -30)
-    timeline.to(
-      meshRef.current.scale,
-      {
-        x: 2,
-        y: 2,
-        z: 2,
-        duration: 2
-      },
-      0
-    )
-    timeline.to(
-      meshRef.current.position,
-      {
-        x: 3,
-        y: 0,
-        z: 0,
-        duration: 2.6
-      },
-      0
-    )
-    timeline.to(
-      meshRef.current.rotation,
-      {
-        x: 0,
-        y: 0,
-        z: 0,
-        ease: 'elastic.out(0.5, 0.3)',
-        duration: 3.6
-      },
-      0
-    )
+
+    // Create ScrollTrigger
+    const st = ScrollTrigger.create({
+      trigger: triggerRef.current,
+      start: 'top-=50% top',
+      end: '+=120%',
+      toggleActions: 'play none none none'
+    })
+
+    // Create timeline
+    const timeline = gsap.timeline({
+      scrollTrigger: st,
+      ease: EASE
+    })
+
+    // Add animations
+    timeline
+      .to(
+        meshRef.current.scale,
+        {
+          x: 2,
+          y: 2,
+          z: 2,
+          duration: 2
+        },
+        0
+      )
+      .to(
+        meshRef.current.position,
+        {
+          x: 3,
+          y: 0,
+          z: 0,
+          duration: 2.6
+        },
+        0
+      )
+      .to(
+        meshRef.current.rotation,
+        {
+          x: 0,
+          y: 0,
+          z: 0,
+          ease: 'elastic.out(0.5, 0.3)',
+          duration: 3.6
+        },
+        0
+      )
+
+    // Cleanup function
+    return () => {
+      timeline.kill()
+      st.kill()
+    }
   }, [triggerRef])
 
+  // Memoize geometry creation
   const geometry = useMemo(() => {
     const points: number[] = []
     const numLines = 200
@@ -88,8 +116,7 @@ export const LineExplosion = ({ triggerRef }: LineExplosionProps) => {
       const y2 = centerY + Math.sin(angle1) * Math.sin(angle2) * length
       const z2 = centerZ + Math.cos(angle2) * length
 
-      points.push(centerX, centerY, centerZ)
-      points.push(x2, y2, z2)
+      points.push(centerX, centerY, centerZ, x2, y2, z2)
     }
 
     const geometry = new THREE.BufferGeometry()
@@ -104,12 +131,7 @@ export const LineExplosion = ({ triggerRef }: LineExplosionProps) => {
     <group ref={meshRef}>
       <Float speed={1} rotationIntensity={1} floatIntensity={1}>
         <lineSegments geometry={geometry}>
-          <lineBasicMaterial
-            color="#262626"
-            transparent
-            opacity={0.6}
-            linewidth={1}
-          />
+          <lineBasicMaterial {...materialProps} />
           <Sphere
             color="#262626"
             amount={30}
