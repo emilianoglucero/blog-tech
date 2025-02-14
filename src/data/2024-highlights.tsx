@@ -634,7 +634,7 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
   },
   {
     title: 'Martes 13 by Little Boogie ft El Doctor',
-    description: `Simple and effective gangsta video. Fine work from [pleazzures](https://www.instagram.com/pleazzures/).`,
+    description: `Simple and effective gangsta video. The perfect tone. Aguante [pleazzures](https://www.instagram.com/pleazzures/).`,
     url: 'https://youtu.be/4u-bDJEPtG0?si=jDxDd-yVmF0y1O7s',
     image: {
       url: '/assets/images/2024-highlights/music-videos/martes13.jpg',
@@ -686,7 +686,7 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
   {
     title: 'Mizuki Amapola at Casa Babylon (Ciudad de Cordoba, Argentina)',
     description: `After a few years of silence, Córdoba's own made their return to the stages, bringing their new record to Casa Babylon with a full band formation that made everything shine.`,
-    url: 'https://youtu.be/SMTeeMVbLqg',
+    url: 'https://youtu.be/6hRxV7ZsAKo',
     image: {
       url: '/assets/images/2024-highlights/live-shows/mizuki.jpg',
       alt: 'Mizuki Amapola at Casa Babylon (Ciudad de Cordoba, Argentina)',
@@ -711,11 +711,13 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
     title:
       'Los Veranos at La Veleta Cultural (San Miguel de Tucumán, Argentina)',
     description: `Tucumán, the pearl of the north, where raw meets refined.
-     For every action (Mendoza's bad-taste music scene) 
+     For every action (Mendoza's cheesy-taste music scene) 
       there's an equal and opposite reaction (Tucumán's avant-garde movement).
       Los Veranos are proof. Playing alongside them during our summer tour felt like being part of 
-      that beautiful equilibrium.`,
-    url: 'https://youtu.be/n3ayYcdMMSM',
+      that beautiful equilibrium.  
+      P.S. Sorry Mendoza - we'll be playing there for the first time in a few months. 
+    I'm sure you'll change my mind. Love you.`,
+    url: 'https://youtu.be/a4T2qvVtGng',
     image: {
       url: '/assets/images/2024-highlights/live-shows/losveranos.jpg',
       alt: 'Los Veranos at La Veleta Cultural (San Miguel de Tucumán, Argentina)',
@@ -806,8 +808,11 @@ export const HIGHLIGHTS_PODCASTS_2024 = [
       {
         title: 'Aprender de grandes',
         author: 'Gerry Garbulsky',
-        description:
-          'My girlfriend laughs when she sees me listening to this podcast. She thinks I\'ve fallen into self-help content. I discovered Gerry Garbulsky\'s podcast through the amazing Melina Furman and got hooked by the diversity of guests and its "lifelong learning" spirit.',
+        description: `My girlfriend thought I've falled into self-help content when
+         she saw me listening to this podcast. 
+         Not yet. I discovered Gerry Garbulsky's podcast through the amazing 
+         Melina Furman and got hooked by the diversity
+        of guests and its "lifelong learning" spirit.`,
         url: 'https://www.youtube.com/@AprenderdeGrandes',
         decoration:
           '---------------------------------------------------------------------------------'
