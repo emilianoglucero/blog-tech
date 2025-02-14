@@ -5,6 +5,7 @@ export const fragment = `
   uniform vec2 uPrevMouse;
   uniform float uBrightness;
   uniform float uContrast;
+  uniform float uOffsetFactor;
 
   void main() {
     vec2 gridUV = floor(vUv * vec2(80.0, 80.0)) / vec2(80.0, 80.0);
@@ -16,7 +17,7 @@ export const fragment = `
     float pixelDistanceToMouse = length(pixelToMouseDirection);
     float strength = smoothstep(0.09, 0.2, pixelDistanceToMouse);
 
-    vec2 uvOffset = strength * -mouseDirection * 10.4;
+    vec2 uvOffset = strength * -mouseDirection * uOffsetFactor;
     vec2 uv = vUv - uvOffset;
 
     vec4 color = texture2D(uTexture, uv);

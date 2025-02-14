@@ -17,7 +17,8 @@ const CustomMaterial = shaderMaterial(
     uMouse: new THREE.Vector2(),
     uPrevMouse: new THREE.Vector2(),
     uBrightness: 1.0,
-    uContrast: 1.1
+    uContrast: 1.1,
+    uOffsetFactor: 3
   },
   pixelatedEffect.vertex,
   pixelatedEffect.fragment
@@ -89,14 +90,22 @@ export const WebglPixelatedImage = ({
     meshRef.material.uMouse.set(mousePositon.x, mousePositon.y)
     meshRef.material.uPrevMouse.set(prevMousePosition.x, prevMousePosition.y)
 
-    // Handle ease factor increment when leaving
+    // Handle ease factor and offset factor increment when leaving
     if (isLeaving) {
       const currentTime = state.clock.getElapsedTime()
-      if (currentTime - lastUpdateTime >= 1) {
-        // Check if 1 second has passed
-        setEaseFactor((prev) => Math.min(prev + 0.002, 0.1)) // Increment but cap at 0.05
+      if (currentTime - lastUpdateTime >= 0.016) {
+        // Run every frame (~60fps)
+        setEaseFactor((prev) => Math.min(prev + 0.002, 0.1))
+        // Gradually decrease the offset factor with a smoother reduction
+        meshRef.material.uOffsetFactor = Math.max(
+          meshRef.material.uOffsetFactor * 0.95, // More gradual reduction
+          2 // minimum offset factor
+        )
         setLastUpdateTime(currentTime)
       }
+    } else {
+      // Reset offset factor when entering (moved outside the time check)
+      meshRef.material.uOffsetFactor = 3
     }
   })
 
@@ -122,6 +131,8 @@ export const WebglPixelatedImage = ({
         uBrightness={1.2}
         // eslint-disable-next-line react/no-unknown-property
         uContrast={1}
+        // eslint-disable-next-line react/no-unknown-property
+        uOffsetFactor={3}
       />
     </mesh>
   )
