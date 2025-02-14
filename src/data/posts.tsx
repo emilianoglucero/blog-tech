@@ -43,18 +43,18 @@ export const POSTS = [
   //     }
   //   }
   // },
-  // {
-  //   title: '2024',
-  //   subtitle: 'Highlights of the year.',
-  //   dateToShow: 'February 10, 2025.',
-  //   slug: '2024-highlights',
-  //   meta: {
-  //     image: {
-  //       url: '/assets/images/2024-highlights/heart.jpg',
-  //       alt: 'Capture in Ciudad de Córdoba, Argentina (2024): a photo of a heart balloon in the street.',
-  //       width: '1642',
-  //       height: '1094'
-  //     }
-  //   }
-  // }
+  {
+    title: '2024',
+    subtitle: 'Highlights of the year.',
+    dateToShow: 'February 10, 2025.',
+    slug: '2024-highlights',
+    meta: {
+      image: {
+        url: '/assets/images/2024-highlights/heart.jpg',
+        alt: 'Capture in Ciudad de Córdoba, Argentina (2024): a photo of a heart balloon in the street.',
+        width: '1642',
+        height: '1094'
+      }
+    }
+  }
 ]
