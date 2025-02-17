@@ -1,6 +1,7 @@
 'use client'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
+import { useDeviceDetect } from '~/hooks/use-device-detect'
 import useIsomorphicLayoutEffect from '~/hooks/use-isomorphic-layout'
 
 import cursorDefault from '../../app/images/cursor/cursor-default.png'
@@ -8,12 +9,23 @@ import cursorPointer from '../../app/images/cursor/cursor-pointer.png'
 import s from './custom-cursor.module.css'
 
 export const CustomCursor = () => {
+  const { isSafari } = useDeviceDetect()
+  const [shouldRender, setShouldRender] = useState(false)
   const cursorRef = useRef<HTMLDivElement>(null)
   const [isPointer, setIsPointer] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isVisible, setIsVisible] = useState(true)
 
+  useEffect(() => {
+    // Only show cursor if not Safari
+    if (!isSafari) {
+      setShouldRender(true)
+    }
+  }, [isSafari])
+
   useIsomorphicLayoutEffect(() => {
+    if (!shouldRender) return
+
     const cursor = cursorRef.current
     if (!cursor) return
 
@@ -48,7 +60,9 @@ export const CustomCursor = () => {
       document.removeEventListener('mouseover', onMouseOver)
       document.removeEventListener('mouseleave', onMouseLeave)
     }
-  }, [])
+  }, [shouldRender])
+
+  if (!shouldRender) return null
 
   return (
     <div

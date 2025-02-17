@@ -144,6 +144,7 @@ h2 {
   font-size: var(--font-size-regular);
 }
 
+/* Hide default cursor for all browsers */
 html,
 body {
   cursor: none !important;
@@ -153,6 +154,16 @@ body {
   cursor: none !important;
 }
 
+/* Show default cursor only for Safari */
+@supports (-webkit-hyphens: none) and (-webkit-backdrop-filter: none) {
+  html,
+  body,
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Show default cursor for mobile */
 @media (width <= 768px) {
   html,
   body,
