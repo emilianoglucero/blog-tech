@@ -21,14 +21,6 @@
 
 .ascii__container {
   font-size: 0.5rem;
-
-  /* position: relative;
-  font-family: 'Courier New', monospace;
-  transform: scale(1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  */
   color: var(--color-primary);
 }
 
@@ -36,10 +28,6 @@
   width: 300%;
   opacity: 0;
 }
-
-/* .hiddenChar {
-  opacity: 0;
-} */
 
 .loader__container {
   position: fixed;
@@ -109,35 +97,9 @@
   transform: translateZ(0);
 }
 
-.ascii_art {
-  /* position: relative;
-  display: block;
-  white-space: pre;
-  line-height: 1.2;
-  transform-origin: center center;
-  font-family: 'Courier New', monospace; */
-}
-
 .ascii_line {
-  /* white-space: pre;
-  line-height: 1.2;
-  display: block;
-  margin: 0;
-  padding: 0;
-  letter-spacing: 0;
-  font-family: inherit; */
   opacity: 0;
   color: var(--color-primary);
-}
-
-.ascii_line__overlay {
-  /* white-space: pre;
-  line-height: 1.2;
-  display: block;
-  margin: 0;
-  padding: 0;
-  letter-spacing: 0;
-  opacity: 1; */
 }
 
 .hiddenChar {

@@ -1,7 +1,7 @@
 'use client'
 
 import { useGSAP } from '@gsap/react'
-import { memo, useMemo, useRef } from 'react'
+import { useRef } from 'react'
 
 import { useAppStore } from '~/context/use-app-store'
 import { useDeviceDetect } from '~/hooks/use-device-detect'
@@ -10,31 +10,6 @@ import { gsap } from '~/lib/gsap'
 import LoaderOverlay from '../loader-overlay'
 import { ASCII_ART } from './constants'
 import s from './loader.module.css'
-
-// const AsciiLine = memo(
-//   ({ line, className }: { line: string; className: string }) => (
-//     <pre className={className}>
-//       {line.split('').map((char, index) => (
-//         <span key={index} className={s.hiddenChar}>
-//           {char}
-//         </span>
-//       ))}
-//     </pre>
-//   )
-// )
-
-// const AsciiBlock = memo(
-//   ({ lines, isOverlay }: { lines: string[]; isOverlay: boolean }) => {
-//     const className = s.ascii_line + (isOverlay ? '__overlay' : '')
-//     return (
-//       <div className={s.ascii__container}>
-//         {lines.map((line, index) => (
-//           <AsciiLine key={index} line={line} className={className} />
-//         ))}
-//       </div>
-//     )
-//   }
-// )
 
 const IntroAnimation = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)
