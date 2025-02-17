@@ -634,7 +634,7 @@ export const HIGHLIGHTS_MUSIC_VIDEOS_2024 = [
   },
   {
     title: 'Martes 13 by Little Boogie ft El Doctor',
-    description: `Simple and effective gangsta video. The perfect tone. Aguante [pleazzures](https://www.instagram.com/pleazzures/).`,
+    description: `Simple and effective gangsta video. The perfect tone. Dale [pleazzures](https://www.instagram.com/pleazzures/).`,
     url: 'https://youtu.be/4u-bDJEPtG0?si=jDxDd-yVmF0y1O7s',
     image: {
       url: '/assets/images/2024-highlights/music-videos/martes13.jpg',
@@ -711,12 +711,12 @@ export const HIGHLIGHTS_LIVE_SHOWS_2024 = [
     title:
       'Los Veranos at La Veleta Cultural (San Miguel de Tucumán, Argentina)',
     description: `Tucumán, the pearl of the north, where raw meets refined.
-     For every action (Mendoza's cheesy-taste music scene) 
-      there's an equal and opposite reaction (Tucumán's avant-garde movement).
-      Los Veranos are proof. Playing alongside them during our summer tour felt like being part of 
-      that beautiful equilibrium.  
-      P.S. Sorry Mendoza - we'll be playing there for the first time in a few months. 
-    I'm sure you'll change my mind. Love you.`,
+For every action (Mendoza's cheesy-taste music scene) 
+there's an equal and opposite reaction (Tucumán's avant-garde movement).
+Los Veranos are proof. Playing alongside them during our summer tour felt like being part of 
+that beautiful equilibrium.  
+P.S. Mendoza, I'm just playing the hater - we'll be playing there for the first time in a few months. 
+I'm sure you'll change my mind. Love you.`,
     url: 'https://youtu.be/a4T2qvVtGng',
     image: {
       url: '/assets/images/2024-highlights/live-shows/losveranos.jpg',
