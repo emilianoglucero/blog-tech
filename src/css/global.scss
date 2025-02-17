@@ -102,6 +102,20 @@ body {
   font-size: var(--font-size-regular);
 }
 
+// Firefox mobile scroll fix
+html,
+body {
+  overscroll-behavior: none;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+@supports (-moz-appearance: none) {
+  body {
+    scroll-behavior: auto;
+  }
+}
+
 ::selection {
   background-color: var(--color-blue);
   color: var(--color-white);
