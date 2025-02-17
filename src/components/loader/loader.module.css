@@ -1,5 +1,9 @@
 .container {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   top: 0;
   left: 0;
@@ -16,10 +20,16 @@
 }
 
 .ascii__container {
-  font-size: 0.4rem;
-  display: grid;
-  place-content: center;
-  height: 100vh;
+  font-size: 0.5rem;
+
+  /* position: relative;
+  font-family: 'Courier New', monospace;
+  transform: scale(1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  */
+  color: var(--color-primary);
 }
 
 .text {
@@ -27,9 +37,9 @@
   opacity: 0;
 }
 
-.hiddenChar {
+/* .hiddenChar {
   opacity: 0;
-}
+} */
 
 .loader__container {
   position: fixed;
@@ -61,9 +71,10 @@
 }
 
 .ascii__container__overlay {
-  font-size: 0.4rem;
+  font-size: 0.5rem;
   position: relative;
   color: var(--color-primary);
+  font-family: 'Courier New', monospace;
 }
 
 .text__container__overlay {
@@ -92,4 +103,47 @@
 
 .hiddenChar__overlay {
   opacity: 1;
+  display: inline-block;
+  width: 0.61em;
+  height: 1.2em;
+  transform: translateZ(0);
+}
+
+.ascii_art {
+  /* position: relative;
+  display: block;
+  white-space: pre;
+  line-height: 1.2;
+  transform-origin: center center;
+  font-family: 'Courier New', monospace; */
+}
+
+.ascii_line {
+  /* white-space: pre;
+  line-height: 1.2;
+  display: block;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0;
+  font-family: inherit; */
+  opacity: 0;
+  color: var(--color-primary);
+}
+
+.ascii_line__overlay {
+  /* white-space: pre;
+  line-height: 1.2;
+  display: block;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0;
+  opacity: 1; */
+}
+
+.hiddenChar {
+  opacity: 0;
+  display: inline-block;
+  width: 0.61em;
+  height: 1.2em;
+  transform: translateZ(0);
 }
