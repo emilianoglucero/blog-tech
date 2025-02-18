@@ -24,7 +24,16 @@
 }
 
 .nav {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: var(--space-xl);
+}
+
+/* mobile and tablet */
+@media (width <= 68.75rem) {
+  .nav__contact {
+    display: none;
+  }
 }
 
 .nav span {
@@ -74,7 +83,7 @@
 
 .playlist__images img {
   object-fit: cover;
-  border-radius: 3%;
+  border-radius: 9px;
 }
 
 .heroImage {
@@ -83,7 +92,7 @@
 }
 
 .heroImage img {
-  border-radius: 3%;
+  border-radius: 9px;
 }
 
 .heroImage__description {

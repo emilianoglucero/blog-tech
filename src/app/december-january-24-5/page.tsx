@@ -33,8 +33,9 @@ const Page = () => {
         <header className={s.header}>
           <nav className={s.nav}>
             <TransitionLink href="/">
-              <span>I 🖤 my computer job</span>
+              <span>I ❤️ my computer job</span>
             </TransitionLink>
+            <div className={s.nav__contact}>hello@emilianolucero.info</div>
           </nav>
           <h1 className={s.title}>December - January (2024/5).</h1>
           <p className={s.subtitle}>
@@ -118,7 +119,7 @@ const Page = () => {
 
         <footer className={s.footer}>
           <TransitionLink href="/">
-            <span>I 🖤 my computer job</span>
+            <span>I ❤️ my computer job</span>
           </TransitionLink>
         </footer>
       </div>
