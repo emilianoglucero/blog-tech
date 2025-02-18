@@ -11,17 +11,19 @@ enum WEBGL_TYPE {
 
 export const HIGHLIGHTS_WEBSITES_2024 = [
   {
-    title: 'Stripe Black Friday and Cyber Monday Recap 2024',
+    title: 'Stripe Dot Dev',
     description: `Special mention to Stripe—
     a tech company pushing the boundaries of the web, who would have thought?
-    Their Black Friday recap made data beautiful again, 
-    but don't sleep on their [Dev Docs](https://stripe.dev/) 
+    Their Dev Docs made documentation beautiful again, 
+    but don't sleep on their [BFCM](https://bfcm.stripe.com/) 
+(sadly now offline—there's a video out there, but it barely captures 
+    the experience 😭)
     and [Price Adapter](https://www.priceadapter.com/) 
     releases. They're both high quality.`,
-    url: 'https://bfcm.stripe.com/',
+    url: 'https://stripe.dev/',
     image: {
-      url: '/assets/images/2024-highlights/websites/stripe.jpg',
-      alt: 'Stripe Black Friday and Cyber Monday recap 2024',
+      url: '/assets/images/2024-highlights/websites/stripe-2.jpg',
+      alt: 'Stripe Dot Dev',
       width: 100,
       height: 100
     },
