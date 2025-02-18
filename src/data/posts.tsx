@@ -15,7 +15,7 @@ export const POSTS = [
     }
   },
   {
-    title: 'October-November (2024)',
+    title: 'Ambient Textures: October-November (2024)',
     subtitle:
       'Ambient Textures: A curated selection of sounds every two-months',
     dateToShow: 'September 19, 2024',
@@ -29,24 +29,24 @@ export const POSTS = [
       }
     }
   },
-  // {
-  //   title: 'December - January (2024/5)',
-  //   subtitle: 'A delayed one for the holidays.',
-  //   dateToShow: 'February 10, 2025.',
-  //   slug: 'december-january-24-5',
-  //   meta: {
-  //     image: {
-  //       url: '/assets/images/playlist-dec-jan/cocina.jpg',
-  //       alt: 'Capture in Ciudad de Córdoba, Argentina (2024): a girl with a bass in a kitchen.',
-  //       width: '1642',
-  //       height: '1046'
-  //     }
-  //   }
-  // },
+  {
+    title: 'Ambient Textures: December - January (2024/5)',
+    subtitle: 'A delayed relaxing and psych-up one for the holidays.',
+    dateToShow: 'February 18, 2025.',
+    slug: 'december-january-24-5',
+    meta: {
+      image: {
+        url: '/assets/images/playlist-dec-jan/cocina.jpg',
+        alt: 'Capture in Ciudad de Córdoba, Argentina (2024): a girl with a bass in a kitchen.',
+        width: '1642',
+        height: '1046'
+      }
+    }
+  },
   {
     title: '2024',
     subtitle: 'Highlights of the year.',
-    dateToShow: 'February 10, 2025.',
+    dateToShow: 'February 18, 2025.',
     slug: '2024-highlights',
     meta: {
       image: {
