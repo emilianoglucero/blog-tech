@@ -3,58 +3,20 @@ import DOMPurify from 'dompurify'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
+import { useSpotifyPlaylist } from '~/hooks/use-spotify-playlist'
+import { Track } from '~/types/spotify'
+
 import styles from './spotify.module.css'
-
-interface Track {
-  id: string
-  name: string
-  artists: string[]
-  album: string
-  duration_ms: number
-  preview_url: string | null
-}
-
-interface Playlist {
-  id: string
-  name: string
-  description: string
-  images: { url: string }[]
-  tracks: Track[]
-  external_urls: { spotify: string }
-}
 
 interface SpotifyPlaylistProps {
   playlistId: string
 }
 
 export default function SpotifyPlaylist({ playlistId }: SpotifyPlaylistProps) {
-  const [playlist, setPlaylist] = useState<Playlist | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const { playlist, isLoading, error } = useSpotifyPlaylist(playlistId)
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
-
-  useEffect(() => {
-    const fetchPlaylist = async () => {
-      setIsLoading(true)
-      setError(null)
-      try {
-        const response = await fetch(`/api/playlist?id=${playlistId}`)
-        if (!response.ok) {
-          throw new Error('Failed to fetch playlist')
-        }
-        const data = await response.json()
-        setPlaylist(data)
-      } catch (err) {
-        setError('Error fetching playlist')
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    fetchPlaylist()
-  }, [playlistId])
 
   useEffect(() => {
     if (audioRef.current) {
@@ -206,7 +168,7 @@ export default function SpotifyPlaylist({ playlistId }: SpotifyPlaylistProps) {
   )
 }
 
-function formatDuration(ms: number): string {
+export function formatDuration(ms: number): string {
   const minutes = Math.floor(ms / 60000)
   const seconds = ((ms % 60000) / 1000).toFixed(0)
   return `${minutes}:${parseInt(seconds) < 10 ? '0' : ''}${seconds}`
