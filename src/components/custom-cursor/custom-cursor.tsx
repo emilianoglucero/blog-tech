@@ -6,13 +6,16 @@ import useIsomorphicLayoutEffect from '~/hooks/use-isomorphic-layout'
 
 import cursorDefault from '../../app/images/cursor/cursor-default.png'
 import cursorPointer from '../../app/images/cursor/cursor-pointer.png'
+import cursorSpread from '../../app/images/cursor/cursor-spread.png'
 import s from './custom-cursor.module.css'
+
+type CursorType = 'default' | 'pointer' | 'spread'
 
 export const CustomCursor = () => {
   const { isSafari } = useDeviceDetect()
   const [shouldRender, setShouldRender] = useState(false)
   const cursorRef = useRef<HTMLDivElement>(null)
-  const [isPointer, setIsPointer] = useState(false)
+  const [cursorType, setCursorType] = useState<CursorType>('default')
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isVisible, setIsVisible] = useState(true)
 
@@ -40,25 +43,41 @@ export const CustomCursor = () => {
 
     const onMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement
-      const isClickable =
+      if (
         target.tagName.toLowerCase() === 'a' ||
         target.tagName.toLowerCase() === 'button' ||
         target.closest('a') ||
         target.closest('button') ||
         target.hasAttribute('role') ||
         target.hasAttribute('data-clickable')
+      ) {
+        setCursorType('pointer')
+      } else {
+        setCursorType('default')
+      }
+    }
 
-      setIsPointer(!!isClickable)
+    // Add a custom event listener for cursor type changes
+    const onCursorTypeChange = (e: CustomEvent) => {
+      setCursorType(e.detail as CursorType)
     }
 
     document.addEventListener('mousemove', onMouseMove)
-    document.addEventListener('mouseover', onMouseOver)
     document.addEventListener('mouseleave', onMouseLeave)
+    document.addEventListener('mouseover', onMouseOver)
+    document.addEventListener(
+      'cursorTypeChange',
+      onCursorTypeChange as EventListener
+    )
 
     return () => {
       document.removeEventListener('mousemove', onMouseMove)
-      document.removeEventListener('mouseover', onMouseOver)
       document.removeEventListener('mouseleave', onMouseLeave)
+      document.removeEventListener('mouseover', onMouseOver)
+      document.removeEventListener(
+        'cursorTypeChange',
+        onCursorTypeChange as EventListener
+      )
     }
   }, [shouldRender])
 
@@ -67,11 +86,17 @@ export const CustomCursor = () => {
   return (
     <div
       ref={cursorRef}
-      className={`${s.cursor} ${isPointer ? s.cursor__pointer : ''} ${
+      className={`${s.cursor} ${s[`cursor__${cursorType}`]} ${
         !isVisible ? s.cursor__hidden : ''
       }`}
       style={{
-        backgroundImage: `url(${isPointer ? cursorPointer.src : cursorDefault.src})`,
+        backgroundImage: `url(${
+          cursorType === 'spread'
+            ? cursorSpread.src
+            : cursorType === 'pointer'
+              ? cursorPointer.src
+              : cursorDefault.src
+        })`,
         left: `${position.x}px`,
         top: `${position.y}px`
       }}

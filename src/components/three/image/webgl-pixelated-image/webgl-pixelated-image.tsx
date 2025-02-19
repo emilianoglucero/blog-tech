@@ -62,7 +62,6 @@ export const WebglPixelatedImage = ({
   }
 
   const handleMouseEnter = (event: any) => {
-    // Set all mouse positions to the current entry point
     const x = event.uv!.x
     const y = event.uv!.y
     setMousePosition({ x, y })
@@ -70,11 +69,21 @@ export const WebglPixelatedImage = ({
     setPrevMousePosition({ x, y })
     setEaseFactor(0.005)
     setIsLeaving(false)
+
+    // Dispatch custom event for cursor change
+    document.dispatchEvent(
+      new CustomEvent('cursorTypeChange', { detail: 'spread' })
+    )
   }
 
   const handleMouseLeave = () => {
     setEaseFactor(0.002)
     setIsLeaving(true)
+
+    // Reset cursor type
+    document.dispatchEvent(
+      new CustomEvent('cursorTypeChange', { detail: 'default' })
+    )
   }
 
   useFrame((state) => {

@@ -26,6 +26,11 @@
     visibility 0.02s ease;
 }
 
+.cursor__spread {
+  width: 2rem;
+  height: 2rem;
+}
+
 @media (width <= 768px) {
   .cursor {
     display: none;
