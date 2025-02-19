@@ -22,8 +22,6 @@ import { Highlight } from './components/highlight'
 import s from './page.module.css'
 gsap.registerPlugin(ScrollTrigger)
 
-import { useGSAP } from '@gsap/react'
-
 import { BooksList } from './components/books-list/books-list'
 
 const Page = () => {
