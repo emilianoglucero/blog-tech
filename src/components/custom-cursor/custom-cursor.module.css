@@ -32,6 +32,11 @@
   height: 2.4rem;
 }
 
+.cursor__grab {
+  width: 2.6rem;
+  height: 2.6rem;
+}
+
 @media (width <= 768px) {
   .cursor {
     display: none;

@@ -71,22 +71,22 @@ const Page = () => {
           </figcaption>
         </section>
         <Draggable>
-          <section className={s.canvas}>
+          <section className={s.canvas} data-draggable="true">
             <Scene />
           </section>
         </Draggable>
         <Draggable>
-          <section className={s.canvas__two}>
+          <section className={s.canvas__two} data-draggable="true">
             <Scene />
           </section>
         </Draggable>
         <Draggable>
-          <section className={s.canvas__three}>
+          <section className={s.canvas__three} data-draggable="true">
             <Scene />
           </section>
         </Draggable>
         <Draggable>
-          <section className={s.canvas__four}>
+          <section className={s.canvas__four} data-draggable="true">
             <Scene />
           </section>
         </Draggable>

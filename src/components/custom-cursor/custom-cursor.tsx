@@ -5,11 +5,12 @@ import { useDeviceDetect } from '~/hooks/use-device-detect'
 import useIsomorphicLayoutEffect from '~/hooks/use-isomorphic-layout'
 
 import cursorDefault from '../../app/images/cursor/cursor-default.png'
+import cursorGrab from '../../app/images/cursor/cursor-grab.png'
 import cursorPointer from '../../app/images/cursor/cursor-pointer.png'
 import cursorSpread from '../../app/images/cursor/cursor-spread.png'
 import s from './custom-cursor.module.css'
 
-type CursorType = 'default' | 'pointer' | 'spread'
+type CursorType = 'default' | 'pointer' | 'spread' | 'grab'
 
 type CursorDetail = {
   type: CursorType
@@ -49,7 +50,17 @@ export const CustomCursor = () => {
 
     const onMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement
+      const computedStyle = window.getComputedStyle(target)
+      const cursorStyle = computedStyle.cursor
+
+      // Check for all possible grab cursor variations
       if (
+        cursorStyle === 'grab' ||
+        cursorStyle === '-webkit-grab' ||
+        target.closest('[data-draggable="true"]')
+      ) {
+        setCursorType('grab')
+      } else if (
         target.tagName.toLowerCase() === 'a' ||
         target.tagName.toLowerCase() === 'button' ||
         target.closest('a') ||
@@ -110,7 +121,9 @@ export const CustomCursor = () => {
             ? cursorSpread.src
             : cursorType === 'pointer'
               ? cursorPointer.src
-              : cursorDefault.src
+              : cursorType === 'grab'
+                ? cursorGrab.src
+                : cursorDefault.src
         })`,
         left: `${position.x}px`,
         top: `${position.y}px`,
