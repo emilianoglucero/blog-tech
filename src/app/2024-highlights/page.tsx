@@ -320,7 +320,7 @@ const Page = () => {
                 from other cities, take time off work (or whatever you're
                 doing), handle logistics, and more. <br />
                 But we got Lauri's precious Renault Clio on the road and played
-                four shows in seven days in the northeast of the country. <br />
+                four shows in seven days in the northwest of the country. <br />
                 That first taste broke something loose. Suddenly we're crossing
                 borders - Formosa, Paraguay, Rosario, Paraná, San Luis. A team
                 of four friends, one car and two shows to offer. <br />
