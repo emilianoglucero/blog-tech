@@ -10,7 +10,8 @@
   background-position: center;
   transition:
     width 0.3s ease,
-    height 0.3s ease;
+    height 0.3s ease,
+    transform 0.05s linear;
 }
 
 .cursor__pointer {
@@ -27,8 +28,8 @@
 }
 
 .cursor__spread {
-  width: 2rem;
-  height: 2rem;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 @media (width <= 768px) {

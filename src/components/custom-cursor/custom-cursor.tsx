@@ -11,12 +11,18 @@ import s from './custom-cursor.module.css'
 
 type CursorType = 'default' | 'pointer' | 'spread'
 
+type CursorDetail = {
+  type: CursorType
+  uv?: { x: number; y: number }
+}
+
 export const CustomCursor = () => {
   const { isSafari } = useDeviceDetect()
   const [shouldRender, setShouldRender] = useState(false)
   const cursorRef = useRef<HTMLDivElement>(null)
   const [cursorType, setCursorType] = useState<CursorType>('default')
   const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [rotation, setRotation] = useState(0)
   const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
@@ -59,7 +65,16 @@ export const CustomCursor = () => {
 
     // Add a custom event listener for cursor type changes
     const onCursorTypeChange = (e: CustomEvent) => {
-      setCursorType(e.detail as CursorType)
+      const detail = e.detail as CursorDetail
+      setCursorType(detail.type)
+
+      if (detail.type === 'spread' && detail.uv) {
+        // Map UV x coordinate (0-1) to rotation (-30 to 30 degrees)
+        const rotationValue = (detail.uv.x - 0.5) * 60
+        setRotation(rotationValue)
+      } else {
+        setRotation(0)
+      }
     }
 
     document.addEventListener('mousemove', onMouseMove)
@@ -98,7 +113,8 @@ export const CustomCursor = () => {
               : cursorDefault.src
         })`,
         left: `${position.x}px`,
-        top: `${position.y}px`
+        top: `${position.y}px`,
+        transform: `translate(-20%, -10%) ${cursorType === 'spread' ? `rotate(${rotation}deg)` : ''}`
       }}
     />
   )

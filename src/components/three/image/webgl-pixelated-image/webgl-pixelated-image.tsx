@@ -59,6 +59,16 @@ export const WebglPixelatedImage = ({
     setPrevMousePosition({ ...targetMousePosition })
     // it sets the current uv value
     setTargetMousePostion({ x, y })
+
+    // Send UV coordinates for cursor rotation
+    document.dispatchEvent(
+      new CustomEvent('cursorTypeChange', {
+        detail: {
+          type: 'spread',
+          uv: { x, y }
+        }
+      })
+    )
   }
 
   const handleMouseEnter = (event: any) => {
