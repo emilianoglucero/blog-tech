@@ -1,14 +1,18 @@
 'use client'
 
+import { Suspense } from 'react'
+
 import Welcome from '~/app/sections/welcome'
 
 import IntroLoader from '../loader/IntroLoader'
 
 const BlogMain = () => {
   return (
-    <IntroLoader>
-      <Welcome />
-    </IntroLoader>
+    <Suspense fallback={null}>
+      <IntroLoader>
+        <Welcome />
+      </IntroLoader>
+    </Suspense>
   )
 }
 

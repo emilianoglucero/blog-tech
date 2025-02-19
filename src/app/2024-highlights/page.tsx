@@ -35,7 +35,16 @@ const Page = () => {
   const numberTwo2 = useRef<HTMLSpanElement>(null)
   const numberFour = useRef<HTMLSpanElement>(null)
   const footerRef = useRef<HTMLDivElement>(null)
-  useGSAP(() => {
+  useIsomorphicLayoutEffect(() => {
+    if (
+      !containerOverlay.current ||
+      !numberTwo.current ||
+      !numberZero.current ||
+      !numberTwo2.current ||
+      !numberFour.current
+    ) {
+      return
+    }
     gsap.to(containerOverlay.current, {
       clipPath: 'inset(0 0 100% 0)',
       delay: 0.2,
@@ -89,46 +98,47 @@ const Page = () => {
   })
 
   useIsomorphicLayoutEffect(() => {
-    if (titleRef.current) {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: '#highlights',
-          start: 'top-=20% top',
-          end: 'bottom bottom'
-          // markers: true
-        },
-        repeat: -1,
-        repeatDelay: 2
-      })
-      timeline.to(titleRef.current, {
-        opacity: 0,
-        duration: 0.1
-      })
-      timeline.to(
-        titleRef.current,
-        {
-          opacity: 1,
-          duration: 0.1
-        },
-        '+=.5'
-      )
-      timeline.to(titleRef.current, {
-        opacity: 0,
-        duration: 0.1
-      })
-      timeline.to(titleRef.current, {
-        opacity: 1,
-        duration: 0.1
-      })
-      timeline.to(titleRef.current, {
-        opacity: 0,
-        duration: 0.1
-      })
-      timeline.to(titleRef.current, {
-        opacity: 1,
-        duration: 0.1
-      })
+    if (!titleRef.current) {
+      return
     }
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#highlights',
+        start: 'top-=20% top',
+        end: 'bottom bottom'
+      },
+      repeat: -1,
+      repeatDelay: 2
+    })
+    timeline.to(titleRef.current, {
+      opacity: 0,
+      duration: 0.1
+    })
+    timeline.to(
+      titleRef.current,
+      {
+        opacity: 1,
+        duration: 0.1
+      },
+      '+=.5'
+    )
+    timeline.to(titleRef.current, {
+      opacity: 0,
+      duration: 0.1
+    })
+    timeline.to(titleRef.current, {
+      opacity: 1,
+      duration: 0.1
+    })
+    timeline.to(titleRef.current, {
+      opacity: 0,
+      duration: 0.1
+    })
+    timeline.to(titleRef.current, {
+      opacity: 1,
+      duration: 0.1
+    })
+
     const colorGrayLighter = ['#262626', '#ec8624', '#262626', '#262626']
     const colorGreen2 = ['#262626', '#fb65c1', '#f00', '#fb65c1']
     const colorWhite = ['#fb65c1', '#262626', '#0038ff', '#42ff00']
@@ -142,37 +152,39 @@ const Page = () => {
       '--color-primary': '#e7e7e7'
     }
 
-    if (footerRef.current) {
-      let currentIndex = 0
-
-      const updateColors = () => {
-        gsap.to(document.documentElement, {
-          '--color-gray-lighter': colorGrayLighter[currentIndex],
-          '--color-green': colorGreen2[currentIndex],
-          '--color-white': colorWhite[currentIndex],
-          '--color-primary': colorPrimary[currentIndex],
-          duration: 1.5
-        })
-        currentIndex = (currentIndex + 1) % colorGrayLighter.length
-      }
-
-      const st = ScrollTrigger.create({
-        trigger: footerRef.current,
-        start: 'bottom+=80px bottom',
-        end: 'bottom bottom',
-        onEnter: updateColors,
-        toggleActions: 'play none none none'
-      })
-
-      // Cleanup function
-      return () => {
-        // Kill the ScrollTrigger instance
-        st.kill()
-        // Reset CSS variables to initial values
-        gsap.set(document.documentElement, initialColors)
-      }
+    if (!footerRef.current) {
+      return
     }
-  }, [])
+    let currentIndex = 0
+
+    const updateColors = () => {
+      gsap.to(document.documentElement, {
+        '--color-gray-lighter': colorGrayLighter[currentIndex],
+        '--color-green': colorGreen2[currentIndex],
+        '--color-white': colorWhite[currentIndex],
+        '--color-primary': colorPrimary[currentIndex],
+        duration: 1.5
+      })
+      currentIndex = (currentIndex + 1) % colorGrayLighter.length
+    }
+
+    const st = ScrollTrigger.create({
+      trigger: footerRef.current,
+      start: 'bottom+=80px bottom',
+      end: 'bottom bottom',
+      onEnter: updateColors,
+      toggleActions: 'play none none none'
+    })
+
+    // Cleanup function
+    return () => {
+      // Kill the ScrollTrigger instance
+      st.kill()
+      // Reset CSS variables to initial values
+      gsap.set(document.documentElement, initialColors)
+    }
+  })
+
   return (
     <>
       <div className={s.container__overlay} ref={containerOverlay}></div>

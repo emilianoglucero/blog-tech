@@ -14,6 +14,10 @@ interface TransitionLinkProps {
   onMouseEnter?: () => void
   onMouseLeave?: () => void
 }
+const hrefsToDisableScroll = ['/2024-highlights']
+const disableScroll = (href: string) => {
+  return hrefsToDisableScroll.includes(href) ? false : true
+}
 
 const TransitionLink: React.FC<TransitionLinkProps> = ({
   href,
@@ -38,6 +42,7 @@ const TransitionLink: React.FC<TransitionLinkProps> = ({
   return (
     <Link
       href={href}
+      scroll={disableScroll(href)}
       className={s.transition__link}
       onClick={handleClick}
       onMouseEnter={onMouseEnter}

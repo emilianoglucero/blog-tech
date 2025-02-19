@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unknown-property */
-import { useGSAP } from '@gsap/react'
 import { Float } from '@react-three/drei'
 import { ScrollTrigger } from 'gsap/all'
 import { useRef } from 'react'
 import { Mesh } from 'three'
 
+import useIsomorphicLayoutEffect from '~/hooks/use-isomorphic-layout'
 import { gsap } from '~/lib/gsap'
 
 import { Sphere } from '../sphere'
@@ -21,7 +21,18 @@ export const GeometricWireframe = ({ triggerRef }: GeometricWireframeProps) => {
   const largeGeometryRef = useRef<Mesh>(null)
   const mm = gsap.matchMedia()
 
-  useGSAP(() => {
+  useIsomorphicLayoutEffect(() => {
+    if (
+      !smallGeometryRef.current ||
+      !triggerRef.current ||
+      !largeGeometryRef.current
+    ) {
+      console.warn('Missing refs for animation')
+      return
+    }
+    // Store all ScrollTrigger instances
+    const triggers: ScrollTrigger[] = []
+
     const mediaQueryContext = mm.add(
       {
         isLargeScreen: '(min-width: 1500px)',
@@ -32,81 +43,77 @@ export const GeometricWireframe = ({ triggerRef }: GeometricWireframeProps) => {
           isLargeScreen: boolean
           isMediumScreen: boolean
         }
-        if (
-          !smallGeometryRef.current ||
-          !triggerRef.current ||
-          !largeGeometryRef.current
-        ) {
-          console.warn('Missing refs for animation')
-          return
-        }
 
         // Initial state
-        largeGeometryRef.current.scale.set(0, 0, 0)
-        largeGeometryRef.current.rotation.set(0.8, 0, 0.8)
+        if (largeGeometryRef.current) {
+          largeGeometryRef.current.scale.set(0, 0, 0)
+          largeGeometryRef.current.rotation.set(0.8, 0, 0.8)
+        }
 
         const largeGeometryTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: triggerRef.current,
             start: conditions.isLargeScreen ? 'top-=100% top' : 'top-=60% top',
             end: '+=80%',
-            scrub: 2
+            scrub: 2,
+            invalidateOnRefresh: true
           }
         })
 
+        // Store the ScrollTrigger instance
+        triggers.push(largeGeometryTimeline.scrollTrigger!)
+
         // Add animations to the large geometry timeline
-        largeGeometryTimeline
-          .to(largeGeometryRef.current.scale, {
-            x: 9,
-            y: 9,
-            z: 9,
-            ease: 'power2.inOut'
-          })
-          .to(
-            largeGeometryRef.current.rotation,
-            {
-              x: 0,
-              y: 0,
-              z: 0,
+        if (largeGeometryRef.current && smallGeometryRef.current) {
+          largeGeometryTimeline
+            .to(largeGeometryRef.current.scale, {
+              x: 9,
+              y: 9,
+              z: 9,
               ease: 'power2.inOut'
-            },
-            0
-          )
-          .to(
-            smallGeometryRef.current.rotation,
-            {
-              y: Math.PI,
-              x: Math.PI / 2,
-              z: Math.PI,
-              ease: 'power2.inOut',
-              scrollTrigger: {
-                trigger: triggerRef.current,
-                start: conditions.isLargeScreen
-                  ? 'top-=100% top'
-                  : 'top-=40% top',
-                end: conditions.isLargeScreen ? '+=200%' : '+=170%',
-                scrub: 0.2
-              }
-            },
-            0
-          )
+            })
+            .to(
+              largeGeometryRef.current.rotation,
+              {
+                x: 0,
+                y: 0,
+                z: 0,
+                ease: 'power2.inOut'
+              },
+              0
+            )
+            .to(
+              smallGeometryRef.current.rotation,
+              {
+                y: Math.PI,
+                x: Math.PI / 2,
+                z: Math.PI,
+                ease: 'power2.inOut',
+                scrollTrigger: {
+                  trigger: triggerRef.current,
+                  start: conditions.isLargeScreen
+                    ? 'top-=100% top'
+                    : 'top-=40% top',
+                  end: conditions.isLargeScreen ? '+=200%' : '+=170%',
+                  scrub: 0.2
+                }
+              },
+              0
+            )
+        }
 
         return () => {
-          largeGeometryTimeline.kill()
-          largeGeometryTimeline.scrollTrigger?.kill()
+          // Kill all stored triggers
+          triggers.forEach((trigger) => trigger.kill())
+          mediaQueryContext.kill()
         }
-      },
-      // Add initial states
-      {
-        isLargeScreen: window.matchMedia('(min-width: 1500px)').matches,
-        isMediumScreen: window.matchMedia('(max-width: 1499px)').matches
       }
     )
 
     return () => {
       mediaQueryContext.kill()
     }
-  }, [triggerRef])
+  }, [triggerRef, mm])
 
   return (
     <group
