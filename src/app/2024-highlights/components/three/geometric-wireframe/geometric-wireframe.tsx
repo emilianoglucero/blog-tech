@@ -30,6 +30,7 @@ export const GeometricWireframe = ({ triggerRef }: GeometricWireframeProps) => {
       console.warn('Missing refs for animation')
       return
     }
+
     // Store all ScrollTrigger instances
     const triggers: ScrollTrigger[] = []
 
@@ -44,26 +45,36 @@ export const GeometricWireframe = ({ triggerRef }: GeometricWireframeProps) => {
           isMediumScreen: boolean
         }
 
-        // Initial state
-        if (largeGeometryRef.current) {
-          largeGeometryRef.current.scale.set(0, 0, 0)
-          largeGeometryRef.current.rotation.set(0.8, 0, 0.8)
-        }
-
+        // Create separate timelines for each animation
         const largeGeometryTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: triggerRef.current,
             start: conditions.isLargeScreen ? 'top-=100% top' : 'top-=60% top',
             end: '+=80%',
             scrub: 2,
-            invalidateOnRefresh: true
+            invalidateOnRefresh: true,
+            fastScrollEnd: true // Add this to improve performance
           }
         })
 
-        // Store the ScrollTrigger instance
-        triggers.push(largeGeometryTimeline.scrollTrigger!)
+        const smallGeometryTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: conditions.isLargeScreen ? 'top-=100% top' : 'top-=40% top',
+            end: conditions.isLargeScreen ? '+=200%' : '+=170%',
+            scrub: 0.2,
+            fastScrollEnd: true,
+            preventOverlaps: true // Add this to prevent conflicts
+          }
+        })
 
-        // Add animations to the large geometry timeline
+        // Store both ScrollTrigger instances
+        triggers.push(
+          largeGeometryTimeline.scrollTrigger!,
+          smallGeometryTimeline.scrollTrigger!
+        )
+
+        // Add animations
         if (largeGeometryRef.current && smallGeometryRef.current) {
           largeGeometryTimeline
             .to(largeGeometryRef.current.scale, {
@@ -82,36 +93,24 @@ export const GeometricWireframe = ({ triggerRef }: GeometricWireframeProps) => {
               },
               0
             )
-            .to(
-              smallGeometryRef.current.rotation,
-              {
-                y: Math.PI,
-                x: Math.PI / 2,
-                z: Math.PI,
-                ease: 'power2.inOut',
-                scrollTrigger: {
-                  trigger: triggerRef.current,
-                  start: conditions.isLargeScreen
-                    ? 'top-=100% top'
-                    : 'top-=40% top',
-                  end: conditions.isLargeScreen ? '+=200%' : '+=170%',
-                  scrub: 0.2
-                }
-              },
-              0
-            )
-        }
 
-        return () => {
-          // Kill all stored triggers
-          triggers.forEach((trigger) => trigger.kill())
-          mediaQueryContext.kill()
+          smallGeometryTimeline.to(smallGeometryRef.current.rotation, {
+            y: Math.PI,
+            x: Math.PI / 2,
+            z: Math.PI,
+            ease: 'power2.inOut'
+          })
         }
       }
     )
 
+    // Enhanced cleanup function
     return () => {
+      triggers.forEach((trigger) => {
+        trigger.kill()
+      })
       mediaQueryContext.kill()
+      ScrollTrigger.refresh() // Force refresh ScrollTrigger
     }
   }, [triggerRef, mm])
 
